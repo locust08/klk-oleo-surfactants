@@ -1,0 +1,6 @@
+'use client';
+import Link from 'next/link';
+import { useRef } from 'react';
+import { FiArrowLeft,FiArrowRight } from 'react-icons/fi';
+import { products,categoryName,productPath } from '@/lib/catalog';
+export function BrandCarousel(){const ref=useRef<HTMLDivElement>(null);const scroll=(d:number)=>{const node=ref.current;if(node)node.scrollBy({left:d*node.clientWidth*.9,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};return <div className="brand-carousel"><div ref={ref} className="brand-track" tabIndex={0} aria-label="Surfactants portfolio, scroll to explore all 25 brands">{products.map(p=><Link href={productPath(p)} className="brand-card" key={p.slug}><span>{categoryName(p.category)}</span><h3>{p.brand}</h3>{p.descriptor&&<p>{p.descriptor}</p>}<FiArrowRight className="brand-arrow" aria-hidden="true"/></Link>)}</div><div className="carousel-bottom"><Link href="/surfactants/products" className="text-link">View all products<FiArrowRight aria-hidden="true"/></Link><div className="carousel-buttons"><button className="icon-button" aria-label="Previous brands" onClick={()=>scroll(-1)}><FiArrowLeft/></button><button className="icon-button" aria-label="Next brands" onClick={()=>scroll(1)}><FiArrowRight/></button></div></div></div>;}

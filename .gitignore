@@ -1,0 +1,17 @@
+node_modules/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+.env*
+!.env.example
+.superpowers/
+local-server.log
+local-server-error.log
+
+# Local design/review artifacts; runtime assets are versioned under public/.
+/design-concepts/
+/design-reference/
+/design-qa-assets/
+/output/
+/tmp/
+/design-qa.md
