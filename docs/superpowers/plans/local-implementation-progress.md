@@ -53,3 +53,8 @@ Implemented `/surfactants/pilot-plant` from AK_Pilot plant.pdf with branded hero
 ## Custom Manufacturing landing page — 10 November 2026
 
 Implemented `/surfactants/custom-manufacturing` from Custom manufacturing.pdf and the supplied Drive folder. Includes eight technology cards, source benefit copy, four supplied-icon promises, collaboration narrative, four production stages, four commitments, five technical/operational support cards, 1–35 mt scale-up range and five-field project draft form. PDF editorial note excluded from public copy. Supplied SVG variants retained under public/images/custom-manufacturing. Slide three and footer now link to the page, with a related Pilot Plant link. Applied exact Custom Manufacturing and Pilot Plant meta titles/descriptions from the supplied metadata document. Desktop/mobile layout, draft review and navigation checked; email backend remains unconfigured.
+
+
+## Pilot Plant animation/layout refinement — 10 November 2026
+
+Inspected live Agrochemicals capability cards: vertical front/back slide at 0.8s with staggered 0.85s entrance. Applied matching interaction to reactor and operating-standard grids using PilotRevealCard, with hover, tap, Enter/Space toggle and Escape close, expanded-state semantics and reduced-motion support. Preserved all reactor specifications and qualified Kosher/Halal copy. Inspected Oriental Biotech /orient-laboratories/ end-to-end process and rebuilt Pilot Plant support with centred title/copy, three equal steps, true hexagonal icons and a connecting line on desktop, stacked on mobile. Desktop keyboard/pointer and 390px readability/overflow checks passed.
