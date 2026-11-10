@@ -1,0 +1,36 @@
+{
+  "supply": {
+    "source": "08736e0c6101eeb76273a6da726ccb6be71419dac99743a577323a26d7d8eaea",
+    "output": "3eca79b35aab88a112ea7c61f3a44d674a804d12389d659c90e91babc8d39b5d",
+    "sourceUrl": "https://drive.google.com/file/d/1SBs-adOdX_SymghRJe8OJlppXWJZm-Fv/view",
+    "outputPath": "public/images/icons/help-supply.png",
+    "transform": "Static SVG rasterized by sharp to transparent PNG, fit inside 192x192"
+  },
+  "scale-up": {
+    "source": "62385e2b1bc3858f4cc17e9f3977e6c5f82550911200e1c05bf53aa624b9093f",
+    "output": "626d0f1a5f75f4a1ea4a197b9124cdf1a1607614d20f13e1fd795927af7b22f8",
+    "sourceUrl": "https://drive.google.com/file/d/1eJ15b_6kuGga311S_OGOpHIcEZZd5_FJ/view",
+    "outputPath": "public/images/icons/help-scale-up.png",
+    "transform": "Static SVG rasterized by sharp to transparent PNG, fit inside 192x192"
+  },
+  "approvals": {
+    "source": "eac8a916bbcf014d6f91fc2b37c169f3ec7d2b8de36f68b4ed2131a6c8464483",
+    "output": "5299c9be5771500f3ce8b3bacb9a40bbdc30ac1c9f6a1795f6b618a4d04b6181",
+    "sourceUrl": "https://drive.google.com/file/d/17lHcm8Nr7CV9-LIOeSiUeKoZc0bu0ffE/view",
+    "outputPath": "public/images/icons/help-approvals.png",
+    "transform": "Static SVG rasterized by sharp to transparent PNG, fit inside 192x192"
+  },
+  "risk": {
+    "source": "4df045a9b622717b3408ab124902f58c29f61a9037c66596d8ab9f23e13a94af",
+    "output": "fc70c423f69eb0b7f86bc35b92df2abd1d38f4d30814057aeb94343113ade87a",
+    "sourceUrl": "https://drive.google.com/file/d/1S9b4ByPcuH8CBSkN-Ffw0Had0dzGqCJN/view",
+    "outputPath": "public/images/icons/help-risk.png",
+    "transform": "Static SVG rasterized by sharp to transparent PNG, fit inside 192x192"
+  },
+  "award": {
+    "output": "97ddb7778a2807a412677640498acb251dff69c1e25d556687603ba72eed0642",
+    "sourceUrl": "https://drive.google.com/file/d/1Qpt6_rXoKNqM6v5OzlNgf4yj6KxXVE1m/view",
+    "outputPath": "public/images/quality/shell-mvps-2025.jpg",
+    "transform": "Original JPG, unmodified"
+  }
+}

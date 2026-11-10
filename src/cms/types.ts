@@ -5,12 +5,12 @@ export type Market = { name: string; slug: string; copy: string; colour: string;
 export type Article = { slug: string; title: string; category: 'Exhibition' | 'Product' | 'Corporate' | 'Sustainability'; summary: string; body?: unknown[]; publishedAt?: string; image?: string };
 export type Home = {
   title: string; introduction: string; portfolioCopy: string; heroSlides: Hero[];
-  capabilities: [string, string][]; helpItems: [string, string][];
+  capabilities: [string, string][]; helpItems: [string, string, string?][];
   stats: { value: string; label: string }[];
   introHeading: string; helpHeading: string; portfolioHeading: string; portfolioInstruction: string;
   marketsHeading: string; marketsCopy: string; partnerHeading: string; partnerCopy: string;
   videoHeading: string; videoUrl?: string; videoPoster?: string;
-  qualityHeading: string; qualityCopy: string; awardTitle: string; awardCopy: string; awardImage?: string;
+  qualityHeading: string; qualityCopy: string; awardTitle: string; awardCopy: string; awardImage?: string; awardImageAlt?: string;
   newsHeading: string; newsCopy: string; faqHeading: string; certifications: string[];
 };
 export type Site = { title: string; ctaCopy: string; ctaHeading: string; footerCopy: string; sustainabilityUrl: string; headerLinkedin: string; footerLinkedin: string; careerUrl?: string; contactEmail?: string; consentLabel: string };

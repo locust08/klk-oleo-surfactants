@@ -6,7 +6,7 @@ const {entry, isPreview, error} = await getEmDashEntry('news', Astro.params.slug
 if (error) throw error;
 if (!entry || (!isPreview && (!Array.isArray(entry.data.body) || !entry.data.body.length || !entry.data.publication_date))) return Astro.rewrite('/404');
 ---
-<Layout title={`${entry.data.title} | KLK OLEO Surfactants`} description={String(entry.data.summary || '')}>
+<Layout title={String(entry.data.seo_title || `${entry.data.title} | KLK OLEO Surfactants`)} description={String(entry.data.seo_description || entry.data.summary || '')}>
   <article class="section container" {...entry.edit}><span class="eyebrow">{entry.data.category}</span><h1 {...entry.edit.title}>{entry.data.title}</h1>
     {entry.data.publication_date && <p>{new Date(String(entry.data.publication_date)).toLocaleDateString('en-GB', {timeZone:'UTC'})}</p>}
     <div class="article-body" {...entry.edit.body}>{Array.isArray(entry.data.body) && <PortableText value={entry.data.body} />}</div>

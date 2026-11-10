@@ -1,0 +1,570 @@
+{
+  "version": "drive-materials-2026-11-10-v1",
+  "sources": {
+    "folder": "https://drive.google.com/drive/folders/1Fzoal-nmuSUK8LUYG9EPnPnqvFyPGcpl",
+    "century": "https://docs.google.com/document/d/1CpPLdeaDBM8_TPUUYuLt7PnETYUk5NkM/edit",
+    "sustainability": "https://docs.google.com/document/d/1VA5oZB8RhHrdcQ2M1dbHTf9veHOgXNbO/edit",
+    "archive": "https://docs.google.com/document/d/1huAw2bdZ3ei2hg-JjlqCsgQ3YY98ehTF/edit",
+    "award": "https://drive.google.com/file/d/1Qpt6_rXoKNqM6v5OzlNgf4yj6KxXVE1m/view",
+    "icons": "https://drive.google.com/drive/folders/13l9Dex4MyDGflEvr4qkwTHAPePpOUe8I"
+  },
+  "articles": [
+    {
+      "slug": "century",
+      "publish": true,
+      "data": {
+        "title": "100 Years. A century of Surfactant Excellence.",
+        "summary": "Celebrating 100 years in Delden — from Servo Delden to KLK Kolb Specialties. A century of surfactant innovation, craftsmanship, and sustainable chemistry.",
+        "body": [
+          {
+            "_type": "block",
+            "_key": "source-0",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-0",
+                "text": "This year marks a remarkable milestone: 100 years of Servo Delden, the site that today operates as KLK Kolb Specialties. Since 1926, our location in Delden has grown from a pioneering chemical operation into a modern, sustainable producer of surfactants and specialty chemicals, shaped by decades of innovation, collaboration, and craftsmanship.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-1",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-1",
+                "text": "A century of progress in Delden",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-2",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-2",
+                "text": "Over the past century, the Delden site has evolved through continuous development. It is a story of growth, technology, and people, with progress driven by a strong focus on long-term partnership and operational excellence.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-3",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-3",
+                "text": "Milestones that shaped the site",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-4",
+            "style": "h3",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-4",
+                "text": "1950s to 1960s",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-5",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-5",
+                "text": "This period saw expansion of industrial activities, the establishment of an internal fire brigade, and the acquisition by Scholten, laying the foundation for future growth.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-6",
+            "style": "h3",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-6",
+                "text": "1970s to 1980s",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-7",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-7",
+                "text": "Major investments were made in water purification, waste incineration, and improved production technologies such as EXKIN 2 and Addukt 46. This era also marked strong international collaboration, especially with Hüls AG, and substantial export volumes to Russia and Iran.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-8",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-8",
+                "text": "Built with community at the heart",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-9",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-9",
+                "text": "Community connection has always been part of who we are. From donating the statue “Het Veulen” to the city of Delden to building our new canteen in 1976, the site’s story is closely linked to the people around it. We also celebrated our 50th anniversary together with the entire workforce, reflecting how strongly our progress is rooted in people.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-10",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-10",
+                "text": "Modernisation, safety, and sustainability",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-11",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-11",
+                "text": "In the decades that followed, continuous modernization, safety improvements, and sustainability efforts shaped the site into the high-performing operation it is today. A century later, our pride remains rooted in people, partnership, and progress.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-12",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-12",
+                "text": "With dedicated colleagues, trusted customers, and strong community ties, KLK Kolb Specialties continues to build on this legacy, ready for the next 100 years.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-13",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-13",
+                "text": "Looking ahead",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-14",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-14",
+                "text": "Here’s to a century of knowledge, craftsmanship, and innovation, and many more to come.",
+                "marks": []
+              }
+            ]
+          }
+        ],
+        "publication_date": "2026-06-10T00:00:00.000Z",
+        "seo_title": "A Century of Surfactant Excellence | KLK OLEO Surfactants Since 1926",
+        "seo_description": "Celebrating 100 years in Delden — from Servo Delden to KLK Kolb Specialties. A century of surfactant innovation, craftsmanship, and sustainable chemistry."
+      }
+    },
+    {
+      "slug": "sustainability",
+      "publish": false,
+      "data": {
+        "title": "Sustainability in Action. 20% more capacity and 30% less CO₂ emissions.",
+        "body": [
+          {
+            "_type": "block",
+            "_key": "source-0",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-0",
+                "text": "Investing where it matters: capacity, efficiency, and sustainability",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-1",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-1",
+                "text": "KLK OLEO Surfactants is investing significantly in its alkoxylation plant in Moerdijk to meet growing demand for innovative surfactants and to strengthen its position as a leading surfactants provider in the European market. The facility is currently operating at high capacity and will be upgraded to increase production by 20%.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-2",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-2",
+                "text": "But this expansion is not only about volume. It is designed to deliver measurable sustainability impact, improving production efficiency and automation while cutting carbon emissions.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-3",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-3",
+                "text": "What the expansion will deliver",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-4",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-4",
+                "text": "The investment focuses on debottlenecking alkoxylation reactors through higher automation and improved efficiency. The goal is to gain substantial capacity while achieving a 30% reduction in carbon emissions.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-5",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-5",
+                "text": "A key upgrade is an advanced heat recovery system that captures heat from alkoxylation reactions and reuses it for subsequent processes. This aligns with KLK OLEO Surfactants’s long-term vision of providing trusted oleo-based solutions while working toward a net-zero carbon footprint.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-6",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-6",
+                "text": "Cutting energy use with proven engineering",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-7",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-7",
+                "text": "To reduce energy consumption, KLK OLEO Surfactants is implementing a comprehensive energy recovery system. The alkoxylation reactors in Moerdijk already feature a partial heat recovery system developed by KLK OLEO Surfactants engineers that received the Responsible Care Award 2010 from the Association of the Dutch Chemical Industry.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-8",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-8",
+                "text": "The results are tangible. In one year alone, KLK OLEO Surfactants saved approximately 1 million m³ of gas, while the existing system saves up to 1.5 million m³ of natural gas annually. This reduction is equivalent to around 2,500 tonnes of CO2, described as enough to supply approximately 900 Dutch households with gas.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-9",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-9",
+                "text": "Staying ahead on water and 1,4-dioxane treatment",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-10",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-10",
+                "text": "KLK OLEO Surfactants’s sustainability leadership also includes a strong focus on advanced wastewater and air treatment. The company has invested in advanced wastewater and 1,4-dioxane treatment technologies, significantly reducing 1,4-dioxane levels in wastewater streams and staying ahead of regulatory requirements with cleaner production processes.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-11",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-11",
+                "text": "KLK OLEO Surfactants notes that while it is technically possible to remove 1,4-dioxane from alkoxylated products, this can simply transfer the issue from product to the environment. That is why treating effluents, such as wastewater, to reduce downstream pollution is emphasized as crucial. To address this, KLK OLEO Surfactants has installed and operates units based on advanced best available technologies designed to destroy dioxane in wastewater.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-12",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-12",
+                "text": "These treatment units are fully operational at both Dutch sites in Moerdijk and Delden.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-13",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-13",
+                "text": "A clear path toward net-zero",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-14",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-14",
+                "text": "KLK OLEO Surfactants describes the current investment as the first step in a broader plan to transform the Moerdijk plant into a net-zero operation. After completing this phase and achieving the targeted carbon reduction, the company plans to implement the next phases of its carbon net-zero journey.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-15",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-15",
+                "text": "Open for partnerships and collaboration",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-16",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-16",
+                "text": "KLK OLEO Surfactants positions itself not only as an investor, but also as a partner. The company states it is pleased to open its doors for partnerships and collaboration, sharing knowledge and experience in dioxane treatment because applying best-in-class technologies across the chemical industry benefits industry, environment, and society.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-17",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-17",
+                "text": "It also highlights openness to discussions around tolling and custom manufacturing agreements, as well as long-term supply agreements, especially for dioxane-generating chemistries.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-18",
+            "style": "h2",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-18",
+                "text": "Looking ahead: the benchmark for sustainable surfactants in Europe",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "source-19",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "span-19",
+                "text": "Looking toward 2027 and beyond, KLK OLEO Surfactants’s ambition is clear: to be the benchmark for sustainable surfactants production in Europe, future-ready, fully compliant with today’s regulations, and anticipating stricter future requirements. The message is that sustainability and profitability go hand in hand, and the investments made today are building the foundation for tomorrow’s leadership.",
+                "marks": []
+              }
+            ]
+          }
+        ],
+        "seo_title": "Moerdijk Expansion: 20% More Capacity & 30% Less CO₂ Emissions",
+        "seo_description": "KLK OLEO Surfactants expands Moerdijk alkoxylation capacity by 20% and cuts CO₂ by 30% — advancing sustainable and biodegradable surfactant production in Europe."
+      }
+    }
+  ],
+  "newsPage": {
+    "heading": "Our Latest News",
+    "introduction": "Discover the latest happenings at KLK OLEO Surfactants, and how our surfactants solutions touch lives positively every day. Meet us at key industry events and exhibitions across the Europe, Americas and Asia, where we showcase high-performing ingredients, science-led innovations and solutions for diverse applications and evolving market needs. From product innovation and industry events to sustainability initiatives, business milestones and the people behind our progress, explore the stories shaping KLK OLEO Surfactants today and tomorrow.",
+    "seo_title": "KLK OLEO Surfactants Media & News Updates",
+    "seo_description": "Stay updated with KLK OLEO Surfactants news, press releases, and media coverage. Discover our latest innovations and industry updates today!"
+  },
+  "award": {
+    "provider": "external",
+    "id": "/images/quality/shell-mvps-2025.jpg",
+    "src": "/images/quality/shell-mvps-2025.jpg",
+    "mimeType": "image/jpeg",
+    "alt": "Shell Chemicals and Refining 2025 MVPs Awards artwork"
+  },
+  "helpImages": [
+    {
+      "provider": "external",
+      "id": "/images/icons/help-supply.png",
+      "src": "/images/icons/help-supply.png",
+      "mimeType": "image/png",
+      "alt": ""
+    },
+    {
+      "provider": "external",
+      "id": "/images/icons/help-scale-up.png",
+      "src": "/images/icons/help-scale-up.png",
+      "mimeType": "image/png",
+      "alt": ""
+    },
+    {
+      "provider": "external",
+      "id": "/images/icons/help-approvals.png",
+      "src": "/images/icons/help-approvals.png",
+      "mimeType": "image/png",
+      "alt": ""
+    },
+    {
+      "provider": "external",
+      "id": "/images/icons/help-risk.png",
+      "src": "/images/icons/help-risk.png",
+      "mimeType": "image/png",
+      "alt": ""
+    }
+  ]
+}

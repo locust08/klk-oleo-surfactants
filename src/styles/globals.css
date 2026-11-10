@@ -39,3 +39,5 @@
 .certifications span small{display:block;font-size:9px;font-weight:400;letter-spacing:0;margin-top:4px}
 .certification-controls{display:flex;gap:8px;justify-content:flex-end;margin-bottom:18px}
 .certification-controls .icon-button{width:30px;height:30px;font-size:14px;background:#ffffff80}
+
+.help-grid .help-icon{display:block;width:38px;height:38px;object-fit:contain;margin-bottom:22px}

@@ -3,6 +3,8 @@ import { randomUUID } from 'node:crypto';
 
 test('durable enquiry, truthful receipt, duplicate protection and Admin-only inbox', async ({ browser, page, request }, info) => {
   test.skip(info.project.name !== 'desktop');
+  // This flow hydrates two fresh native CMS sessions as well as exercising intake.
+  test.setTimeout(60_000);
   const admin = await browser.newContext({ baseURL: 'http://127.0.0.1:4372', storageState: '.superpowers/admin-state.json' });
   const editor = await browser.newContext({ baseURL: 'http://127.0.0.1:4372', storageState: '.superpowers/editor-state.json' });
   const route = '/_emdash/api/plugins/surfactants-enquiries';

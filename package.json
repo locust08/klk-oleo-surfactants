@@ -13,6 +13,7 @@
     "preview": "astro preview --host 127.0.0.1",
     "test:browser": "playwright test",
     "cms:seed": "node --import tsx scripts/import-content.ts",
+    "cms:materials": "node --import tsx scripts/import-materials.ts",
     "cms:backup": "node scripts/local-backup.mjs backup",
     "cms:restore": "node scripts/local-backup.mjs restore"
   },

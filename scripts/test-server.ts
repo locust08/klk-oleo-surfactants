@@ -9,6 +9,8 @@ import type { Database } from 'emdash';
 import { createKyselyAdapter, type AuthTables } from '@emdash-cms/auth/adapters/kysely';
 import { createMagicLinkUrl, Role } from '@emdash-cms/auth';
 import { buildSeed } from '../src/cms/seed';
+import { applyMaterials } from '../src/cms/material-import';
+import { buildMaterialPatches } from '../src/cms/material-patches';
 
 // A separate disposable environment: source content is published only in this test database.
 const directory = await mkdtemp(join(tmpdir(), 'klk-browser-'));
@@ -21,6 +23,7 @@ seed.content!.brands.push({ id: 'test:draft', slug: 'draft-only', status: 'draft
 const seedPath=join(directory,'seed.json');
 await writeFile(seedPath,JSON.stringify(seed));
 await promisify(execFile)(process.execPath,['node_modules/emdash/dist/cli/index.mjs','seed',seedPath,'--database',database,'--on-conflict','skip','--uploads-dir',join(directory,'uploads')]);
+await applyMaterials(db, buildMaterialPatches());
 const adapter = createKyselyAdapter(db as unknown as Kysely<AuthTables>);
 const editor = await adapter.createUser({ email: 'editor@example.test', name: 'Test Editor', role: Role.EDITOR, emailVerified: true });
 const editorLink = await createMagicLinkUrl(adapter, editor, baseUrl);

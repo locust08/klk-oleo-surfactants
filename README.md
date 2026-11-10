@@ -19,6 +19,22 @@ The importer creates **43 drafts**: Home (1), Brands (25), Markets (5), News (2)
 
 `npm run cms:seed` matches immutable import source keys before using `--on-conflict skip`; rerunning preserves editorial changes even after a brand, market or article slug is renamed. Source snapshots in `src/lib/content.ts` and `src/lib/catalog.ts` are import inputs. They are never public draft fallbacks. Schema changes after initial installation require a reviewed EmDash schema migration; rerunning the seed is not a schema update or a backup.
 
+## Supplied Drive content
+
+After reviewing/publishing the baseline, stop the application and apply the bounded source update:
+
+```sh
+npx astro dev stop
+npm run cms:materials -- --backup .backups/NEW-PRE-MATERIALS-SNAPSHOT
+npm run dev
+```
+
+This local SQLite command creates the required database/media backup, adds optional News SEO and Home help-card image fields, and updates existing records through native EmDash revisions in one transaction. It publishes the Century body with the supplied 10 June 2026 date, the News archive introduction/SEO, and supplied homepage artwork/icons. Sustainability's full body/title/SEO stay in an unpublished revision until its date is confirmed; its existing public summary stays live and its detail route returns 404. Review that draft from **News → Sustainability → Preview**, then set the approved date before publishing.
+
+The import refuses pre-existing editorial drafts and does not create accounts or change enquiries. Completed source versions are skipped on reruns, preserving later changes. It requires the established entry slugs; renamed entries or help-card headings require agency mapping before the first materials import. Existing assigned Home artwork/icons are preserved. Keep the application stopped during the command; a new backup directory is required on every invocation. If any entry fails, all schema/content/receipt changes roll back together; the backup remains available.
+
+Source references, asset treatment and deferred content decisions are recorded in [Drive content sources](docs/2026-11-10-drive-content-sources.md). These are local review publications, pending final content approval.
+
 ## Administration
 
 Complete EmDash's first-site setup as the agency owner: enter the site title, keep “Sample content” to retain the imported drafts, then create the agency account and register a passkey. Keep the development server bound to loopback; EmDash includes development-only authentication helpers, used solely with disposable automated fixtures in this repository. Production builds disable those helpers.
@@ -71,6 +87,6 @@ Both destination directories must be new. Restore validates checksums and SQLite
 
 ## Content and launch boundaries
 
-Custom Manufacturing, Pilot Plant, detailed product grades, missing brochures/article copy/dates/artwork/video, unconfirmed market/Career destinations and enquiry recipients remain pending source approval. The source draft placements remain honest placeholders. Certification names are references rather than recreated marks. All pages remain `noindex,nofollow` pending content/legal/production SEO review. No push, deployment, real invitations, CRM changes or external email were performed.
+Custom Manufacturing/Pilot Plant source PDFs and metadata are supplied, but their templates/routes remain deferred. Detailed product grades, approved brochures, Sustainability's publication date, brand-film footage, unconfirmed market/Career destinations and enquiry recipients remain pending. FAQ adaptation, archive category/market filters and gated multi-document Downloads need separate decisions. Supplied certification assets require currency/applicability approval; certification names remain text references. All pages remain `noindex,nofollow` pending content/legal/production SEO review. No push, deployment, real invitations, CRM changes or external email were performed.
 
 Approved implementation scope: `docs/superpowers/specs/2026-11-10-surfactants-emdash-design.md`. Original design/content record: `docs/superpowers/specs/2026-11-06-surfactants-design.md`.
