@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowRight,FiLayers,FiShield,FiTrendingUp,FiCheckCircle,FiSettings,FiTarget,FiTruck,FiFileText } from 'react-icons/fi';
 import { ContactForm } from '@/components/contact-form';
-export const metadata:Metadata={title:'Pilot Plant Chemical Manufacturing | KLK OLEO Surfactants',description:'Flexible pilot plant chemical manufacturing from 100 to 1,000 kg, with four reactors, process development and end-to-end scale-up support.'};
+export const metadata:Metadata={title:'Chemical Pilot Plant & Scale-Up Services | KLK OLEO Surfactants',description:'Scale chemistry from lab to 100–1,000 kg batches with KLK OLEO Surfactants pilot plant and process development support. Discuss your project today.'};
 const stages=[{icon:FiTarget,title:'Validate the chemistry',copy:'Select the right reactor, utilities, and work-up route for your chemistry.'},{icon:FiSettings,title:'Refine the process',copy:'Refine process conditions, handling, and purification for reliable pilot performance.'},{icon:FiTrendingUp,title:'Prepare for scale',copy:'Move forward with stronger process confidence and a clearer route to manufacturing.'}];
 const reactions=['Polymerization','Amidation','Phosphatation','Sulphitation','Esterification','Neutralization','Quaternization'];
 const materials=['Hexamethyl di-isocyanate','Methyl chloride and benzyl chloride','Dimethyl sulfate','Acrylic acid and methacrylic acid','Caustic soda, sulphuric acid, and hydrochloric acid','Amines and anhydrous ammonia','Phosphorous pentoxide','Styrene and xylene','Ethanol and isopropanol','Vinyl acetate'];

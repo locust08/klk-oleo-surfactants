@@ -48,3 +48,8 @@ Review: fresh read-only reviewer found no critical runtime defect. Two important
 ## Pilot Plant landing page — 10 November 2026
 
 Implemented `/surfactants/pilot-plant` from AK_Pilot plant.pdf with branded hero, proof points, three scale-up stages, reaction families, licensed raw materials, four reactor specifications, operating standards, three project-support steps and a five-field enquiry draft. Homepage slide five and footer now link directly to it. Uses existing supplied plant and tank photos; reference screenshots guide card and process layouts. The form retains the existing local review/download behavior; no email backend is configured. Verified homepage navigation, draft review, desktop and 390px mobile layouts without horizontal overflow.
+
+
+## Custom Manufacturing landing page — 10 November 2026
+
+Implemented `/surfactants/custom-manufacturing` from Custom manufacturing.pdf and the supplied Drive folder. Includes eight technology cards, source benefit copy, four supplied-icon promises, collaboration narrative, four production stages, four commitments, five technical/operational support cards, 1–35 mt scale-up range and five-field project draft form. PDF editorial note excluded from public copy. Supplied SVG variants retained under public/images/custom-manufacturing. Slide three and footer now link to the page, with a related Pilot Plant link. Applied exact Custom Manufacturing and Pilot Plant meta titles/descriptions from the supplied metadata document. Desktop/mobile layout, draft review and navigation checked; email backend remains unconfigured.
