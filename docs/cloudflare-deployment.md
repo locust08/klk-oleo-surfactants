@@ -4,8 +4,8 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `2235c45`.
-Cloudflare version: `528df596-36d4-4611-acad-b63d47a6e0e5`.
+Deployed application source: `ce813c9`.
+Cloudflare version: `da5de557-c682-4ec1-b43f-e45adce7841f`.
 Deployed 10 November 2026; 100% traffic on this version.
 
 ## Commands
@@ -41,3 +41,6 @@ Custom Manufacturing landing page deployed from application commit `91dccfa` in 
 
 
 Pilot Plant reference-motion refinement deployed from `2235c45` as `528df596-36d4-4611-acad-b63d47a6e0e5`. Eight interactive cards use vertical panel reveals and staggered entrance; project support matches the centred Oriental Biotech process treatment. Live expanded card state, revealed description, eight-card count, centred support and no horizontal overflow verified. Mobile keyboard/pointer behavior, source wording, lint, typecheck, four tests and Worker build passed. Local development server restarted after production build.
+
+
+Portfolio autoplay and category heading update deployed from `ce813c9` as `da5de557-c682-4ec1-b43f-e45adce7841f`. Autoplay no longer pauses on pointer hover; keyboard focus and reduced-motion preferences remain respected. Live Products headings verified as Anionic, Cationic and Nonionic with identical 410px top positions and 50px heading boxes at the review viewport. Lint, typecheck, four tests and Worker build passed.
