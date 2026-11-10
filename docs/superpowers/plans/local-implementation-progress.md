@@ -36,3 +36,10 @@ Review: fresh read-only reviewer found no critical runtime defect. Two important
 - Added reproducible Worker build/deploy scripts, account-pinned configuration, Images/Assets/self bindings, observability and static asset caching. Generated output and local secrets stay excluded.
 - Lint, type checks, 4 catalogue tests, Worker build and Wrangler dry run passed. Local Workers-runtime smoke checks returned HTTP 200 for Home, Products, category listing, Markets, Search, Contact and image optimisation.
 - npm audit reports transitive build-tool advisories (glob/minimatch and ESLint dependency chains); no forced adapter downgrade was applied.
+
+## Banner article pages from Google Drive
+- Added static editorial routes for A Century of Surfactant Excellence and Sustainability in Action, using the supplied native Google Docs as sources. Metadata is separate from displayed article blocks.
+- Preserved all 8 centenary paragraphs/8 headings and 13 sustainability paragraphs/7 headings. Corrected only the source missing space in "Surfactantsis". Kept the supplied 10 June 2026 centenary publication date; no sustainability date was invented.
+- Banner and News & Media Read More links now open full articles. Added relevant cover images, section navigation, milestone subheadings, expansion target cards and related reading.
+- Banner retains sharp images and existing transitions; improved headline wrapping and keyboard focus styling.
+- Local production build, lint and four existing tests passed. Both banner navigation flows and mobile article layout verified without overflow.

@@ -1,6 +1,6 @@
 # KLK OLEO Surfactants
 
-Local Next.js 16 App Router implementation of the selected option 3 design. TypeScript, React 19, locally hosted Poppins fonts and `react-icons`. No deployment configuration, remote services or email integration is enabled.
+Local Next.js 16 App Router implementation of the selected option 3 design. TypeScript, React 19, locally hosted Poppins fonts and `react-icons`. Deployed to Cloudflare Workers with OpenNext; email integration is not configured.
 
 ## Run locally
 
@@ -29,13 +29,13 @@ npm run build
 
 ## Content boundaries
 
-Custom Manufacturing and Pilot Plant Special Landing Pages remain deferred. Product-inner structures, technical grades, brochure files, article bodies/dates, brand film, Career destination and enquiry recipient remain pending. Available product information is shown in a dialog with a contact action; no detailed product pages have been invented. The two supplied article titles/summaries are previews, not fabricated full articles. News uses labelled update placements until source copy is supplied. The quality section uses supplied certification logos and Shell award artwork. Certification artwork retains supplied dates and reference text.
+Custom Manufacturing and Pilot Plant Special Landing Pages remain deferred. Product-inner structures, technical grades, brochure files, brand film, Career destination and enquiry recipient remain pending. Available product information is shown in a dialog with a contact action; no detailed product pages have been invented. The two banner articles use the full supplied Google Docs copy in structured editorial pages; their SEO metadata and available publication date come from the source documents. News uses labelled update placements until source copy is supplied. The quality section uses supplied certification logos and Shell award artwork. Certification artwork retains supplied dates and reference text.
 
 Draft content is noindex. Before any future launch, complete the content review, delivery integration, legal wording, original artwork and production metadata/indexing review. The Cloudflare Worker is a review deployment; draft content remains noindex.
 
 ## Assets and sources
 
-- The five original JPGs are copied byte-for-byte from `design-reference/supplied-assets/` into `public/images/hero/`; they are used only by the homepage hero.
+- The five original JPGs are copied byte-for-byte from `design-reference/supplied-assets/` into `public/images/hero/`; they are used by the homepage hero and relevant article covers.
 - Official white KLK OLEO logo and Poppins font files reuse the adjacent local Agrochemicals project's assets.
 - Contact banner reuses the Agrochemicals reference image. The Products archive and category banners use the exact background images from the revamped main-site project.
 - Header LinkedIn: `https://www.linkedin.com/company/klkberhad/`.

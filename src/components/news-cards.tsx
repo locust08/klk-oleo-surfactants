@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FiArrowRight,FiCalendar,FiPackage,FiUsers,FiFeather } from 'react-icons/fi';
 import Link from 'next/link';
 import { articles,newsCategories,type NewsCategory } from '@/lib/content';
+import { articlePath } from '@/lib/articles';
 import { InfoButton } from './info-button';
 const items=[
  {slug:'exhibition-pending',title:'Meet us at upcoming exhibitions',category:'Exhibition' as NewsCategory,summary:'Exhibition announcements will be added here.',pending:true},
@@ -13,5 +14,5 @@ const icons={Exhibition:FiCalendar,Product:FiPackage,Corporate:FiUsers,Sustainab
 export function NewsCards({archive=false}:{archive?:boolean}){const[filter,setFilter]=useState('All');const visible=filter==='All'?items:items.filter(a=>a.category===filter);return <>
  {archive&&<div className="news-filter"><label htmlFor="news-category">Filter by</label><select id="news-category" value={filter} onChange={e=>setFilter(e.target.value)}><option>All</option>{newsCategories.map(c=><option key={c}>{c}</option>)}</select><span aria-live="polite">{visible.length} {visible.length===1?'update':'updates'}</span></div>}
  {!archive&&<Link href="/surfactants/news-media" className="text-link news-all">View all news<FiArrowRight aria-hidden="true"/></Link>}
- <div className={`news-grid ${archive?'news-archive-grid':''}`}>{visible.map(a=>{const Icon=icons[a.category];return <article className="news-card" key={a.slug}><div className="news-artwork"><Icon aria-hidden="true"/><span>{a.category}</span></div><div className="news-card-copy"><span className="eyebrow">{a.category}</span><h3>{a.title}</h3><p>{a.summary}</p><InfoButton title={a.title} description={a.pending?'This section will be updated when the source content is confirmed.':`${a.summary} The full article and publication date will be added once the source content is supplied.`} label={a.pending?'More information':'Read More'}/></div></article>;})}</div>
+ <div className={`news-grid ${archive?'news-archive-grid':''}`}>{visible.map(a=>{const Icon=icons[a.category];return <article className="news-card" key={a.slug}><div className="news-artwork"><Icon aria-hidden="true"/><span>{a.category}</span></div><div className="news-card-copy"><span className="eyebrow">{a.category}</span><h3>{a.title}</h3><p>{a.summary}</p>{a.pending?<InfoButton title={a.title} description="This section will be updated when the source content is confirmed." label="More information"/>:<Link className="text-link" href={articlePath(a.slug)}>Read More<FiArrowRight aria-hidden="true"/></Link>}</div></article>;})}</div>
  </>;}
