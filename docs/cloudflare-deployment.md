@@ -4,8 +4,8 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `37630d5`.
-Cloudflare version: `b109bb7f-f2f1-40a3-ad8e-8d830d60684a`.
+Deployed application source: `91dccfa`.
+Cloudflare version: `7d5aa2b2-0b48-48cf-ad85-9c8d9eb03f23`.
 Deployed 10 November 2026; 100% traffic on this version.
 
 ## Commands
@@ -35,3 +35,6 @@ The banner article update imports both supplied Google Docs into static editoria
 
 
 Pilot Plant landing page deployed from application commit `37630d5`. Live HTTP 200 and browser checks passed at `/surfactants/pilot-plant`; homepage and footer links resolve to the page. PDF content includes all seven reaction families, ten licensed raw-material entries, all four reactor specifications and qualified Kosher/Halal wording. Local draft review, desktop and mobile layouts verified. Lint, typecheck, four tests and final Worker build passed.
+
+
+Custom Manufacturing landing page deployed from application commit `91dccfa` in version `7d5aa2b2-0b48-48cf-ad85-9c8d9eb03f23`. Live homepage slide three navigation and route HTTP 200 passed; supplied icon instances loaded without failures and the exact supplied description is present. Desktop/mobile overflow checks, enquiry draft review, lint, type checking, four tests and Worker build passed. Both manufacturing pages now use metadata from the supplied Drive document.
