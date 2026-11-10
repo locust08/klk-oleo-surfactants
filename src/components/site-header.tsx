@@ -1,17 +1,18 @@
+import { useSiteData } from '@/components/site-context';
 import { useHydrated } from '@/lib/use-hydrated';
 import { SiteImage as Image } from './site-image';
 import { useState } from 'react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { FiMenu,FiX,FiSearch,FiChevronDown } from 'react-icons/fi';
-import { BASE,sustainabilityUrl } from '@/lib/content';
-import { categories } from '@/lib/catalog';
-const nav=[['Home',BASE],['Products',`${BASE}/products`],['Our Markets',`${BASE}/our-markets`],['Sustainability',sustainabilityUrl],['News & Media',`${BASE}/news-media`],['Contact Us',`${BASE}/contact`]];
+const BASE='/surfactants';
+import { categories } from '@/lib/product-catalog';
+const navFor=(sustainabilityUrl:string)=>[['Home',BASE],['Products',`${BASE}/products`],['Our Markets',`${BASE}/our-markets`],['Sustainability',sustainabilityUrl],['News & Media',`${BASE}/news-media`],['Contact Us',`${BASE}/contact`]];
 export function SiteHeader({pathname}:{pathname:string}){const hydrated=useHydrated();
- const path=pathname;const[open,setOpen]=useState(false);const[productsOpen,setProductsOpen]=useState(false);
+ const {site}=useSiteData();const nav=navFor(site?.sustainabilityUrl||'https://www.klkoleo.com/sustainability-principled-by-integrity/');const path=pathname;const[open,setOpen]=useState(false);const[productsOpen,setProductsOpen]=useState(false);
  const close=()=>{setOpen(false);setProductsOpen(false);};
  return <header className="site-header" onKeyDown={e=>{if(e.key==='Escape')close();}}>
   <a className="skip-link" href="#main">Skip to content</a>
-  <div className="corporate-bar"><div className="header-inner"><a href="https://www.klkoleo.com/" aria-label="KLK OLEO global website"><Image src="/images/brand/logo-white.webp" alt="KLK OLEO" width={116} height={43} priority/></a><a className="linkedin-link" href="https://www.linkedin.com/company/klkberhad/" aria-label="KLK Berhad on LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn/></a></div></div>
+  <div className="corporate-bar"><div className="header-inner"><a href="https://www.klkoleo.com/" aria-label="KLK OLEO global website"><Image src="/images/brand/logo-white.webp" alt="KLK OLEO" width={116} height={43} priority/></a><a className="linkedin-link" href={site?.headerLinkedin} aria-label="KLK Berhad on LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn/></a></div></div>
   <div className="main-nav"><div className="header-inner">
    <div className="division-name"><a href="https://www.klkoleo.com/">KLK OLEO</a><span aria-hidden="true">|</span><a href={BASE} onClick={close}>Surfactants</a></div>
    <nav id="site-navigation" className={`navigation ${open?'is-open':''}`} aria-label="Main navigation">

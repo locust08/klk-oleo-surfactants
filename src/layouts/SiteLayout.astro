@@ -1,9 +1,11 @@
 ---
 import '../styles/globals.css';
-import { SiteHeader } from '../components/site-header';
-import { SiteFooter } from '../components/site-footer';
-interface Props { title: string; description?: string; }
+import { HeaderIsland, FooterIsland } from '../components/site-islands';
+import { loadSiteContent } from '../cms/published';
+import type { SiteData } from '../cms/types';
+interface Props { title: string; description?: string; data?: SiteData; }
 const { title, description = 'Global surfactant solutions from KLK OLEO.' } = Astro.props;
+const data = Astro.props.data || (await loadSiteContent()).data;
 ---
 <!doctype html>
 <html lang="en" data-scroll-behavior="smooth">
@@ -16,7 +18,7 @@ const { title, description = 'Global surfactant solutions from KLK OLEO.' } = As
     <link rel="preload" href="/fonts/poppins-400.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/fonts/poppins-600.ttf" as="font" type="font/ttf" crossorigin />
   </head>
-  <body><SiteHeader pathname={Astro.url.pathname} client:load /><main id="main"><slot /></main><SiteFooter client:load /></body>
+  <body><HeaderIsland data={data} pathname={Astro.url.pathname} client:load /><main id="main"><slot /></main><FooterIsland data={data} client:load /></body>
 </html>
 <style is:global>
   @font-face{font-family:Poppins;src:url('/fonts/poppins-400.ttf') format('truetype');font-weight:400;font-display:swap}

@@ -1,0 +1,7 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';
+import { ReceiptStatus } from '../../components/receipt-status';
+const receipt = (Astro.url.searchParams.get('receipt') || '').slice(0, 36);
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<Layout title="Enquiry receipt | KLK OLEO Surfactants"><ReceiptStatus receipt={receipt} client:load /></Layout>

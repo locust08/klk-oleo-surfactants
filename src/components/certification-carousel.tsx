@@ -1,8 +1,8 @@
+import { useSiteData } from '@/components/site-context';
 import { useHydrated } from '@/lib/use-hydrated';
 import { useEffect,useRef,useState } from 'react';
 import { FiArrowLeft,FiArrowRight,FiPause,FiPlay } from 'react-icons/fi';
-const references=['RSPO','ISCC PLUS','EcoVadis','ISO','Kosher','Halal','COSMOS ORGANIC','COSMOS APPROVED','Natural & Organic'];
-export function CertificationCarousel(){const hydrated=useHydrated();
+export function CertificationCarousel(){const hydrated=useHydrated();const {home}=useSiteData();const references=home?.certifications||[];
  const ref=useRef<HTMLDivElement>(null);const[playing,setPlaying]=useState(true);const[hovered,setHovered]=useState(false);const[focused,setFocused]=useState(false);
  useEffect(()=>{if(!playing||hovered||focused)return;const timer=window.setInterval(()=>{const node=ref.current;if(!node||document.hidden||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const end=node.scrollWidth-node.clientWidth;node.scrollTo({left:node.scrollLeft>=end-2?0:Math.min(end,node.scrollLeft+230),behavior:'smooth'});},5000);return()=>window.clearInterval(timer);},[playing,hovered,focused]);
  const scroll=(direction:number)=>ref.current?.scrollBy({left:direction*230,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});

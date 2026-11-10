@@ -1,0 +1,1539 @@
+{
+  "version": "1",
+  "meta": {
+    "name": "KLK OLEO Surfactants",
+    "description": "Source content imported as drafts for editorial review."
+  },
+  "collections": [
+    {
+      "slug": "home",
+      "label": "Home",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "identity",
+          "label": "Fixed identity",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "home"
+            ]
+          },
+          "unique": true
+        },
+        {
+          "slug": "introduction",
+          "label": "Introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "intro_heading",
+          "label": "Introduction heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "help_heading",
+          "label": "Help heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "portfolio_heading",
+          "label": "Portfolio heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "portfolio_copy",
+          "label": "Portfolio introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "portfolio_instruction",
+          "label": "Portfolio instruction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "markets_heading",
+          "label": "Markets heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "markets_copy",
+          "label": "Markets introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "partner_heading",
+          "label": "Partner heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "partner_copy",
+          "label": "Partner introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "video_heading",
+          "label": "Video heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "video_url",
+          "label": "Approved video URL",
+          "type": "url"
+        },
+        {
+          "slug": "video_poster",
+          "label": "Video poster",
+          "type": "image",
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "quality_heading",
+          "label": "Quality heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "quality_copy",
+          "label": "Quality introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "award_title",
+          "label": "Award title",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "award_copy",
+          "label": "Award description",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "award_image",
+          "label": "Award artwork",
+          "type": "image",
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "news_heading",
+          "label": "News heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "news_copy",
+          "label": "News introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "faq_heading",
+          "label": "FAQ heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "hero_slides",
+          "label": "Hero slides",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "required": false,
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              },
+              {
+                "slug": "action",
+                "label": "Button label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "kind",
+                "label": "Destination type",
+                "type": "select",
+                "required": true,
+                "validation": {
+                  "options": [
+                    "article",
+                    "anchor",
+                    "external",
+                    "deferred"
+                  ]
+                }
+              },
+              {
+                "slug": "target",
+                "label": "Article slug or approved destination",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "position",
+                "label": "Image focal position",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              }
+            ],
+            "maxItems": 5,
+            "minItems": 3
+          }
+        },
+        {
+          "slug": "stats",
+          "label": "Statistics",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "value",
+                "label": "Value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              }
+            ],
+            "maxItems": 6,
+            "minItems": 0
+          }
+        },
+        {
+          "slug": "capabilities",
+          "label": "Capabilities",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "required": false,
+                "validation": {
+                  "maxLength": 5000
+                }
+              }
+            ],
+            "maxItems": 4,
+            "minItems": 0
+          }
+        },
+        {
+          "slug": "help_items",
+          "label": "Help cards",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "required": false,
+                "validation": {
+                  "maxLength": 5000
+                }
+              }
+            ],
+            "maxItems": 4,
+            "minItems": 0
+          }
+        },
+        {
+          "slug": "certifications",
+          "label": "Certification references",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "name",
+                "label": "Name",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              }
+            ],
+            "maxItems": 20,
+            "minItems": 0
+          }
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants",
+      "group": "Surfactants",
+      "editLocking": true
+    },
+    {
+      "slug": "brands",
+      "label": "Brands",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "category",
+          "label": "Category",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "anionic",
+              "cationic",
+              "nonionic"
+            ]
+          }
+        },
+        {
+          "slug": "descriptor",
+          "label": "Descriptor",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "summary",
+          "label": "Approved summary",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "order",
+          "label": "Order",
+          "type": "integer",
+          "indexed": true
+        },
+        {
+          "slug": "brochure",
+          "label": "Approved brochure",
+          "type": "file",
+          "validation": {
+            "allowedMimeTypes": [
+              "application/pdf"
+            ]
+          }
+        },
+        {
+          "slug": "image",
+          "label": "Image",
+          "type": "image",
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "source_key",
+          "label": "Source key",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants/brands/{slug}",
+      "group": "Surfactants",
+      "editLocking": true
+    },
+    {
+      "slug": "markets",
+      "label": "Markets",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "copy",
+          "label": "Description",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "colour",
+          "label": "Overlay colour",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "teal",
+              "pink",
+              "green",
+              "grey",
+              "purple"
+            ]
+          }
+        },
+        {
+          "slug": "url",
+          "label": "Approved destination",
+          "type": "url"
+        },
+        {
+          "slug": "order",
+          "label": "Order",
+          "type": "integer",
+          "indexed": true
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants/our-markets#{slug}",
+      "group": "Surfactants",
+      "editLocking": true
+    },
+    {
+      "slug": "news",
+      "label": "News",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "category",
+          "label": "Category",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "Exhibition",
+              "Product",
+              "Corporate",
+              "Sustainability"
+            ]
+          }
+        },
+        {
+          "slug": "summary",
+          "label": "Summary",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "body",
+          "label": "Article body",
+          "type": "portableText"
+        },
+        {
+          "slug": "publication_date",
+          "label": "Approved publication date",
+          "type": "datetime"
+        },
+        {
+          "slug": "image",
+          "label": "Featured image",
+          "type": "image",
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants/news-media/{slug}",
+      "group": "Surfactants",
+      "editLocking": true
+    },
+    {
+      "slug": "faqs",
+      "label": "FAQs",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "answer",
+          "label": "Answer",
+          "type": "text",
+          "required": true,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "order",
+          "label": "Order",
+          "type": "integer",
+          "indexed": true
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants#faq",
+      "group": "Surfactants",
+      "editLocking": true
+    },
+    {
+      "slug": "pages",
+      "label": "Pages",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "route",
+          "label": "Fixed page route",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "products",
+              "our-markets",
+              "news-media",
+              "contact"
+            ]
+          },
+          "unique": true
+        },
+        {
+          "slug": "heading",
+          "label": "Page heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "introduction",
+          "label": "Introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "seo_title",
+          "label": "SEO title",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "seo_description",
+          "label": "SEO description",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants/{slug}",
+      "group": "Surfactants",
+      "editLocking": true
+    },
+    {
+      "slug": "site_content",
+      "label": "Site content",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "identity",
+          "label": "Fixed identity",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "site"
+            ]
+          },
+          "unique": true
+        },
+        {
+          "slug": "cta_heading",
+          "label": "CTA heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "cta_copy",
+          "label": "CTA description",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "footer_copy",
+          "label": "Footer introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "sustainability_url",
+          "label": "Sustainability URL",
+          "type": "url"
+        },
+        {
+          "slug": "header_linkedin",
+          "label": "Header LinkedIn URL",
+          "type": "url"
+        },
+        {
+          "slug": "footer_linkedin",
+          "label": "Footer LinkedIn URL",
+          "type": "url"
+        },
+        {
+          "slug": "career_url",
+          "label": "Approved career URL",
+          "type": "url"
+        },
+        {
+          "slug": "contact_email",
+          "label": "Public contact email",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "consent_label",
+          "label": "Enquiry consent label",
+          "type": "text",
+          "required": true,
+          "validation": {
+            "maxLength": 5000
+          }
+        }
+      ],
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "urlPattern": "/surfactants",
+      "group": "Surfactants",
+      "editLocking": true
+    }
+  ],
+  "content": {
+    "home": [
+      {
+        "id": "source:home",
+        "slug": "home",
+        "status": "draft",
+        "data": {
+          "title": "Home",
+          "identity": "home",
+          "introduction": "Oleo-based, synthetic, and biodegradable surfactant solutions for customers worldwide, backed by 100 years of expertise, integrated oleochemical strength, and manufacturing in Europe and Asia.",
+          "intro_heading": "Global Surfactant\nManufacturer and Supplier",
+          "help_heading": "How Can We Help",
+          "portfolio_heading": "Surfactants Portfolio",
+          "portfolio_copy": "KLK OLEO Surfactants supplies global customers with non-ionic, anionic, and cationic surfactants, including ethoxylated and alkoxylated surfactants, tailored specialty surfactants, and custom chemical manufacturing solutions.",
+          "portfolio_instruction": "Use our Product Explorer to navigate our diverse portfolio and identify the best fit for your application.",
+          "markets_heading": "Markets We Serve",
+          "markets_copy": "Oleo-based and synthetic solutions for key industries where performance and reliability matter. Functions include wetting, foaming, emulsifying, cleaning, dispersion, and stability, designed to deliver consistent results at scale.",
+          "partner_heading": "Your Partner of Choice for Surfactants",
+          "partner_copy": "KLK OLEO is one of the world's largest vertically integrated oleochemicals manufacturers, giving you direct access to oleochemicals and their derivatives, raw material security, global production capacity, and consistent supply.",
+          "video_heading": "From development to full-scale production",
+          "quality_heading": "High Standard, High Trust",
+          "quality_copy": "Our ISO-certified quality systems and full documentation support make audits and approvals straightforward for our customers.",
+          "award_title": "Shell Gold Award for Operational Excellence",
+          "award_copy": "We are proud to be recognised for award-winning operations, with 24-hour responsiveness, proactive supply reliability, and co-created solutions, backed by ISO-certified management systems and a Platinum EcoVadis rating.",
+          "news_heading": "Latest News",
+          "news_copy": "Stay informed with the latest announcements, exhibitions, and milestones from KLK OLEO Surfactants. Explore how we continue to advance innovation and sustainability across our business.",
+          "faq_heading": "Frequently Asked Questions",
+          "hero_slides": [
+            {
+              "title": "100 YEARS",
+              "copy": "A Century of Surfactant Excellence.",
+              "image": {
+                "id": "/images/hero/hero-01-100-years.jpg",
+                "src": "/images/hero/hero-01-100-years.jpg",
+                "alt": "A historic gathering beside a steam train",
+                "provider": "external"
+              },
+              "alt": "A historic gathering beside a steam train",
+              "action": "Read More",
+              "kind": "article",
+              "target": "century",
+              "position": "50% 45%"
+            },
+            {
+              "title": "SUSTAINABILITY IN ACTION",
+              "copy": "20% more capacity and 30% less CO₂ emissions.",
+              "image": {
+                "id": "/images/hero/hero-02-sustainability.jpg",
+                "src": "/images/hero/hero-02-sustainability.jpg",
+                "alt": "A glass globe resting among green plants",
+                "provider": "external"
+              },
+              "alt": "A glass globe resting among green plants",
+              "action": "Read More",
+              "kind": "article",
+              "target": "sustainability",
+              "position": "65% 50%"
+            },
+            {
+              "title": "CUSTOM MANUFACTURING THAT BRINGS YOUR IDEAS TO LIFE",
+              "copy": "Scale-up, quality, and long-term capacity built around your needs.",
+              "image": {
+                "id": "/images/hero/hero-03-custom-manufacturing.jpg",
+                "src": "/images/hero/hero-03-custom-manufacturing.jpg",
+                "alt": "Stainless steel manufacturing tanks and walkways",
+                "provider": "external"
+              },
+              "alt": "Stainless steel manufacturing tanks and walkways",
+              "action": "Read More",
+              "kind": "deferred",
+              "target": "Custom Manufacturing",
+              "position": "60% 50%"
+            },
+            {
+              "title": "OUR MARKETS",
+              "copy": "High-impact surfactants for every market we serve. Designed for performance, built for reliable scale-up.",
+              "image": {
+                "id": "/images/hero/hero-04-our-markets.jpg",
+                "src": "/images/hero/hero-04-our-markets.jpg",
+                "alt": "Personal care packaging with cotton and natural materials",
+                "provider": "external"
+              },
+              "alt": "Personal care packaging with cotton and natural materials",
+              "action": "Explore Our Markets",
+              "kind": "anchor",
+              "target": "#markets-we-serve",
+              "position": "65% 50%"
+            },
+            {
+              "title": "FROM LAB IDEA TO 1,000 KG BATCH",
+              "copy": "Our pilot plant bridges the gap between R&D and full-scale production.",
+              "image": {
+                "id": "/images/hero/hero-05-pilot-plant.jpg",
+                "src": "/images/hero/hero-05-pilot-plant.jpg",
+                "alt": "Aerial view of a manufacturing facility surrounded by woodland",
+                "provider": "external"
+              },
+              "alt": "Aerial view of a manufacturing facility surrounded by woodland",
+              "action": "Read More",
+              "kind": "deferred",
+              "target": "Pilot Plant",
+              "position": "50% 50%"
+            }
+          ],
+          "stats": [
+            {
+              "value": "100+",
+              "label": "Years of surfactant expertise"
+            },
+            {
+              "value": "100+",
+              "label": "Countries supplied"
+            },
+            {
+              "value": "7",
+              "label": "Surfactants manufacturing\nsites in Europe and Asia"
+            }
+          ],
+          "capabilities": [
+            {
+              "title": "Global manufacturing",
+              "copy": "Produced in Switzerland, the Netherlands, Belgium and Malaysia"
+            },
+            {
+              "title": "Scale-up support",
+              "copy": "From lab trials to industrial production"
+            },
+            {
+              "title": "Custom manufacturing",
+              "copy": "Tailored surfactants and customer-specific solutions"
+            },
+            {
+              "title": "Sustainable choices",
+              "copy": "Oleo-based options, RSPO and ISCC PLUS certifications"
+            }
+          ],
+          "help_items": [
+            {
+              "title": "Improve supply flexibility",
+              "copy": "with production in Europe and Asia and efficient regional logistics."
+            },
+            {
+              "title": "Reduce scale-up risk",
+              "copy": "with application support from first lab trials to industrial production."
+            },
+            {
+              "title": "Speed up approvals and audits",
+              "copy": "with responsible sourcing, certifications, and documentation support."
+            },
+            {
+              "title": "Avoid supply risk",
+              "copy": "with diversified manufacturing capacity across Europe and Asia."
+            }
+          ],
+          "certifications": [
+            {
+              "name": "RSPO"
+            },
+            {
+              "name": "ISCC PLUS"
+            },
+            {
+              "name": "EcoVadis"
+            },
+            {
+              "name": "ISO"
+            },
+            {
+              "name": "Kosher"
+            },
+            {
+              "name": "Halal"
+            },
+            {
+              "name": "COSMOS ORGANIC"
+            },
+            {
+              "name": "COSMOS APPROVED"
+            },
+            {
+              "name": "Natural & Organic"
+            }
+          ]
+        }
+      }
+    ],
+    "brands": [
+      {
+        "id": "source:palmosalt",
+        "slug": "palmosalt",
+        "status": "draft",
+        "data": {
+          "title": "PALMOSALT",
+          "category": "anionic",
+          "descriptor": "Soap Noodles",
+          "order": 0,
+          "source_key": "brand:palmosalt",
+          "summary": "Soap compositions for cosmetic, toiletry and laundry detergent formulations."
+        }
+      },
+      {
+        "id": "source:palmfonate",
+        "slug": "palmfonate",
+        "status": "draft",
+        "data": {
+          "title": "PALMFONATE",
+          "category": "anionic",
+          "descriptor": "Methyl Ester Sulphonates",
+          "order": 1,
+          "source_key": "brand:palmfonate"
+        }
+      },
+      {
+        "id": "source:sermul",
+        "slug": "sermul",
+        "status": "draft",
+        "data": {
+          "title": "SERMUL",
+          "category": "anionic",
+          "order": 2,
+          "source_key": "brand:sermul"
+        }
+      },
+      {
+        "id": "source:servo",
+        "slug": "servo",
+        "status": "draft",
+        "data": {
+          "title": "SERVO",
+          "category": "anionic",
+          "order": 3,
+          "source_key": "brand:servo"
+        }
+      },
+      {
+        "id": "source:servoxyl",
+        "slug": "servoxyl",
+        "status": "draft",
+        "data": {
+          "title": "SERVOXYL",
+          "category": "anionic",
+          "order": 4,
+          "source_key": "brand:servoxyl"
+        }
+      },
+      {
+        "id": "source:serwet",
+        "slug": "serwet",
+        "status": "draft",
+        "data": {
+          "title": "SERWET",
+          "category": "anionic",
+          "order": 5,
+          "source_key": "brand:serwet"
+        }
+      },
+      {
+        "id": "source:sympare",
+        "slug": "sympare",
+        "status": "draft",
+        "data": {
+          "title": "SYMPARE",
+          "category": "anionic",
+          "descriptor": "Methyl Ester Sulphonates",
+          "order": 6,
+          "source_key": "brand:sympare"
+        }
+      },
+      {
+        "id": "source:tensafin",
+        "slug": "tensafin",
+        "status": "draft",
+        "data": {
+          "title": "TENSAFIN",
+          "category": "anionic",
+          "order": 7,
+          "source_key": "brand:tensafin"
+        }
+      },
+      {
+        "id": "source:tensagex",
+        "slug": "tensagex",
+        "status": "draft",
+        "data": {
+          "title": "TENSAGEX",
+          "category": "anionic",
+          "descriptor": "Alcohol Ether Sulphates",
+          "order": 8,
+          "source_key": "brand:tensagex"
+        }
+      },
+      {
+        "id": "source:tensaryl",
+        "slug": "tensaryl",
+        "status": "draft",
+        "data": {
+          "title": "TENSARYL",
+          "category": "anionic",
+          "descriptor": "Linear Alkylbenzene Sulphonates & Sulphonic Acids",
+          "order": 9,
+          "source_key": "brand:tensaryl"
+        }
+      },
+      {
+        "id": "source:tensomild",
+        "slug": "tensomild",
+        "status": "draft",
+        "data": {
+          "title": "TENSOMILD",
+          "category": "anionic",
+          "descriptor": "Sulphosuccinates",
+          "order": 10,
+          "source_key": "brand:tensomild"
+        }
+      },
+      {
+        "id": "source:tensopol",
+        "slug": "tensopol",
+        "status": "draft",
+        "data": {
+          "title": "TENSOPOL",
+          "category": "anionic",
+          "descriptor": "Alcohol Sulphates",
+          "order": 11,
+          "source_key": "brand:tensopol"
+        }
+      },
+      {
+        "id": "source:servamine",
+        "slug": "servamine",
+        "status": "draft",
+        "data": {
+          "title": "SERVAMINE",
+          "category": "cationic",
+          "order": 12,
+          "source_key": "brand:servamine"
+        }
+      },
+      {
+        "id": "source:aidigro",
+        "slug": "aidigro",
+        "status": "draft",
+        "data": {
+          "title": "AIDIGRO",
+          "category": "nonionic",
+          "descriptor": "Agrochemicals",
+          "order": 13,
+          "source_key": "brand:aidigro"
+        }
+      },
+      {
+        "id": "source:greenbentin",
+        "slug": "greenbentin",
+        "status": "draft",
+        "data": {
+          "title": "GREENBENTIN",
+          "category": "nonionic",
+          "descriptor": "Ethoxylates & Alkoxylates",
+          "order": 14,
+          "source_key": "brand:greenbentin"
+        }
+      },
+      {
+        "id": "source:hedicol",
+        "slug": "hedicol",
+        "status": "draft",
+        "data": {
+          "title": "HEDICOL",
+          "category": "nonionic",
+          "order": 15,
+          "source_key": "brand:hedicol"
+        }
+      },
+      {
+        "id": "source:hedilub",
+        "slug": "hedilub",
+        "status": "draft",
+        "data": {
+          "title": "HEDILUB",
+          "category": "nonionic",
+          "descriptor": "Alkoxylates & Ester",
+          "order": 16,
+          "source_key": "brand:hedilub"
+        }
+      },
+      {
+        "id": "source:hedipin",
+        "slug": "hedipin",
+        "status": "draft",
+        "data": {
+          "title": "HEDIPIN",
+          "category": "nonionic",
+          "descriptor": "Alkoxylates, Triglyceride Ethoxylates & Esters",
+          "order": 17,
+          "source_key": "brand:hedipin"
+        }
+      },
+      {
+        "id": "source:hedjuvan",
+        "slug": "hedjuvan",
+        "status": "draft",
+        "data": {
+          "title": "HEDJUVAN",
+          "category": "nonionic",
+          "descriptor": "Polysorbates, Sorbitan Esters & Polyethylene Glycols",
+          "order": 18,
+          "source_key": "brand:hedjuvan"
+        }
+      },
+      {
+        "id": "source:imbentin",
+        "slug": "imbentin",
+        "status": "draft",
+        "data": {
+          "title": "IMBENTIN",
+          "category": "nonionic",
+          "descriptor": "Ethoxylates & Alkoxylates",
+          "order": 19,
+          "source_key": "brand:imbentin"
+        }
+      },
+      {
+        "id": "source:kotilen",
+        "slug": "kotilen",
+        "status": "draft",
+        "data": {
+          "title": "KOTILEN",
+          "category": "nonionic",
+          "descriptor": "Sorbitan Ester Ethoxylates (Polysorbates)",
+          "order": 20,
+          "source_key": "brand:kotilen"
+        }
+      },
+      {
+        "id": "source:serdas",
+        "slug": "serdas",
+        "status": "draft",
+        "data": {
+          "title": "SERDAS",
+          "category": "nonionic",
+          "order": 21,
+          "source_key": "brand:serdas"
+        }
+      },
+      {
+        "id": "source:serdos",
+        "slug": "serdos",
+        "status": "draft",
+        "data": {
+          "title": "SERDOS",
+          "category": "nonionic",
+          "order": 22,
+          "source_key": "brand:serdos"
+        }
+      },
+      {
+        "id": "source:servirox",
+        "slug": "servirox",
+        "status": "draft",
+        "data": {
+          "title": "SERVIROX",
+          "category": "nonionic",
+          "order": 23,
+          "source_key": "brand:servirox"
+        }
+      },
+      {
+        "id": "source:sympatens",
+        "slug": "sympatens",
+        "status": "draft",
+        "data": {
+          "title": "SYMPATENS",
+          "category": "nonionic",
+          "descriptor": "Fatty Alcohol & Fatty Acid Ethoxylates, Triglyceride Ethoxylates",
+          "order": 24,
+          "source_key": "brand:sympatens"
+        }
+      }
+    ],
+    "markets": [
+      {
+        "id": "source:home-care",
+        "slug": "home-care",
+        "status": "draft",
+        "data": {
+          "title": "Home Care and I&I Cleaning",
+          "copy": "Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.",
+          "colour": "teal",
+          "order": 0
+        }
+      },
+      {
+        "id": "source:beauty-personal-care",
+        "slug": "beauty-personal-care",
+        "status": "draft",
+        "data": {
+          "title": "Beauty & Personal Care",
+          "copy": "Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.",
+          "colour": "pink",
+          "order": 1
+        }
+      },
+      {
+        "id": "source:agrochemicals",
+        "slug": "agrochemicals",
+        "status": "draft",
+        "data": {
+          "title": "Agrochemicals",
+          "copy": "Surfactants for emulsifying, dispersing, wetting, penetrating, defoaming, and formulation stability in conventional, biological crop protection and related application.",
+          "colour": "green",
+          "url": "https://www.klkoleo.com/agrochemicals",
+          "order": 2
+        }
+      },
+      {
+        "id": "source:lubricants",
+        "slug": "lubricants",
+        "status": "draft",
+        "data": {
+          "title": "Lubricants & Metalworking Fluids",
+          "copy": "Surfactant solutions for emulsification, system stability, and robust process performance.",
+          "colour": "grey",
+          "order": 3
+        }
+      },
+      {
+        "id": "source:textile-leather",
+        "slug": "textile-leather",
+        "status": "draft",
+        "data": {
+          "title": "Textile & Leather",
+          "copy": "Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.",
+          "colour": "purple",
+          "order": 4
+        }
+      }
+    ],
+    "news": [
+      {
+        "id": "source:century",
+        "slug": "century",
+        "status": "draft",
+        "data": {
+          "title": "A Century of Surfactant Excellence",
+          "summary": "100 years of surfactant excellence.",
+          "category": "Corporate"
+        }
+      },
+      {
+        "id": "source:sustainability",
+        "slug": "sustainability",
+        "status": "draft",
+        "data": {
+          "title": "Sustainability in Action",
+          "summary": "20% more capacity and 30% less CO₂ emissions.",
+          "category": "Sustainability"
+        }
+      }
+    ],
+    "faqs": [
+      {
+        "id": "source:faq-1",
+        "slug": "faq-1",
+        "status": "draft",
+        "data": {
+          "title": "What does KLK OLEO Surfactants manufacture?",
+          "answer": "KLK OLEO Surfactants manufactures industrial and specialty surfactants for a wide range of applications. Our portfolio includes nonionic, anionic, and cationic surfactants, as well as tailored customer-specific solutions designed for performance, consistency, and reliable supply.",
+          "order": 0
+        }
+      },
+      {
+        "id": "source:faq-2",
+        "slug": "faq-2",
+        "status": "draft",
+        "data": {
+          "title": "Is KLK OLEO Surfactants part of an oleochemical manufacturing group?",
+          "answer": "Yes. KLK OLEO Surfactants is part of KLK OLEO, one of the world’s largest vertically integrated oleochemical groups. This integration supports raw material security, supply continuity, and the development of oleo-based surfactant solutions for global markets. Nevertheless, we also supply surfactants based on synthetic fatty alcohols.",
+          "order": 1
+        }
+      },
+      {
+        "id": "source:faq-3",
+        "slug": "faq-3",
+        "status": "draft",
+        "data": {
+          "title": "How does KLK OLEO Surfactants support industrial chemical supply?",
+          "answer": "We support reliable industrial chemical supply through integrated oleochemical sourcing, diversified manufacturing, technical documentation, and global supply capabilities.",
+          "order": 2
+        }
+      },
+      {
+        "id": "source:faq-4",
+        "slug": "faq-4",
+        "status": "draft",
+        "data": {
+          "title": "Does KLK OLEO Surfactants offer custom chemical manufacturing?",
+          "answer": "Yes. We provide custom chemical manufacturing and tailored production support for customers who need specific performance profiles, blends, or manufacturing routes. Our teams support projects from product selection and development through to industrial production.",
+          "order": 3
+        }
+      },
+      {
+        "id": "source:faq-5",
+        "slug": "faq-5",
+        "status": "draft",
+        "data": {
+          "title": "Can KLK OLEO Surfactants support scale-up from lab trials to industrial production?",
+          "answer": "Yes. KLK OLEO Surfactants supports scale-up from early development through to full industrial production. We help reduce scale-up risk with technical support, process know-how, and manufacturing capabilities designed to move formulations forward efficiently.",
+          "order": 4
+        }
+      }
+    ],
+    "pages": [
+      {
+        "id": "source:products",
+        "slug": "products",
+        "status": "draft",
+        "data": {
+          "route": "products",
+          "title": "Products",
+          "heading": "Enriching Performance\n Across Industries",
+          "introduction": "KLK OLEO Surfactants delivers high-performance surfactant solutions that support a wide range of industries around the world.",
+          "seo_title": "Our Products | KLK OLEO Surfactants"
+        }
+      },
+      {
+        "id": "source:our-markets",
+        "slug": "our-markets",
+        "status": "draft",
+        "data": {
+          "route": "our-markets",
+          "title": "Our Markets",
+          "heading": "Surfactant Solutions for Key Industries",
+          "introduction": "Oleo-based and synthetic solutions for key industries where performance and reliability matter.",
+          "seo_title": "KLK OLEO Surfactants for Key Industries",
+          "seo_description": "Explore KLK OLEO surfactants for personal care, home care, agriculture, and more. High performance, compliant, and sustainable solutions"
+        }
+      },
+      {
+        "id": "source:news-media",
+        "slug": "news-media",
+        "status": "draft",
+        "data": {
+          "route": "news-media",
+          "title": "News & Media",
+          "heading": "Our Latest News",
+          "introduction": "Stay informed with the latest announcements, exhibitions, and milestones from KLK OLEO Surfactants. Explore how we continue to advance innovation and sustainability across our business.",
+          "seo_title": "News & Media | KLK OLEO Surfactants"
+        }
+      },
+      {
+        "id": "source:contact",
+        "slug": "contact",
+        "status": "draft",
+        "data": {
+          "route": "contact",
+          "title": "Contact Us",
+          "heading": "Get in Touch with Our Team",
+          "introduction": "If you wish to enquire about KLK OLEO Surfactants products, please complete the short form provided. Our team will be in contact with you shortly.",
+          "seo_title": "Contact Us | KLK OLEO Surfactants"
+        }
+      }
+    ],
+    "site_content": [
+      {
+        "id": "source:site",
+        "slug": "site",
+        "status": "draft",
+        "data": {
+          "title": "KLK OLEO | Surfactants",
+          "identity": "site",
+          "cta_heading": "How can we support your next formulation?",
+          "cta_copy": "From surfactant selection to industrial scale-up of a customised product, KLK OLEO Surfactants helps you achieve reliable performance, consistent quality, and global supply.",
+          "footer_copy": "KLK OLEO Surfactants is your global partner for surfactants. We combine quality, dependable capacity, and technical support to help you achieve results from development to full scale production.",
+          "sustainability_url": "https://www.klkoleo.com/sustainability-principled-by-integrity/",
+          "header_linkedin": "https://www.linkedin.com/company/klkberhad/",
+          "footer_linkedin": "https://www.linkedin.com/company/klk-oleo-surfactants/",
+          "consent_label": "I agree that KLK OLEO may use my submitted details to respond to this enquiry."
+        }
+      }
+    ]
+  }
+}

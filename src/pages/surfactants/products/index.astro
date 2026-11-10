@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/SiteLayout.astro';
-import { ProductsPage } from '../../../views/products-page';
+import { PageIsland } from '../../../components/site-islands';
+import { loadSiteContent } from '../../../cms/published';
+const {data} = await loadSiteContent();
 ---
-<Layout title="Our Products | KLK OLEO Surfactants"><ProductsPage  client:load /></Layout>
+<Layout data={data} title={data.pages["products"]?.seoTitle || "Our Products | KLK OLEO Surfactants"} description={data.pages["products"]?.seoDescription || undefined}><PageIsland data={data} view="products"  client:load /></Layout>

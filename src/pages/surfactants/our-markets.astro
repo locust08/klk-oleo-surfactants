@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/SiteLayout.astro';
-import { MarketsPage } from '../../views/markets-page';
+import { PageIsland } from '../../components/site-islands';
+import { loadSiteContent } from '../../cms/published';
+const {data} = await loadSiteContent();
 ---
-<Layout title="KLK OLEO Surfactants for Key Industries" description="Explore KLK OLEO surfactants for personal care, home care, agriculture, and more. High performance, compliant, and sustainable solutions"><MarketsPage  client:load /></Layout>
+<Layout data={data} title={data.pages["our-markets"]?.seoTitle || "KLK OLEO Surfactants for Key Industries"} description={data.pages["our-markets"]?.seoDescription || undefined}><PageIsland data={data} view="markets"  client:load /></Layout>

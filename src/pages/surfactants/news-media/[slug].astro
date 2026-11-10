@@ -1,0 +1,16 @@
+---
+import { getEmDashEntry } from 'emdash';
+import { PortableText } from 'emdash/ui';
+import Layout from '../../../layouts/SiteLayout.astro';
+const {entry, isPreview, error} = await getEmDashEntry('news', Astro.params.slug!);
+if (error) throw error;
+if (!entry || (!isPreview && (!Array.isArray(entry.data.body) || !entry.data.body.length || !entry.data.publication_date))) return Astro.rewrite('/404');
+---
+<Layout title={`${entry.data.title} | KLK OLEO Surfactants`} description={String(entry.data.summary || '')}>
+  <article class="section container" {...entry.edit}><span class="eyebrow">{entry.data.category}</span><h1 {...entry.edit.title}>{entry.data.title}</h1>
+    {entry.data.publication_date && <p>{new Date(String(entry.data.publication_date)).toLocaleDateString('en-GB', {timeZone:'UTC'})}</p>}
+    <div class="article-body" {...entry.edit.body}>{Array.isArray(entry.data.body) && <PortableText value={entry.data.body} />}</div>
+    <a class="text-link" href="/surfactants/news-media">Back to News &amp; Media</a>
+  </article>
+</Layout>
+<style>.article-body{max-width:850px;margin-block:32px}.article-body :global(p){margin-bottom:20px}.article-body :global(a){text-decoration:underline}</style>

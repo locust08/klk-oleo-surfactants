@@ -1,0 +1,14 @@
+---
+import { getEmDashEntry } from 'emdash';
+import Layout from '../../../layouts/SiteLayout.astro';
+import { loadSiteContent } from '../../../cms/published';
+import { PageIsland } from '../../../components/site-islands';
+const { entry, isPreview, error } = await getEmDashEntry('brands', Astro.params.slug!);
+if (error) throw error;
+if (!entry) return Astro.rewrite('/404');
+const category = String(entry.data.category);
+if (!isPreview) return Astro.redirect(`/surfactants/products/${category}#${entry.data.slug}`, 302);
+const {data} = await loadSiteContent();
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<Layout data={data} title={`${entry.data.title} preview | KLK OLEO Surfactants`}><div {...entry.edit}><PageIsland data={data} view="category" category={category} client:load /></div></Layout>

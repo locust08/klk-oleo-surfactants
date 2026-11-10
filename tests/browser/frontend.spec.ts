@@ -40,7 +40,8 @@ test('hero, news filter, FAQ and navigation retain interactive behaviour', async
   await expect(page.locator('.hero-slider')).toHaveClass(/is-light/);
   await page.locator('.faq-list details').nth(1).locator('summary').click();
   await expect(page.locator('.faq-list details').nth(1)).toHaveAttribute('open', '');
-  if (info.project.name === 'mobile') await page.getByRole('button', { name: 'Open navigation' }).click();
+  const mobileNavigation = page.getByRole('button', { name: 'Open navigation' });
+  if (await mobileNavigation.isVisible()) await mobileNavigation.click();
   await page.getByRole('button', { name: 'Show product categories' }).click();
   await expect(page.locator('#product-submenu')).toBeVisible();
   await page.keyboard.press('Escape');

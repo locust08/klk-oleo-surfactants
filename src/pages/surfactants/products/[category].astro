@@ -1,8 +1,10 @@
 ---
 import Layout from '../../../layouts/SiteLayout.astro';
-import { CategoryPage } from '../../../views/category-page';
-import { categories } from '../../../lib/catalog';
+import { PageIsland } from '../../../components/site-islands';
+import { loadSiteContent } from '../../../cms/published';
+const {data} = await loadSiteContent();
+import { categories } from '../../../lib/product-catalog';
 const category = Astro.params.category!;
 if (!categories.some(item => item.slug === category)) return Astro.rewrite('/404');
 ---
-<Layout title="Products | KLK OLEO Surfactants"><CategoryPage category={category} client:load /></Layout>
+<Layout data={data} title="Products | KLK OLEO Surfactants"><PageIsland data={data} view="category" category={category} client:load /></Layout>
