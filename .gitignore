@@ -3,6 +3,7 @@ node_modules/
 .astro/
 dist/
 uploads/
+.backups/
 data.db*
 *.sqlite*
 playwright-report/

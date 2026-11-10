@@ -33,11 +33,11 @@
 
 **Interfaces:** Existing `Product`, `categories`, `searchProducts`, `productPath` remain the initial source. UI components accept serializable props when later connected to the CMS.
 
-- [ ] Capture baseline route/interaction expectations and desktop/mobile screenshots with the Next.js application.
-- [ ] Add browser assertions for all current routes, archive counts, search anchors, carousel/menu/dialog/FAQ interactions and local enquiry review; run against baseline.
-- [ ] Configure Astro SSR and React; port routes/layouts and replace Next-specific APIs, retaining assets/CSS.
-- [ ] Run the same checks in Astro; verify unknown routes return 404 and metadata/noindex remain correct.
-- [ ] Save the tested frontend milestone on the migration branch.
+- [x] Capture baseline route/interaction expectations and desktop/mobile screenshots with the Next.js application.
+- [x] Add browser assertions for all current routes, archive counts, search anchors, carousel/menu/dialog/FAQ interactions and local enquiry review; run against baseline.
+- [x] Configure Astro SSR and React; port routes/layouts and replace Next-specific APIs, retaining assets/CSS.
+- [x] Run the same checks in Astro; verify unknown routes return 404 and metadata/noindex remain correct.
+- [x] Save the tested frontend milestone on the migration branch.
 
 ## Task 2: EmDash administration and content
 
@@ -45,12 +45,12 @@
 
 **Interfaces:** `loadSiteContent()` produces the site's published view models; authenticated EmDash preview can supply staged content. `importSourceContent()` creates missing source-keyed drafts and preserves edits.
 
-- [ ] Write integration tests for source counts/slugs, rerun preservation, draft/public isolation, publication and revisions; observe missing-CMS failure.
-- [ ] Integrate released EmDash with SQLite/local media and typed schema/content queries.
-- [ ] Define Home, Brands, Markets, News, FAQs, Pages and Site content; enforce singleton/route identity and safe destination constraints.
-- [ ] Import supplied content as drafts and connect UI props to server-side content models without anonymous draft fallback.
-- [ ] Verify real agency Admin/client Editor roles through API and browser sessions, including denied administrative operations.
-- [ ] Verify preview, publish and revision restoration with disposable test content; save the CMS milestone.
+- [x] Write integration tests for source counts/slugs, rerun preservation, draft/public isolation, publication and revisions; observe missing-CMS failure.
+- [x] Integrate released EmDash with SQLite/local media and typed schema/content queries.
+- [x] Define Home, Brands, Markets, News, FAQs, Pages and Site content; enforce singleton/route identity and safe destination constraints.
+- [x] Import supplied content as drafts and connect UI props to server-side content models without anonymous draft fallback.
+- [x] Verify real agency Admin/client Editor roles through API and browser sessions, including denied administrative operations.
+- [x] Verify preview, publish and revision restoration with disposable test content; save the CMS milestone.
 
 ## Task 3: Private enquiry intake and agency inbox
 
@@ -58,19 +58,19 @@
 
 **Interfaces:** `acceptEnquiry(request)` validates and persists once; private inbox operations require an authenticated Admin. The public result exposes a receipt, not stored personal data or routing details.
 
-- [ ] Write failing tests for required fields, consent, idempotency, throttling, request size, origin checks, persistence failures and denied inbox reads.
-- [ ] Implement durable plugin storage, bounded same-origin intake, honeypot, server routing and separate notification state.
-- [ ] Connect the form to real intake and add truthful confirmation/error states; keep external email disabled.
-- [ ] Provide an Admin-only inbox in EmDash; test direct API and UI access with Admin, Editor and anonymous actors.
-- [ ] Run complete enquiry/role suite and save the intake milestone.
+- [x] Write failing tests for required fields, consent, idempotency, throttling, request size, origin checks, persistence failures and denied inbox reads.
+- [x] Implement durable plugin storage, bounded same-origin intake, honeypot, server routing and separate notification state.
+- [x] Connect the form to real intake and add truthful confirmation/error states; keep external email disabled.
+- [x] Provide an Admin-only inbox in EmDash; test direct API and UI access with Admin, Editor and anonymous actors.
+- [x] Run complete enquiry/role suite and save the intake milestone.
 
 ## Task 4: Final verification and handoff
 
 **Files:** `README.md`, `.env.example`, local setup/backup scripts, verification evidence and progress ledger.
 
-- [ ] Run full tests, type checking, lint and production Node build.
-- [ ] Run desktop/tablet/mobile browser checks, including CMS publish/preview/revision and the complete enquiry path.
-- [ ] Exercise backup/restore using disposable local data; document first-admin setup and client invitation without sending invitations.
+- [x] Run full tests, type checking, lint and production Node build.
+- [x] Run desktop/tablet/mobile browser checks, including CMS publish/preview/revision and the complete enquiry path.
+- [x] Exercise backup/restore using disposable local data; document first-admin setup and client invitation without sending invitations.
 - [ ] Request one fresh whole-branch code review; fix material findings with regression tests.
 - [ ] Report working local URLs, verification results, external-delivery/hosting dependencies and any material limitations.
 

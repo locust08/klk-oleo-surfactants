@@ -1,9 +1,9 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Surfactants application
 
-# This is NOT the Next.js you know
+This is the separate Surfactants Astro + EmDash application. Keep changes inside this repository; adjacent KLK applications have independent data and configuration.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+Before changing content, permissions or enquiries, read `docs/superpowers/specs/2026-11-10-surfactants-emdash-design.md` for the approved boundaries and administration model. Read `README.md` for local setup and data operations.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+Public UI reads published EmDash content through `src/cms/published.ts`. Source snapshots in `src/lib/content.ts` and `src/lib/catalog.ts` are import inputs, never anonymous draft fallbacks. Keep test publication and authentication inside disposable databases.
 
-<!-- END:nextjs-agent-rules -->
+Client Editors can self-publish content; Agency Admins alone can manage users, schema, plugins and the private enquiry inbox. Store enquiry data in private plugin storage, with receipt-only public responses.

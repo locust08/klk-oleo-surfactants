@@ -1,44 +1,76 @@
-# KLK OLEO Surfactants
+# KLK OLEO Surfactants — Astro + EmDash
 
-Local Next.js 16 App Router implementation of the selected option 3 design. TypeScript, React 19, locally hosted Poppins fonts and `react-icons`. No deployment configuration, remote services or email integration is enabled.
+One Astro SSR application with React islands and EmDash 1.4.0. The migration preserves the supplied Surfactants design, responsive navigation, five hero slides, 25 brands across three categories, product search, markets, news filters, FAQs and contact review. SQLite and uploaded media are local; other KLK applications are independent.
 
-## Run locally
+## Local setup
+
+Use Node 24.13+ or 26 and npm. Node's built-in SQLite is used by backup utilities.
 
 ```sh
-npm install
-npm run dev -- --port 3000
+npm ci
+cp .env.example .env
+npm run cms:seed
+npm run dev
 ```
 
-Open `http://localhost:3000/surfactants`. `/` redirects to the minisite. The development server binds to `127.0.0.1`.
+Open [Surfactants](http://127.0.0.1:4371/surfactants) and [EmDash administration](http://127.0.0.1:4371/_emdash/admin/). Use this exact origin; the configured site URL also controls same-origin enquiry validation and authentication links. `/` redirects to `/surfactants`.
+
+The importer creates **43 drafts**: Home (1), Brands (25), Markets (5), News (2), FAQs (5), Pages (4), Site content (1). Anonymous visitors only see published content, so a new installation initially shows an awaiting-publication message. Review and publish the imported entries in EmDash to make the design/content visible. Preview drafts from EmDash before publishing. The browser suite publishes its own disposable fixture; it never publishes the local editorial database.
+
+`npm run cms:seed` uses stable source slugs and `--on-conflict skip`; rerunning preserves existing editorial changes. Source snapshots in `src/lib/content.ts` and `src/lib/catalog.ts` are import inputs. They are never public draft fallbacks. Schema changes after initial installation require a reviewed EmDash schema migration; rerunning the seed is not a schema update or a backup.
+
+## Administration
+
+Complete EmDash's first-site setup as the agency owner and register a passkey. Keep the development server bound to loopback; EmDash includes development-only authentication helpers, used solely with disposable automated fixtures in this repository. Production builds disable those helpers.
+
+- **Agency Admin:** native Admin role; full content, users, schema, plugins/settings and private enquiry inbox.
+- **Client Editor:** native Editor role; edit, preview, publish and restore revisions for all Surfactants content; no users, schema, plugins/settings or enquiry records.
+
+After the agency account is configured, create/invite the client with **Editor** in the native Users screen. An actual invitation, email delivery setup and passkey enrollment are deliberate account setup steps; this migration sends no invitations or external email. Roles apply to this entire instance. Future KLK main/agrochemical applications need separate instances or a separately designed shared administration model.
+
+Home, Brands, Markets, News, FAQs, Pages and Site content appear under Surfactants. Fixed Home/Site identities and page routes are unique. Page SEO, optional approved PDFs/artwork, destinations, CTA/footer and consent text are editable. Brand preview aliases render category previews; normal brand URLs redirect to the corresponding category anchor. Article URLs become public when published content includes an approved body and date.
+
+The **Enquiries** plugin page is accessible to Admins. EmDash may display its navigation item to Editors, but both the page and direct API enforce denial; personal data is never loaded for Editors. No enquiry MCP tools or public content collections are registered.
+
+## Enquiries
+
+The contact flow validates → reviews → sends → shows a verified receipt. It stores enquiries durably in private EmDash plugin storage, with product context and the exact published consent text. Same-intent retries return one receipt; changed payloads cannot reuse it. Intake enforces same-origin requests, size/field limits, a honeypot and a persistent ten-per-ten-minute IP throttle. Storage failure never produces a success confirmation. Public receipts expose existence only, with no contact details.
+
+The agency handles the private inbox manually. Each record includes a plain-text notification preview and `notificationStatus: not-configured`. Email/CRM delivery is **not connected**, and the thank-you page confirms storage only. A reverse proxy must supply trustworthy client IP information according to EmDash's trusted-proxy configuration before internet deployment; do not blindly trust forwarded headers.
+
+## Verification
 
 ```sh
 npm test
 npm run typecheck
 npm run lint
+npm run test:browser
 npm run build
+npm audit --omit=dev
 ```
 
-## Implemented
+Browser tests use a separate temporary SQLite database, genuine Admin/Editor sessions and synthetic enquiries. They cover desktop/tablet/mobile interactions, draft isolation, preview/publish/revision restoration, denied Editor administration, duplicate intake, inbox authorization and receipt verification. Google Chrome is used by default; set `PLAYWRIGHT_CHANNEL` to another installed Playwright browser channel if needed. Local test sessions/screenshots stay in ignored `.superpowers/`.
 
-- Shared Agrochemicals-style two-tier header, responsive menu, three-category Products submenu and product-only search.
-- Five homepage hero images in the supplied order, numbered selectors, previous/next, pause, reduced-motion handling and independent hover/focus pausing.
-- Complete homepage section sequence, 25-brand carousel, five markets, quality/film placements, four news categories, five FAQs and the shared two-part footer.
-- Products archive with exactly Anionic, Cationic and Nonionic category boxes; brand-led category listings and anchored search results.
-- Our Markets, News & Media, Contact and product-search routes; exact supplied Home and Markets metadata.
-- Honest local contact review/download flow. No form data is sent, stored or logged by the app. Required text is checked after trimming. Details remain in the current page memory until navigation/reload.
+`npm start` runs the built standalone Node server. Configure `EMDASH_DATABASE_URL`, `EMDASH_UPLOADS_DIR` and `EMDASH_SITE_URL` **before building**; the Astro integration embeds adapter configuration. Start the server with the same working directory and writable persistent database/uploads locations. Build output does not contain a database or uploads. The local Node implementation is complete; a Cloudflare adapter/storage migration is separate work.
 
-## Content boundaries
+EmDash pins an older Zod transitively. The package override selects compatible patched Zod 4.6.7; the production dependency audit is clean with this lockfile. Keep that override reviewed during upgrades.
 
-Custom Manufacturing and Pilot Plant Special Landing Pages remain deferred. Product-inner structures, technical grades, brochure files, article bodies/dates, award/certification artwork, brand film, four market destinations, Career destination and enquiry recipient remain pending. Available product information is shown in a dialog with a contact action; no detailed product pages have been invented. The two supplied article titles/summaries are previews, not fabricated full articles. News uses labelled update placements until source copy is supplied. Certification names are textual references, not recreated certification marks.
+## Backup and restore
 
-Draft content is noindex. Before any future launch, complete the content review, delivery integration, legal wording, original artwork and production metadata/indexing review. No push or deployment was performed for this task.
+Backups include the entire SQLite database (content/revisions, accounts/authentication and private enquiries), uploaded files, and a checksum manifest. Versioned original assets remain in `public/`. Treat snapshots as confidential; store an encrypted off-device copy and keep environment secrets separately. Filesystem session storage is not included; users may need to sign in again after restoration.
 
-## Assets and sources
+Stop application writes first so database and media represent the same editorial point. In development, stop an Astro daemon with `npx astro dev stop`; stop a foreground server with Ctrl+C. Then:
 
-- The five original JPGs are copied byte-for-byte from `design-reference/supplied-assets/` into `public/images/hero/`; they are used only by the homepage hero.
-- Official white KLK OLEO logo and Poppins font files reuse the adjacent local Agrochemicals project's assets.
-- Contact banner reuses the Agrochemicals reference image. Two main-site product reference images are retained locally for future content review, but are not used to replace the approved text-led archive layout.
-- Header LinkedIn: `https://www.linkedin.com/company/klkberhad/`.
-- Footer LinkedIn: `https://www.linkedin.com/company/klk-oleo-surfactants/`.
+```sh
+mkdir -p .backups
+npm run cms:backup -- .backups/NEW-SNAPSHOT-NAME
+npm run cms:restore -- .backups/NEW-SNAPSHOT-NAME .backups/NEW-RESTORE-NAME
+```
 
-The complete source/content record is in `docs/superpowers/specs/2026-11-06-surfactants-design.md`. Large design exports, supplied source documents, screenshots and `design-qa.md` remain in the local workspace and are excluded from Git. All assets needed to run the website are versioned under `public/`.
+Both destination directories must be new. Restore validates checksums and SQLite integrity and creates `data.db` plus `uploads/` in the new directory; it does not replace the running application's files. To test recovery, configure a separate `.env`/checkout to use those restored absolute paths, build/start it on a loopback port, and verify content, media and Admin inbox before any deliberate cutover. Never restore over the active database or copy a live WAL database with a plain file copy.
+
+## Content and launch boundaries
+
+Custom Manufacturing, Pilot Plant, detailed product grades, missing brochures/article copy/dates/artwork/video, unconfirmed market/Career destinations and enquiry recipients remain pending source approval. The source draft placements remain honest placeholders. Certification names are references rather than recreated marks. All pages remain `noindex,nofollow` pending content/legal/production SEO review. No push, deployment, real invitations, CRM changes or external email were performed.
+
+Approved implementation scope: `docs/superpowers/specs/2026-11-10-surfactants-emdash-design.md`. Original design/content record: `docs/superpowers/specs/2026-11-06-surfactants-design.md`.
