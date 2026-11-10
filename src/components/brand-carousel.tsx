@@ -10,7 +10,6 @@ export function BrandCarousel() {
  const [index, setIndex] = useState(count);
  const [width, setWidth] = useState(0);
  const [transitioning, setTransitioning] = useState(true);
- const [hovered, setHovered] = useState(false);
  const [focused, setFocused] = useState(false);
  const [reduced, setReduced] = useState(false);
  useEffect(() => {
@@ -24,10 +23,10 @@ export function BrandCarousel() {
   return () => { observer.disconnect(); media.removeEventListener('change', update); };
  }, []);
  useEffect(() => {
-  if (hovered || focused || reduced || !transitioning) return;
+  if (focused || reduced || !transitioning) return;
   const timer = window.setInterval(() => { if (!document.hidden) setIndex(i => i + 1); }, 3200);
   return () => window.clearInterval(timer);
- }, [hovered, focused, reduced, transitioning]);
+ }, [focused, reduced, transitioning]);
  useEffect(() => {
   if (transitioning) return;
   const frame = requestAnimationFrame(() => requestAnimationFrame(() => setTransitioning(true)));
@@ -35,7 +34,7 @@ export function BrandCarousel() {
  }, [transitioning]);
  const active = ((index % count) + count) % count;
  const slot = Math.min(421, Math.max(250, width - 28));
- return <div className="brand-carousel" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false); }}>
+ return <div className="brand-carousel" onFocusCapture={() => setFocused(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false); }}>
   <div className="portfolio-link"><Link href="/surfactants/products" className="text-link">View all products<FiArrowRight aria-hidden="true"/></Link></div>
   <div ref={shell} className="portfolio-carousel-shell" role="region" aria-roledescription="carousel" aria-label="Surfactants portfolio">
    <div className={`portfolio-carousel-track${transitioning ? ' is-transitioning' : ''}`} style={{transform:`translate3d(${width / 2 - (index + .5) * slot}px,0,0)`, '--portfolio-slot':`${slot}px`} as CSSProperties} onTransitionEnd={e => {

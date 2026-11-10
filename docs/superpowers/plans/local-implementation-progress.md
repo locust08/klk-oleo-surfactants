@@ -58,3 +58,8 @@ Implemented `/surfactants/custom-manufacturing` from Custom manufacturing.pdf an
 ## Pilot Plant animation/layout refinement — 10 November 2026
 
 Inspected live Agrochemicals capability cards: vertical front/back slide at 0.8s with staggered 0.85s entrance. Applied matching interaction to reactor and operating-standard grids using PilotRevealCard, with hover, tap, Enter/Space toggle and Escape close, expanded-state semantics and reduced-motion support. Preserved all reactor specifications and qualified Kosher/Halal copy. Inspected Oriental Biotech /orient-laboratories/ end-to-end process and rebuilt Pilot Plant support with centred title/copy, three equal steps, true hexagonal icons and a connecting line on desktop, stacked on mobile. Desktop keyboard/pointer and 390px readability/overflow checks passed.
+
+
+## Portfolio autoplay and category heading alignment — 10 November 2026
+
+Removed the portfolio hover-pause condition so its existing 3.2-second automatic slide progression continues with the pointer over the section. Keyboard focus pausing, reduced-motion support and seamless duplicated-slide looping are retained. Shortened Products archive card headings to Anionic, Cationic and Nonionic without changing category names elsewhere or destinations. Browser observed automatic progression from SERVO to TENSOMILD and matching one-line heading heights. Lint, typecheck and four tests passed.
