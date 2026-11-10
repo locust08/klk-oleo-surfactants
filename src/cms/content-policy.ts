@@ -44,10 +44,10 @@ function validateFields(data: Record<string, unknown>, fields: SeedField[], path
 /** Native repeaters omit some nested validation; enforce the approved structure on every write. */
 export function validateStructuredContent(collection: string, data: Record<string, unknown>, options: {isNew?: boolean; current?: Record<string, unknown>} = {}) {
   validateFields(data, fieldsByCollection.get(collection) || []);
-  if (options.isNew && ['home','site_content','pages'].includes(collection)) throw new Error('Edit the imported fixed entry. Additional Home, Site content and Pages entries are not supported.');
+  if (options.isNew && ['home','site_content','pages','service_pages'].includes(collection)) throw new Error('Edit the imported fixed entry. Additional fixed page entries are not supported.');
   const expected = collection === 'home' ? 'home' : collection === 'site_content' ? 'site' : undefined;
   if (expected && data.identity !== undefined && data.identity !== expected) throw new Error('This entry has a fixed identity.');
-  for (const field of ['source_key', ...(collection === 'pages' ? ['route'] : [])]) {
+  for (const field of ['source_key', ...(['pages','service_pages'].includes(collection) ? ['route'] : [])]) {
     if (data[field] !== undefined && options.current && data[field] !== options.current[field]) throw new Error(`${field} is managed by the agency and cannot be changed.`);
   }
   if (options.isNew && data.source_key) throw new Error('Import source keys are reserved for the agency importer.');

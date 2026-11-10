@@ -12,14 +12,15 @@ function camel(value: unknown): unknown {
 /** EmDash's request context supplies authorised previews; ordinary reads stay published-only. */
 export async function loadSiteContent(publicMediaUrl?: (key: string) => string) {
   const mediaSrc = (value: unknown) => resolveCmsMedia(value, publicMediaUrl);
-  const names = ['home', 'brands', 'markets', 'news', 'faqs', 'pages', 'site_content'] as const;
+  const names = ['home', 'brands', 'markets', 'news', 'faqs', 'pages', 'site_content', 'service_pages'] as const;
   const results = await Promise.all(names.map(name => getEmDashCollection(name, { limit: 100 })));
   for (const result of results) if (result.error) throw result.error;
   const mapped = results.map(result => result.entries.map((entry): Record<string, unknown> => ({ ...camel(entry.data) as Record<string, unknown>, slug: String(entry.data.slug || entry.id) })));
-  const [homes, brands, markets, articles, faqs, pages, sites] = mapped;
+  const [homes, brands, markets, articles, faqs, pages, sites, services] = mapped;
   const rawHome = homes.find(item => item.identity === 'home');
   const rawSite = sites.find(item => item.identity === 'site');
   const data: SiteData = {
+    servicePages: services.map(item=>({route:String(item.route),title:String(item.title)})),
     home: rawHome ? {
       ...Object.fromEntries(['title','introduction','portfolioCopy','introHeading','helpHeading','portfolioHeading','portfolioInstruction','marketsHeading','marketsCopy','partnerHeading','partnerCopy','videoHeading','qualityHeading','qualityCopy','awardTitle','awardCopy','newsHeading','newsCopy','faqHeading'].map(key => [key, String(rawHome[key] || '')])),
       stats: Array.isArray(rawHome.stats) ? rawHome.stats : [],

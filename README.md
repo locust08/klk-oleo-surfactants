@@ -15,7 +15,7 @@ npm run dev
 
 Open [Surfactants](http://localhost:4371/surfactants) and [EmDash administration](http://localhost:4371/_emdash/admin/). Use this exact localhost origin: passkeys require a domain rather than an IP address. The configured site URL also controls same-origin enquiry validation and authentication links. `/` redirects to `/surfactants`.
 
-The importer creates **43 drafts**: Home (1), Brands (25), Markets (5), News (2), FAQs (5), Pages (4), Site content (1). Anonymous visitors only see published content, so a new installation initially shows an awaiting-publication message. Review and publish the imported entries in EmDash to make the design/content visible. Preview drafts from EmDash before publishing. The browser suite publishes its own disposable fixture; it never publishes the local editorial database.
+The importer creates **45 drafts**: Home (1), Brands (25), Markets (5), News (2), FAQs (5), Pages (4), Site content (1), Service pages (2). Anonymous visitors only see published content, so a new installation initially shows an awaiting-publication message. Review and publish the imported entries in EmDash to make the design/content visible. Preview drafts from EmDash before publishing. The browser suite publishes its own disposable fixture; it never publishes the local editorial database.
 
 `npm run cms:seed` matches immutable import source keys before using `--on-conflict skip`; rerunning preserves editorial changes even after a brand, market or article slug is renamed. Source snapshots in `src/lib/content.ts` and `src/lib/catalog.ts` are import inputs. They are never public draft fallbacks. Schema changes after initial installation require a reviewed EmDash schema migration; rerunning the seed is not a schema update or a backup.
 
@@ -44,9 +44,25 @@ Complete EmDash's first-site setup as the agency owner: enter the site title, ke
 
 After the agency account is configured, create/invite the client with **Editor** in the native Users screen. An actual invitation, email delivery setup and passkey enrollment are deliberate account setup steps; this migration sends no invitations or external email. Roles apply to this entire instance. Future KLK main/agrochemical applications need separate instances or a separately designed shared administration model.
 
-Home, Brands, Markets, News, FAQs, Pages and Site content appear under Surfactants. The importer owns Home, Site content and the four fixed Pages. Save policies reject extra entries and identity changes; route guards reject slug edits and publication checks also protect native programmatic writes. Page SEO, optional approved PDFs/artwork, destinations, CTA/footer and consent text are editable. Brand preview aliases render category previews; normal brand URLs redirect to the corresponding category anchor. Article URLs become public when published content includes an approved body and date.
+Home, Brands, Markets, News, FAQs, Pages, Site content and Service pages appear under Surfactants. The importer owns Home, Site content, the four fixed Pages and two fixed Service pages. Save policies reject extra fixed entries and identity changes; route guards reject slug edits and publication checks also protect native programmatic writes. Page SEO, optional approved PDFs/artwork, destinations, CTA/footer and consent text are editable. Brand preview aliases render category previews; normal brand URLs redirect to the corresponding category anchor. Article URLs become public when published content includes an approved body and date.
 
 The **Enquiries** plugin page is accessible to Admins. EmDash may display its navigation item to Editors, but both the page and direct API enforce denial; personal data is never loaded for Editors. No enquiry MCP tools or public content collections are registered.
+
+## Custom Manufacturing and Pilot Plant
+
+The two supplied service layouts run at `/surfactants/custom-manufacturing` and `/surfactants/pilot-plant`. Their headings, copy, highlights, process steps, technologies, raw materials, reactor details, assurances, support cards/images, scale range, project-form text and SEO are managed in **Surfactants → Service pages**. Editors can preview, publish, unpublish and restore revisions. Routes and layouts stay agency controlled; unpublishing returns 404 and removes the corresponding hero/footer link. The existing Home entry is not rewritten.
+
+For an existing installation that predates Service pages, stop the app and run:
+
+```sh
+npx astro dev stop
+npm run cms:services -- --backup .backups/NEW-PRE-SERVICES-SNAPSHOT
+npm run dev
+```
+
+The offline SQLite installer backs up database/media, adds the new collection and publishes only newly imported entries for local review, in one transaction. It leaves existing entries, user/passkey records and enquiries unchanged. Source-key matching skips later service edits, unpublished and trashed entries; it will not republish those on a rerun. New installations already seeded with 45 drafts should review and publish the two existing Service pages through EmDash.
+
+The pages retain the existing shared enquiry fields, consent, review/send/receipt flow and private inbox. They pre-fill an editable project message. Page form headings/introduction and final send label are editable; external notification is still not configured. Source PDFs are references, not public downloads. The source treatment and icon provenance are recorded in [service page sources](docs/2026-11-10-service-page-sources.md).
 
 ## Enquiries
 
@@ -87,6 +103,6 @@ Both destination directories must be new. Restore validates checksums and SQLite
 
 ## Content and launch boundaries
 
-Custom Manufacturing/Pilot Plant source PDFs and metadata are supplied, but their templates/routes remain deferred. Detailed product grades, approved brochures, Sustainability's publication date, brand-film footage, unconfirmed market/Career destinations and enquiry recipients remain pending. FAQ adaptation, archive category/market filters and gated multi-document Downloads need separate decisions. Supplied certification assets require currency/applicability approval; certification names remain text references. All pages remain `noindex,nofollow` pending content/legal/production SEO review. No push, deployment, real invitations, CRM changes or external email were performed.
+Custom Manufacturing/Pilot Plant now have source-based Astro templates and constrained EmDash editing. Detailed product grades, approved brochures, Sustainability's publication date, brand-film footage, unconfirmed market/Career destinations and enquiry recipients remain pending. FAQ adaptation, archive category/market filters and gated multi-document Downloads need separate decisions. Supplied certification assets require currency/applicability approval; certification names remain text references. All pages remain `noindex,nofollow` pending content/legal/production SEO review. This service-page work does not deploy, send client invitations or connect external notifications.
 
 Approved implementation scope: `docs/superpowers/specs/2026-11-10-surfactants-emdash-design.md`. Original design/content record: `docs/superpowers/specs/2026-11-06-surfactants-design.md`.

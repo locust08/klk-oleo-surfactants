@@ -1,6 +1,7 @@
 import type { SeedFile, SeedField, SeedCollection } from 'emdash/seed';
 import * as source from '../lib/content';
 import { products } from '../lib/catalog';
+import { buildServiceSeed } from './service-seed';
 
 const snake = (value: string) => value.replace(/[A-Z]/g, character => `_${character.toLowerCase()}`);
 const wireData = (value: unknown): unknown => Array.isArray(value) ? value.map(wireData) : value && typeof value === 'object' ? 'provider' in value ? value : Object.fromEntries(Object.entries(value).map(([key, item]) => [snake(key), wireData(item)])) : value;
@@ -48,6 +49,7 @@ export function buildSeed(): SeedFile {
   return {
     version: '1', meta: { name: 'KLK OLEO Surfactants', description: 'Source content imported as drafts for editorial review.' },
     collections: [
+      ...buildServiceSeed().collections!,
       collection('home', 'Home', [{...choice('identity', 'Fixed identity', ['home'], true), unique: true}, ...homeFields], '/surfactants'),
       collection('brands', 'Brands', [choice('category', 'Category', ['anionic', 'cationic', 'nonionic'], true), short('descriptor', 'Descriptor'), text('summary', 'Approved summary'), { slug: 'order', label: 'Order', type: 'integer', indexed: true }, { slug: 'brochure', label: 'Approved brochure', type: 'file', validation: { allowedMimeTypes: ['application/pdf'] } }, image('image', 'Image')], '/surfactants/brands/{slug}'),
       collection('markets', 'Markets', [text('copy', 'Description'), choice('colour', 'Overlay colour', ['teal', 'pink', 'green', 'grey', 'purple']), { slug: 'url', label: 'Approved destination', type: 'url' }, { slug: 'order', label: 'Order', type: 'integer', indexed: true }], '/surfactants/our-markets#{slug}'),
@@ -57,6 +59,7 @@ export function buildSeed(): SeedFile {
       collection('site_content', 'Site content', [{...choice('identity', 'Fixed identity', ['site'], true), unique: true}, short('ctaHeading', 'CTA heading'), text('ctaCopy', 'CTA description'), text('footerCopy', 'Footer introduction'), { slug: 'sustainability_url', label: 'Sustainability URL', type: 'url' }, { slug: 'header_linkedin', label: 'Header LinkedIn URL', type: 'url' }, { slug: 'footer_linkedin', label: 'Footer LinkedIn URL', type: 'url' }, { slug: 'career_url', label: 'Approved career URL', type: 'url' }, short('contactEmail', 'Public contact email'), text('consentLabel', 'Enquiry consent label', true)], '/surfactants'),
     ],
     content: {
+      ...buildServiceSeed().content,
       home: [draft('home', home)],
       brands: products.map((item, order) => draft(item.slug, { title: item.brand, category: item.category, descriptor: item.descriptor, order, sourceKey: `brand:${item.slug}`, summary: item.brand === 'PALMOSALT' ? 'Soap compositions for cosmetic, toiletry and laundry detergent formulations.' : undefined })),
       markets: source.markets.map((item, order) => draft(item.slug, { title: item.name, copy: item.copy, colour: item.colour, url: 'url' in item ? item.url : undefined, order })),

@@ -30,7 +30,7 @@ export function createPlugin() {
       'content:beforePublish': async event => {
         const content = event.content;
         const data = content.data as Record<string, unknown>;
-        const expected = event.collection === 'home' ? 'home' : event.collection === 'site_content' ? 'site' : event.collection === 'pages' ? data.route : null;
+        const expected = event.collection === 'home' ? 'home' : event.collection === 'site_content' ? 'site' : ['pages','service_pages'].includes(event.collection) ? data.route : null;
         if (expected && content.slug !== expected) return { cancel: true, reason: 'This entry has a fixed route. Restore its original slug before publishing.' };
         try { validateStructuredContent(event.collection, data, {current:data}); }
         catch (error) { return {cancel:true,reason:(error as Error).message}; }

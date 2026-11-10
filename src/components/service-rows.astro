@@ -1,0 +1,15 @@
+---
+import type { ServiceItem } from '../cms/service-types';
+import { resolveCmsMedia } from '../cms/media';
+interface Props { items?:ServiceItem[]|null; kind:string; numbered?:boolean; }
+const {items:input,kind,numbered=false}=Astro.props;
+const items=input??[];
+---
+{numbered ? <ol class={`service-process service-${kind}`}>
+  {items.map((item,index)=>{const src=resolveCmsMedia(item.image,Astro.locals.emdash?.getPublicMediaUrl);return <li><span class="service-step-number" aria-hidden="true">{index+1}</span>{src&&<img src={src} alt={item.image?.alt||''} width="48" height="48" loading="lazy"/>}{item.label&&<span class="eyebrow">{item.label}</span>}<h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</li>;})}
+</ol> : <div class={`service-grid service-${kind}`}>
+  {items.map(item=>{const src=resolveCmsMedia(item.image,Astro.locals.emdash?.getPublicMediaUrl);return <article>
+    {src&&<img src={src} alt={item.image?.alt||''} width="48" height="48" loading="lazy"/>}
+    {item.label&&<span class="eyebrow">{item.label}</span>}<h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}
+  </article>;})}
+</div>}

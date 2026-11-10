@@ -1,0 +1,64 @@
+{
+  "collaboration": {
+    "sourceSha256": "e54ad9fe68ee91023e7ea960e074a2642bc9c39d06fe706346287def7a923cb8",
+    "outputSha256": "9003ca12faeb950ef3e0caf4a932341bfa0c69f2833a1db34c00847c99b00471",
+    "path": "public/images/services/collaboration.png",
+    "sourceUrl": "https://drive.google.com/file/d/1yd4ZqTXZtfLGYyAS0j-suwnmQez0aQ9O/view"
+  },
+  "production": {
+    "sourceSha256": "8fa61d30f9cbcd69044558cc276b09a20f93a436efd7cd419e9b9e0cb8683a69",
+    "outputSha256": "6d1b1e260935db2018aa5148a0f58bd6dff7ad29e7329ec23d0a65eaf28588b0",
+    "path": "public/images/services/production.png",
+    "sourceUrl": "https://drive.google.com/file/d/1JsgMOqg1MAOQ2XCPHNjuNVj76OfY9l1s/view"
+  },
+  "quality": {
+    "sourceSha256": "57e5263c0ef728f0a2dca652789febc9b115dea414dac2f849c8152290524016",
+    "outputSha256": "f987b4528f36663fa2c3e2ccfe3839c247f44a6a13195730be550957647381bb",
+    "path": "public/images/services/quality.png",
+    "sourceUrl": "https://drive.google.com/file/d/1-2tJ-UlxTr6NKtx8n1xXzsJQtMBO22pj/view"
+  },
+  "outcome": {
+    "sourceSha256": "8a70267ef4348eccb824be7c1eb07fbd857c828f1507bd530d7aadf8e090f57e",
+    "outputSha256": "d764c4fa5efda23f3bfec5f89f3746a68d19285f639ef05cfbdfee31047bb1e1",
+    "path": "public/images/services/outcome.png",
+    "sourceUrl": "https://drive.google.com/file/d/1fZGKhuUzJcyBUaSzL37EdA8AG6wqg1gk/view"
+  },
+  "research": {
+    "sourceSha256": "bb54dd331959fc1b4ed3ac476177aa4e3a1a0ec4550b0821d97062e1d156036c",
+    "outputSha256": "942df7f8db505265b15f9f7cf22191f78bbfb8e8bd440e00ba9d80474fb38770",
+    "path": "public/images/services/research.png",
+    "sourceUrl": "https://drive.google.com/file/d/1AoBWlVDNtOppqrpgSCk87sE7sbm8jVZh/view"
+  },
+  "regulatory": {
+    "sourceSha256": "5e0c5ee84375258ccdb0efe186f46d1ce9c107ce6e0828561b8fbb14e0f8fe6f",
+    "outputSha256": "c7508cc6429fe7a93a5a9c65827c7b0094dca07525e65ebb66188b29bd20f6ff",
+    "path": "public/images/services/regulatory.png",
+    "sourceUrl": "https://drive.google.com/file/d/1SgbEgBki8U0gyUV_g773617KS4QtxvUM/view"
+  },
+  "scale-up": {
+    "sourceSha256": "d48af231ea2ed39dc2e1105988baf14d2ffcc28a7c6a1f192f2443be9a1a1fcd",
+    "outputSha256": "06c25baea964ec2dbfd45baa3745ed438684d90459ba72c8df9e759280cd81f7",
+    "path": "public/images/services/scale-up.png",
+    "sourceUrl": "https://drive.google.com/file/d/189Fr0g0ywv8dDSaarpeYh2lh-7nIyLyy/view"
+  },
+  "logistics": {
+    "sourceSha256": "aa570ecba73c126b5efce0f10773061b278dcea8f7a1361ee83fbc96066f5b87",
+    "outputSha256": "8870c19cfe71e4815ab0c4ad30b14653ba9eac940449191d059ad8f5cc905ab5",
+    "path": "public/images/services/logistics.png",
+    "sourceUrl": "https://drive.google.com/file/d/16jam7Isyk_7YBDW4HplfdJzYsAJtHNx-/view"
+  },
+  "sustainability": {
+    "sourceSha256": "9a8dfe1ce744f13aae9c304c0986199bf881a4dd26f88bd655d9d682f3f00e9f",
+    "outputSha256": "f5b4a1e88f14ee4876971a0e79a7fdb97621cbd7ba6f06f3919d649250271e63",
+    "path": "public/images/services/sustainability.png",
+    "sourceUrl": "https://drive.google.com/file/d/1B_939xknU5caj4v51KYVJBsl4InMQK4z/view"
+  },
+  "manufacturing-pdf": {
+    "sourceUrl": "https://drive.google.com/file/d/1unBL411u9y733wwELRzAgMh1w2iaIUBq/view",
+    "sourceSha256": "113086fe115f8c3678f1f18d2b6247d0a6127082ea952e7f8921e1f54e0e5b4f"
+  },
+  "pilot-pdf": {
+    "sourceUrl": "https://drive.google.com/file/d/1tUY5IgzEYc35PCZ50oPmwqeLa3EFyNED/view",
+    "sourceSha256": "84de1dfd36749e03b887636c70b5a047f2aa4d4e5da4f563b5d13db2e18f20fd"
+  }
+}

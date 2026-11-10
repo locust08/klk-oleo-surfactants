@@ -1,0 +1,490 @@
+{
+  "sources": {
+    "manufacturing": "https://drive.google.com/file/d/1unBL411u9y733wwELRzAgMh1w2iaIUBq/view",
+    "pilot": "https://drive.google.com/file/d/1tUY5IgzEYc35PCZ50oPmwqeLa3EFyNED/view",
+    "seo": "https://docs.google.com/document/d/1S-z7OVVM0VTtOG6pYtpei5-6RrXDOKu9/edit",
+    "icons": "https://drive.google.com/drive/folders/1CHbjRaqWDtn_RopyP6hsYM6q2s90N0ch"
+  },
+  "pages": [
+    {
+      "slug": "custom-manufacturing",
+      "data": {
+        "cta_label": "Talk to our team",
+        "form_heading": "Tell us about your project",
+        "form_copy": "Share your product idea, performance requirements, or scale-up challenge. Our team will get back to you to discuss the best next step.",
+        "form_action_label": "Contact KLK OLEO Surfactants",
+        "title": "Custom Manufacturing",
+        "route": "custom-manufacturing",
+        "heading": "Custom Chemical Manufacturing that brings your ideas to life.",
+        "introduction": "From contract chemical manufacturing to industrial-scale production, KLK OLEO Surfactants helps turn your product or intermediate into a scalable reality. We combine specialty chemical know-how, manufacturing expertise, and dedicated support teams to co-create solutions that meet your performance, quality, regulatory, and ESG requirements.",
+        "technologies_heading": "Our Manufacturing Technologies",
+        "technologies_copy": "From alkoxylation and phosphation to sulphation, sulphonation, esterification, amidation, polymerization, and quaternisation, our broad manufacturing capabilities turn complex chemistry into high-performance solutions.",
+        "technologies": [
+          {
+            "title": "Alkoxylation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Phosphation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Sulphation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Sulphonation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Esterification",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Amidation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Polymerization",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Quaternisation",
+            "copy": "",
+            "label": ""
+          }
+        ],
+        "benefits_heading": "Why customers choose KLK OLEO Surfactants",
+        "benefits": [
+          {
+            "title": "Tailor-made solutions",
+            "copy": "Designed around a defined performance profile and your application target.",
+            "label": ""
+          },
+          {
+            "title": "Reliable scale-up",
+            "copy": "From lab results to industrial readiness with repeatable performance in focus.",
+            "label": ""
+          },
+          {
+            "title": "Quality, regulatory, and ESG support",
+            "copy": "Documentation, compliance, and sustainability expectations supported throughout the process.",
+            "label": ""
+          }
+        ],
+        "highlights": [
+          {
+            "title": "Dedicated project teams",
+            "copy": "",
+            "label": "Collaboration",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/collaboration.png",
+              "src": "/images/services/collaboration.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "Secure long-term capacity",
+            "copy": "",
+            "label": "Production",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/production.png",
+              "src": "/images/services/production.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "Quality",
+            "copy": "",
+            "label": "Consistent",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/quality.png",
+              "src": "/images/services/quality.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "Faster route to market",
+            "copy": "",
+            "label": "Outcome",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/outcome.png",
+              "src": "/images/services/outcome.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          }
+        ],
+        "overview_heading": "We don’t just supply products. We co-create solutions.",
+        "overview_copy": "Custom manufacturing at KLK OLEO Surfactants is built for customers who need more than capacity. It is designed for businesses looking for a partner that can take an idea, develop the right process, and deliver reliable production at scale. Our technical and operations teams work closely with you to create a solution around your target profile, streamline the path from development to production, and support a faster, more confident route to market.",
+        "process_heading": "From idea to full-scale manufacturing",
+        "process_steps": [
+          {
+            "title": "Define the target",
+            "copy": "Start with your product concept, performance needs, and business requirements.",
+            "label": ""
+          },
+          {
+            "title": "Develop the route",
+            "copy": "Support product development, process design, and preparation for industrialisation.",
+            "label": ""
+          },
+          {
+            "title": "Scale with confidence",
+            "copy": "Enable efficient scale-up from lab and pilot stages to industrial production.",
+            "label": ""
+          },
+          {
+            "title": "Produce for the long term",
+            "copy": "Secure capacity, transparent collaboration, and dependable quality for lasting partnerships.",
+            "label": ""
+          }
+        ],
+        "assurance_heading": "What you can count on",
+        "assurance_copy": "KLK OLEO Surfactants combines specialty chemical expertise with practical manufacturing know-how, enabling dependable execution from development to long-term supply.",
+        "assurances": [
+          {
+            "title": "Consistent quality",
+            "copy": "Repeatable performance that helps protect your application and brand expectations.",
+            "label": ""
+          },
+          {
+            "title": "Secure, long-term capacity",
+            "copy": "Capacity planning and operational reliability that support business continuity.",
+            "label": ""
+          },
+          {
+            "title": "Transparent and efficient collaboration",
+            "copy": "Dedicated project teams that keep development and operations aligned.",
+            "label": ""
+          },
+          {
+            "title": "Shorter time-to-market",
+            "copy": "Integrated support across development, regulatory, and logistics to keep momentum high.",
+            "label": ""
+          }
+        ],
+        "support_heading": "Technical and operational support",
+        "support_items": [
+          {
+            "title": "R&D for product development",
+            "copy": "Development expertise to shape the right product and process route.",
+            "label": "",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/research.png",
+              "src": "/images/services/research.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "Regulatory affairs support",
+            "copy": "Documentation and compliance support for confident market readiness.",
+            "label": "",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/regulatory.png",
+              "src": "/images/services/regulatory.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "Efficient scale-up",
+            "copy": "Industrialisation support from development through production ramp-up.",
+            "label": "",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/scale-up.png",
+              "src": "/images/services/scale-up.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "State-of-the-art logistics",
+            "copy": "Reliable logistics support to keep supply chains moving efficiently.",
+            "label": "",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/logistics.png",
+              "src": "/images/services/logistics.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          },
+          {
+            "title": "ESG and sustainability support",
+            "copy": "Alignment with sustainability expectations and certified support where relevant.",
+            "label": "",
+            "image": {
+              "provider": "external",
+              "id": "/images/services/sustainability.png",
+              "src": "/images/services/sustainability.png",
+              "mimeType": "image/png",
+              "alt": ""
+            }
+          }
+        ],
+        "scale_label": "Scale-up range",
+        "scale_value": "1 mt to 35 mt",
+        "closing_heading": "Let’s bring your product or intermediate to life.",
+        "closing_copy": "Looking for a partner to turn an idea into reliable production? Let’s talk about how KLK OLEO Surfactants’ custom manufacturing can support your business.",
+        "seo_title": "Custom Chemical Manufacturing | KLK OLEO Surfactants",
+        "seo_description": "Expert custom and contract chemical manufacturing for industrial and specialty applications. Partner with KLK OLEO Surfactants — contact us today!"
+      }
+    },
+    {
+      "slug": "pilot-plant",
+      "data": {
+        "cta_label": "Talk to our team",
+        "form_heading": "Tell us about your project",
+        "form_copy": "Share your product idea, performance requirements, or scale-up challenge. Our team will get back to you to discuss the best next step.",
+        "form_action_label": "Contact KLK OLEO Surfactants",
+        "title": "Pilot Plant",
+        "route": "pilot-plant",
+        "heading": "Where ideas become scalable reality — Pilot Plant Chemical Manufacturing",
+        "introduction": "From a first lab concept to a 1,000 kg batch, our multipurpose pilot plant manufacturing services bridge the gap between R&D and full-scale production. Built for flexibility, speed to market, and confident scale-up, it gives start-ups, scale-ups, and established manufacturers a reliable path from promising chemistry to production-ready process.",
+        "highlights": [
+          {
+            "title": "4",
+            "copy": "Flexible reactors including glass-lined and stainless-steel options",
+            "label": ""
+          },
+          {
+            "title": "ATEX",
+            "copy": "Compliant operating environment with high ventilation and controlled handling",
+            "label": ""
+          },
+          {
+            "title": "7+",
+            "copy": "Core reaction families supported, with additional technologies on site",
+            "label": ""
+          },
+          {
+            "title": "End-to-end",
+            "copy": "Process, permits, safety, and supply-chain support throughout the project",
+            "label": ""
+          }
+        ],
+        "benefits_heading": "Scale-up support for every stage of growth",
+        "benefits": [
+          {
+            "title": "Built for flexible batch production",
+            "copy": "Scale from 100 to 1,000 kg with the flexibility to validate, refine, and prepare your process for the next manufacturing step.",
+            "label": ""
+          },
+          {
+            "title": "Many chemistries, one partner",
+            "copy": "From polymerization to quaternization, we support a wide range of reactions with the know-how and plant fit needed for specialty-chemical projects.",
+            "label": ""
+          },
+          {
+            "title": "Safety and compliance built in",
+            "copy": "ATEX compliance, PLC-supported operation, site certifications, and strong hygiene standards help keep projects controlled and reliable.",
+            "label": ""
+          }
+        ],
+        "overview_heading": "From lab idea to reliable pilot batch",
+        "overview_copy": "Our pilot plant closes the gap between R&D and full-scale production, helping transform first ideas into stable, repeatable pilot batches.",
+        "process_heading": "",
+        "process_steps": [
+          {
+            "title": "Validate the chemistry",
+            "copy": "Select the right reactor, utilities, and work-up route for your chemistry.",
+            "label": ""
+          },
+          {
+            "title": "Refine the process",
+            "copy": "Refine process conditions, handling, and purification for reliable pilot performance.",
+            "label": ""
+          },
+          {
+            "title": "Prepare for scale",
+            "copy": "Move forward with stronger process confidence and a clearer route to manufacturing.",
+            "label": ""
+          }
+        ],
+        "technologies_heading": "Many chemistries. One experienced partner.",
+        "technologies_copy": "Our permit covers a broad range of reactions, giving customers the flexibility to scale specialty-chemical projects with confidence.",
+        "technologies": [
+          {
+            "title": "Polymerization",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Amidation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Phosphatation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Sulphitation",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Esterification",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Neutralization",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Quaternization",
+            "copy": "",
+            "label": ""
+          }
+        ],
+        "materials_heading": "Licensed for challenging raw materials",
+        "materials_copy": "Our European site is licensed and equipped to handle demanding raw materials, supported by strong safety standards and disciplined operation.",
+        "materials": [
+          {
+            "title": "Hexamethyl di-isocyanate",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Methyl chloride and benzyl chloride",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Dimethyl sulfate",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Acrylic acid and methacrylic acid",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Caustic soda, sulphuric acid, and hydrochloric acid",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Amines and anhydrous ammonia",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Phosphorous pentoxide",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Styrene and xylene",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Ethanol and isopropanol",
+            "copy": "",
+            "label": ""
+          },
+          {
+            "title": "Vinyl acetate",
+            "copy": "",
+            "label": ""
+          }
+        ],
+        "equipment_heading": "Four reactors and clean work-up options",
+        "equipment_copy": "The pilot plant includes three stainless-steel reactors and one glass-lined reactor, supported by work-up options that help deliver clean product quality.",
+        "equipment": [
+          {
+            "title": "200 L",
+            "copy": "High-temperature capability up to 350 °C with distillation support.",
+            "label": "Stainless steel"
+          },
+          {
+            "title": "500 L",
+            "copy": "Controlled reflux and distillation column for flexible process development.",
+            "label": "Stainless steel"
+          },
+          {
+            "title": "500 L",
+            "copy": "Added material compatibility for projects needing a glass-lined environment.",
+            "label": "Glass-lined"
+          },
+          {
+            "title": "1000 L",
+            "copy": "Anchor agitation and high-viscosity handling for larger pilot batches.",
+            "label": "Stainless steel"
+          }
+        ],
+        "assurance_heading": "Controlled, compliant, and designed for safe operation",
+        "assurance_copy": "Your project runs in an environment designed for consistency, compliance, and operational control from start to finish.",
+        "assurances": [
+          {
+            "title": "PLC control room",
+            "copy": "Partly automated operation with controlled process monitoring and a clear production environment.",
+            "label": "Operations"
+          },
+          {
+            "title": "ATEX compliant",
+            "copy": "Suitable for projects requiring controlled handling in a safety-focused operating setup.",
+            "label": "Compliance"
+          },
+          {
+            "title": "High hygiene level",
+            "copy": "Tiled floor and wall areas support clean handling and production discipline.",
+            "label": "Site standards"
+          },
+          {
+            "title": "Kosher / Halal",
+            "copy": "Kosher-certified site, with Halal possible on request depending on project requirements.",
+            "label": "Certifications"
+          }
+        ],
+        "support_heading": "More than production: end-to-end project support",
+        "support_copy": "From process development to permits and supply-chain topics, our team supports the work around the batch so you can focus on moving your project forward.",
+        "support_items": [
+          {
+            "title": "Process development",
+            "copy": "Improve robustness, repeatability, and scale-up readiness before the next production step.",
+            "label": ""
+          },
+          {
+            "title": "Permits & operations",
+            "copy": "Benefit from a team that understands permits, safe handling, and the realities of demanding chemistries.",
+            "label": ""
+          },
+          {
+            "title": "Supply-chain perspective",
+            "copy": "Build a more practical route to commercialization with support that goes beyond the reactor itself.",
+            "label": ""
+          }
+        ],
+        "closing_heading": "How could we support your next project?",
+        "closing_copy": "Get in touch to explore how we can turn your next idea into a reliable, scalable reality — from first concept to pilot batch and beyond.",
+        "seo_title": "Chemical Pilot Plant & Scale-Up Services | KLK OLEO Surfactants",
+        "seo_description": "Scale chemistry from lab to 100–1,000 kg batches with KLK OLEO Surfactants pilot plant and process development support. Discuss your project today."
+      }
+    }
+  ]
+}

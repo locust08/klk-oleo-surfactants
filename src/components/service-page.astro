@@ -1,0 +1,27 @@
+---
+import type { ServicePageData } from '../cms/service-types';
+import Rows from './service-rows.astro';
+import { ServiceForm } from './service-form';
+import type { SiteData } from '../cms/types';
+import { resolveCmsMedia } from '../cms/media';
+import '../styles/service-pages.css';
+interface Props { data:ServicePageData; siteData:SiteData; }
+const {data,siteData}=Astro.props;
+const custom=data.route==='custom-manufacturing';
+const image=resolveCmsMedia(data.intro_image,Astro.locals.emdash?.getPublicMediaUrl);
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/surfactants">Home</a><span aria-hidden="true">›</span><span aria-current="page">{data.title}</span></div></nav>
+<section class="section service-intro"><div class="container service-intro-grid"><div><span class="eyebrow">{data.title}</span><h1>{data.heading}</h1></div><div><p>{data.introduction}</p><a class="button" href="#project-enquiry">{data.cta_label||'Talk to our team'}<span aria-hidden="true">↗</span></a></div>{image&&<img class="service-intro-image" src={image} alt={data.intro_image?.alt||''}/>}</div></section>
+{!custom&&<section class="section service-highlights-section"><div class="container"><Rows items={data.highlights} kind="highlights"/></div></section>}
+{custom&&<section class="section"><div class="container"><h2>{data.technologies_heading}</h2><p class="service-lead">{data.technologies_copy}</p><ul class="service-technologies">{data.technologies?.map(item=><li>{item.title}</li>)}</ul></div></section>}
+<section class={`section ${custom?'':'service-mint'}`}><div class="container"><h2>{data.benefits_heading}</h2><Rows items={data.benefits} kind="benefits" numbered={!custom}/></div></section>
+{custom&&<section class="section service-mint"><div class="container"><Rows items={data.highlights} kind="highlights"/><a href="#project-enquiry" class="text-link service-secondary-cta">{data.cta_label||'Contact us'}<span aria-hidden="true">→</span></a></div></section>}
+<section class="section"><div class="container"><h2>{data.overview_heading}</h2><p class="service-lead">{data.overview_copy}</p>{data.process_heading&&<h2 class="service-subheading">{data.process_heading}</h2>}<Rows items={data.process_steps} kind="steps" numbered/></div></section>
+{!custom&&<>
+  <section class="section service-mint"><div class="container"><h2>{data.technologies_heading}</h2><p class="service-lead">{data.technologies_copy}</p><ul class="service-technologies">{data.technologies?.map(item=><li>{item.title}</li>)}</ul></div></section>
+  <section class="section"><div class="container"><h2>{data.materials_heading}</h2><p class="service-lead">{data.materials_copy}</p><ul class="service-materials">{data.materials?.map(item=><li>{item.title}</li>)}</ul></div></section>
+  <section class="section service-mint"><div class="container"><h2>{data.equipment_heading}</h2><p class="service-lead">{data.equipment_copy}</p><Rows items={data.equipment} kind="equipment"/></div></section>
+</>}
+<section class={`section ${custom?'service-mint':''}`}><div class="container"><h2>{data.assurance_heading}</h2><p class="service-lead">{data.assurance_copy}</p><Rows items={data.assurances} kind="assurances"/></div></section>
+<section class={`section ${custom?'':'service-mint'}`}><div class="container"><h2>{data.support_heading}</h2>{data.support_copy&&<p class="service-lead">{data.support_copy}</p>}<Rows items={data.support_items} kind="support" numbered={!custom}/>{data.scale_value&&<div class="service-scale"><span>{data.scale_label}</span><strong>{data.scale_value}</strong></div>}</div></section>
+<section class="section service-project-section" id="project-enquiry"><div class="container"><h2>{data.closing_heading}</h2><p class="service-lead">{data.closing_copy}</p><div class="service-project"><div class="service-project-intro"><span class="eyebrow">{data.title}</span><h2>{data.form_heading}</h2><p>{data.form_copy}</p></div><ServiceForm siteData={siteData} title={data.title} submitLabel={data.form_action_label} client:load/></div></div></section>

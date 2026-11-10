@@ -15,4 +15,4 @@ export type Home = {
 };
 export type Site = { title: string; ctaCopy: string; ctaHeading: string; footerCopy: string; sustainabilityUrl: string; headerLinkedin: string; footerLinkedin: string; careerUrl?: string; contactEmail?: string; consentLabel: string };
 export type Page = { title: string; heading: string; introduction: string; seoTitle?: string; seoDescription?: string };
-export type SiteData = { home: Home | null; site: Site | null; products: Product[]; markets: Market[]; articles: Article[]; faqs: [string, string][]; pages: Record<string, Page> };
+export type SiteData = { home: Home | null; site: Site | null; products: Product[]; markets: Market[]; articles: Article[]; faqs: [string, string][]; pages: Record<string, Page>; servicePages: {route:string;title:string}[] };

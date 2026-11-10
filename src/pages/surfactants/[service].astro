@@ -1,0 +1,18 @@
+---
+import { getEmDashEntry } from 'emdash';
+import Layout from '../../layouts/SiteLayout.astro';
+import ServicePage from '../../components/service-page.astro';
+import { serviceRoutes } from '../../cms/service-seed';
+import { loadSiteContent } from '../../cms/published';
+import type { ServicePageData } from '../../cms/service-types';
+const slug=Astro.params.service!;
+if(!serviceRoutes.some(route=>route===slug))return Astro.rewrite('/404');
+const {entry,error}=await getEmDashEntry('service_pages',slug);
+if(error)throw error;
+if(!entry||entry.data.route!==slug)return Astro.rewrite('/404');
+const {data}=await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
+const service=entry.data as unknown as ServicePageData;
+---
+<Layout data={data} title={String(service.seo_title||`${service.title} | KLK OLEO Surfactants`)} description={service.seo_description||service.introduction}>
+  <article class="service-page" {...entry.edit}><ServicePage data={service} siteData={data}/></article>
+</Layout>
