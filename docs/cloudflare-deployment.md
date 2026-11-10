@@ -4,8 +4,8 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `91dccfa`.
-Cloudflare version: `7d5aa2b2-0b48-48cf-ad85-9c8d9eb03f23`.
+Deployed application source: `2235c45`.
+Cloudflare version: `528df596-36d4-4611-acad-b63d47a6e0e5`.
 Deployed 10 November 2026; 100% traffic on this version.
 
 ## Commands
@@ -38,3 +38,6 @@ Pilot Plant landing page deployed from application commit `37630d5`. Live HTTP 2
 
 
 Custom Manufacturing landing page deployed from application commit `91dccfa` in version `7d5aa2b2-0b48-48cf-ad85-9c8d9eb03f23`. Live homepage slide three navigation and route HTTP 200 passed; supplied icon instances loaded without failures and the exact supplied description is present. Desktop/mobile overflow checks, enquiry draft review, lint, type checking, four tests and Worker build passed. Both manufacturing pages now use metadata from the supplied Drive document.
+
+
+Pilot Plant reference-motion refinement deployed from `2235c45` as `528df596-36d4-4611-acad-b63d47a6e0e5`. Eight interactive cards use vertical panel reveals and staggered entrance; project support matches the centred Oriental Biotech process treatment. Live expanded card state, revealed description, eight-card count, centred support and no horizontal overflow verified. Mobile keyboard/pointer behavior, source wording, lint, typecheck, four tests and Worker build passed. Local development server restarted after production build.
