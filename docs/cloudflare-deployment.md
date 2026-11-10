@@ -4,8 +4,8 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `718ca80f71e55c07ce355a871efb76eed51978af`.
-Cloudflare version: `8462f3e9-1e4a-41d9-b7f3-7a83fff4eefc`.
+Deployed application source: `37630d5`.
+Cloudflare version: `b109bb7f-f2f1-40a3-ad8e-8d830d60684a`.
 Deployed 10 November 2026; 100% traffic on this version.
 
 ## Commands
@@ -32,3 +32,6 @@ The site remains noindex/nofollow. Contact requests use the existing draft/downl
 The dependency audit reports transitive build-tool advisories in glob/minimatch and ESLint dependency chains. The current supported OpenNext adapter is retained; npm's suggested adapter downgrade was not applied.
 
 The banner article update imports both supplied Google Docs into static editorial pages. Live checks passed for both article routes, banner and related-reading navigation, complete source paragraph counts and unknown-article HTTP 404 handling. Desktop and mobile layouts passed without overflow.
+
+
+Pilot Plant landing page deployed from application commit `37630d5`. Live HTTP 200 and browser checks passed at `/surfactants/pilot-plant`; homepage and footer links resolve to the page. PDF content includes all seven reaction families, ten licensed raw-material entries, all four reactor specifications and qualified Kosher/Halal wording. Local draft review, desktop and mobile layouts verified. Lint, typecheck, four tests and final Worker build passed.
