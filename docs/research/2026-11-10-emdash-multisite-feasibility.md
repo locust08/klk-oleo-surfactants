@@ -1,0 +1,35 @@
+# EmDash feasibility for three KLK properties
+
+Research date: 10 November 2026. This is a documentation and repository assessment, not verification of a deployed KLK installation. No EmDash installation, provisioning, or migration was performed. Upstream implementation was inspected at [commit f636085](https://github.com/emdash-cms/emdash/commit/f636085f0f4993dd137a5ec9ab4b1775ec90c462), dated 9 November 2026; this is a main-branch snapshot, not a claim that every inspected change is already released.
+
+## Decision
+
+One EmDash-backed Astro application can reasonably present KLK corporate at `/`, Agrochemical at `/agrochemical`, and Surfactants at `/surfactants`, with a common administration interface. These would be three public sections within one CMS security boundary. Stock EmDash is not established as a replacement for the current Payload implementation's site-scoped access controls. Retaining equivalent isolation requires either separate instances or substantial authorization work and verification.
+
+This conclusion follows from the documented architecture: public pages, administration, database, and media share one application; developers define the public pages and queries. Choosing three URL prefixes is application routing work, not evidence of three isolated tenants. [Architecture](https://docs.emdashcms.com/concepts/architecture/), [admin panel](https://docs.emdashcms.com/concepts/admin-panel/), [page layouts](https://docs.emdashcms.com/guides/page-layouts/).
+
+## Verified authorization behavior
+
+EmDash's current `User` type has one `role`, with five allowed levels: Subscriber 10, Contributor 20, Author 30, Editor 40, and Admin 50. There is no site-membership or per-collection role map in this user interface. A generic `data` field exists, but its presence does not supply enforcement. [Pinned user and role types](https://github.com/emdash-cms/emdash/blob/f636085f0f4993dd137a5ec9ab4b1775ec90c462/packages/auth/src/types.ts).
+
+The permission map assigns minimum role levels to actions. `hasPermission` compares the user's role against that minimum; `canActOnOwn` checks the user's ID against the resource owner and selects the own/any permission. Neither accepts a tenant, site, or collection ACL. Editors receive edit-any/publish-any content permissions; Authors receive own-entry permissions. The inspected main branch also grants Contributors permission to edit their own drafts. [Pinned RBAC implementation](https://github.com/emdash-cms/emdash/blob/f636085f0f4993dd137a5ec9ab4b1775ec90c462/packages/auth/src/rbac.ts), [authentication documentation](https://docs.emdashcms.com/guides/authentication/).
+
+The API wrappers preserve this role/ownership model. Content listing checks `content:read`; creation checks `content:create`; updating checks entry ownership/status, and deletion checks ownership. The collection identifies which content is requested, but is not passed as an authorization dimension to these helpers. This supports the specific conclusion that the inspected stock content authorization does not implement per-site or per-collection user permissions. [Pinned authorization helpers](https://github.com/emdash-cms/emdash/blob/f636085f0f4993dd137a5ec9ab4b1775ec90c462/packages/core/src/api/authorize.ts), [list/create endpoint](https://github.com/emdash-cms/emdash/blob/f636085f0f4993dd137a5ec9ab4b1775ec90c462/packages/core/src/astro/routes/api/content/%5Bcollection%5D/index.ts), [entry endpoint](https://github.com/emdash-cms/emdash/blob/f636085f0f4993dd137a5ec9ab4b1775ec90c462/packages/core/src/astro/routes/api/content/%5Bcollection%5D/%5Bid%5D.ts).
+
+Collection groups organize the admin sidebar. Splitting collections into corporate/agrochemical/surfactants groups, or adding a `site` select field and filtering frontend queries, does not add server-enforced tenant isolation. The admin documentation explicitly distinguishes hidden navigation from server authorization. [Admin panel](https://docs.emdashcms.com/concepts/admin-panel/), [configuration](https://docs.emdashcms.com/reference/configuration/).
+
+## Topology tradeoffs
+
+| Approach | Result | Consequence for KLK |
+| --- | --- | --- |
+| One application, one instance | Three public route prefixes; one normal `/_emdash/admin/`; shared content, users, media and settings | Appropriate if editors are trusted across all three properties. Does not preserve site-scoped permissions automatically. |
+| Three instances, preferably distinct hosts | Each application has its own database, storage, users and normal admin route | Provides an architectural isolation boundary when resources are actually separate; adds deployment, account, backup and content-sharing overhead. A shared identity provider can simplify sign-in, but does not create one native network admin. |
+| Shared instance with custom authorization | Potentially one admin plus site-aware behavior | Requires a designed authorization layer covering reads, mutations, media, relationships, previews and every exposed API/MCP path; feasibility is not proven by a content-save hook. |
+
+The first two rows are architectural inferences from the verified application model. Route injection currently hardcodes `/_emdash/admin/[...path]` and `/_emdash/api/...`. Do not promise three independent installations mounted under `/agrochemical/_emdash`, `/surfactants/_emdash`, or a configurable `/admin` merely from Astro's public routing. Same-host proxy arrangements require separate validation of API paths, assets, callbacks, cookies and origins. [Pinned route injection](https://github.com/emdash-cms/emdash/blob/f636085f0f4993dd137a5ec9ab4b1775ec90c462/packages/core/src/astro/integration/routes.ts), [configuration](https://docs.emdashcms.com/reference/configuration/).
+
+## Roadmap evidence and parity requirement
+
+The old authorization issue was moved into an Ideas discussion; closure is not evidence that scoped permissions shipped. Likewise, multi-tenancy and configurable route prefixes appear in feature discussions. The multi-tenancy discussion's disposable Durable Object demo is not proof of a production multi-site management feature. Current source above is the basis for the permission finding. [Authorization discussion #824](https://github.com/emdash-cms/emdash/discussions/824), [multi-tenancy discussion #139](https://github.com/emdash-cms/emdash/discussions/139), [route-prefix proposal #187](https://github.com/emdash-cms/emdash/discussions/187).
+
+The supplied KLK migration baseline includes site-scoped products/pages/media/leads/routing, six roles including `lead-manager`, and cross-site relationship rejection. A migration must explicitly reproduce or intentionally change each requirement. Five global roles and ownership are insufficient evidence of parity. Replacing Payload also does not inherently require rewriting the existing Next.js frontend: EmDash exposes REST interfaces, so a bridge is technically plausible, while authentication, preview and native visual-editing compatibility need validation. [REST API](https://docs.emdashcms.com/reference/rest-api/).
