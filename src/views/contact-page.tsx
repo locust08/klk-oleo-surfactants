@@ -1,0 +1,3 @@
+import { Breadcrumbs,PageHeading } from '@/components/page-heading';
+import { ContactForm } from '@/components/contact-form';
+export function ContactPage({product}:{product?:string}){return <><Breadcrumbs items={[{label:'Contact Us'}]}/><PageHeading title="Contact Us" image="/images/reference/contact.webp"/><section className="section contact-section"><div className="container"><span className="eyebrow">Discuss Your Needs</span><h2>Get in Touch with Our Team</h2><p className="wide-copy">If you wish to enquire about KLK OLEO Surfactants products, please complete the short form provided. Our team will be in contact with you shortly.</p><ContactForm product={product}/></div></section></>;}

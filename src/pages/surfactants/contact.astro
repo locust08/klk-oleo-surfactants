@@ -1,0 +1,7 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';
+import { ContactPage } from '../../views/contact-page';
+import { products } from '../../lib/catalog';
+const product = products.find(item => item.brand === Astro.url.searchParams.get('product'))?.brand;
+---
+<Layout title="Contact Us | KLK OLEO Surfactants"><ContactPage product={product} client:load /></Layout>

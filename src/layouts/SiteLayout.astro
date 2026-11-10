@@ -1,0 +1,27 @@
+---
+import '../styles/globals.css';
+import { SiteHeader } from '../components/site-header';
+import { SiteFooter } from '../components/site-footer';
+interface Props { title: string; description?: string; }
+const { title, description = 'Global surfactant solutions from KLK OLEO.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-scroll-behavior="smooth">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="canonical" href={`https://www.klkoleo.com${Astro.url.pathname}`} />
+    <link rel="icon" href="/images/brand/favicon.png" />
+    <link rel="preload" href="/fonts/poppins-400.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/poppins-600.ttf" as="font" type="font/ttf" crossorigin />
+  </head>
+  <body><SiteHeader pathname={Astro.url.pathname} client:load /><main id="main"><slot /></main><SiteFooter client:load /></body>
+</html>
+<style is:global>
+  @font-face{font-family:Poppins;src:url('/fonts/poppins-400.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:Poppins;src:url('/fonts/poppins-500.ttf') format('truetype');font-weight:500;font-display:swap}
+  @font-face{font-family:Poppins;src:url('/fonts/poppins-600.ttf') format('truetype');font-weight:600;font-display:swap}
+  @font-face{font-family:Poppins;src:url('/fonts/poppins-700.ttf') format('truetype');font-weight:700;font-display:swap}
+  :root{--font-poppins:Poppins}
+</style>

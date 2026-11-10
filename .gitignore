@@ -1,5 +1,11 @@
 node_modules/
 .next/
+.astro/
+dist/
+uploads/
+data.db*
+*.sqlite*
+playwright-report/
 *.tsbuildinfo
 next-env.d.ts
 .env*

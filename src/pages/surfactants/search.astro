@@ -1,0 +1,6 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';
+import { SearchPage } from '../../views/search-page';
+const query = (Astro.url.searchParams.get('q') || '').trim().slice(0, 120);
+---
+<Layout title="Product Search | KLK OLEO Surfactants"><SearchPage query={query} client:load /></Layout>

@@ -1,10 +1,8 @@
-'use client';
+import { useHydrated } from '@/lib/use-hydrated';
 import { useRef,useState } from 'react';
 import { FiArrowRight,FiArrowLeft,FiDownload,FiCheckCircle } from 'react-icons/fi';
-const countryCodes='AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI CV KH CM CA CF TD CL CN CO KM CG CR CI HR CU CY CZ CD DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW'.split(' ');
-const regionNames=new Intl.DisplayNames(['en'],{type:'region'});
-const countries=countryCodes.map(code=>regionNames.of(code)!).sort((a,b)=>a.localeCompare(b));
-export function ContactForm({product}:{product?:string}){
+import countries from '@/lib/countries.json';
+export function ContactForm({product}:{product?:string}){const hydrated=useHydrated();
  const formRef=useRef<HTMLFormElement>(null);const reviewRef=useRef<HTMLElement>(null);const[review,setReview]=useState<Record<string,string>|null>(null);
  const download=()=>{if(!review)return;const text='KLK OLEO Surfactants — Enquiry draft\nPrepared locally; not submitted.\n\n'+Object.entries(review).map(([key,value])=>`${key}: ${value||'—'}`).join('\n\n');const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='klk-oleo-enquiry-draft.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
  return <div className="contact-form-wrap"><p className="preview-note"><strong>Local preview</strong> — this form prepares an enquiry draft for review. Nothing is sent or stored.</p>
@@ -21,8 +19,8 @@ export function ContactForm({product}:{product?:string}){
   </div>
   <label className="consent-label"><input name="consent" type="checkbox" required/> <span>I agree that KLK OLEO may use my submitted details to respond to this enquiry. <a href="https://www.klkoleo.com/privacy-policy/">Privacy information</a></span></label>
   <p className="small-note">Fields marked * are required. Contact routing and final consent wording will be confirmed before launch.</p>
-  <button type="submit" className="button">Review enquiry<FiArrowRight aria-hidden="true"/></button>
+  <button disabled={!hydrated} type="submit" className="button">Review enquiry<FiArrowRight aria-hidden="true"/></button>
  </form>
- {review&&<section className="enquiry-review" ref={reviewRef} tabIndex={-1} aria-labelledby="review-title"><FiCheckCircle className="review-icon" aria-hidden="true"/><h2 id="review-title">Review your enquiry</h2><p>Your draft is ready. Nothing has been sent.</p><dl>{Object.entries(review).map(([key,value])=>value&&<div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><div className="review-actions"><button className="button" onClick={download}>Download draft<FiDownload aria-hidden="true"/></button><button className="text-link" onClick={()=>{setReview(null);requestAnimationFrame(()=>formRef.current?.querySelector('input')?.focus());}}><FiArrowLeft aria-hidden="true"/>Edit enquiry</button></div></section>}
+ {review&&<section className="enquiry-review" ref={reviewRef} tabIndex={-1} aria-labelledby="review-title"><FiCheckCircle className="review-icon" aria-hidden="true"/><h2 id="review-title">Review your enquiry</h2><p>Your draft is ready. Nothing has been sent.</p><dl>{Object.entries(review).map(([key,value])=>value&&<div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><div className="review-actions"><button disabled={!hydrated} className="button" onClick={download}>Download draft<FiDownload aria-hidden="true"/></button><button disabled={!hydrated} className="text-link" onClick={()=>{setReview(null);requestAnimationFrame(()=>formRef.current?.querySelector('input')?.focus());}}><FiArrowLeft aria-hidden="true"/>Edit enquiry</button></div></section>}
  </div>;
 }
