@@ -71,8 +71,8 @@
 - [x] Run full tests, type checking, lint and production Node build.
 - [x] Run desktop/tablet/mobile browser checks, including CMS publish/preview/revision and the complete enquiry path.
 - [x] Exercise backup/restore using disposable local data; document first-admin setup and client invitation without sending invitations.
-- [ ] Request one fresh whole-branch code review; fix material findings with regression tests.
-- [ ] Report working local URLs, verification results, external-delivery/hosting dependencies and any material limitations.
+- [x] Request one fresh whole-branch code review; fix material findings with regression tests.
+- [x] Report working local URLs, verification results, external-delivery/hosting dependencies and any material limitations.
 
 ## Execution rulings
 

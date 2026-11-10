@@ -16,6 +16,7 @@ test('catalogue retains three categories, brand anchors and bounded search', asy
   await page.goto('/surfactants/products');
   await expect(page.locator('.category-card')).toHaveCount(3);
   await page.getByRole('link', { name: /Anionic Surfactants/ }).last().click();
+  await page.waitForURL('**/products/anionic', {waitUntil:'load'});
   await expect(page.locator('.product-panel')).toHaveCount(12);
   await page.goto('/surfactants/search?q=pAlMoSaLt');
   await expect(page.locator('.search-result')).toHaveCount(1);

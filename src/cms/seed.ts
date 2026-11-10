@@ -3,14 +3,14 @@ import * as source from '../lib/content';
 import { products } from '../lib/catalog';
 
 const snake = (value: string) => value.replace(/[A-Z]/g, character => `_${character.toLowerCase()}`);
-const wireData = (value: unknown): unknown => Array.isArray(value) ? value.map(wireData) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).map(([key, item]) => [snake(key), wireData(item)])) : value;
+const wireData = (value: unknown): unknown => Array.isArray(value) ? value.map(wireData) : value && typeof value === 'object' ? 'provider' in value ? value : Object.fromEntries(Object.entries(value).map(([key, item]) => [snake(key), wireData(item)])) : value;
 const text = (slug: string, label: string, required = false): SeedField => ({ slug: snake(slug), label, type: 'text', required, validation: { maxLength: 5000 } });
 const short = (slug: string, label: string, required = false): SeedField => ({ slug: snake(slug), label, type: 'string', required, validation: { maxLength: 500 } });
 const image = (slug: string, label: string): SeedField => ({ slug: snake(slug), label, type: 'image', validation: { allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'] } });
 const choice = (slug: string, label: string, options: string[], required = false): SeedField => ({ slug: snake(slug), label, type: 'select', required, validation: { options } });
-const rows = (slug: string, label: string, fields: SeedField[], maxItems = 50, minItems = 0): SeedField => ({ slug: snake(slug), label, type: 'repeater', validation: { subFields: fields, maxItems, minItems } });
-const collection = (slug: string, label: string, fields: SeedField[], urlPattern?: string): SeedCollection => ({ slug, label, fields: [short('title', 'Title', true), ...fields], supports: ['drafts', 'revisions', 'preview'], urlPattern, group: 'Surfactants', editLocking: true });
-const draft = (slug: string, data: Record<string, unknown>) => ({ id: `source:${slug}`, slug, status: 'draft' as const, data: wireData(data) as Record<string, unknown> });
+const rows = (slug: string, label: string, fields: SeedField[], maxItems = 50, minItems = 0): SeedField => ({ slug: snake(slug), label, type: 'repeater', validation: { subFields: fields.map(field => ({ ...field, ...(field.validation?.options ? { options: field.validation.options } : {}) })), maxItems, minItems } });
+const collection = (slug: string, label: string, fields: SeedField[], urlPattern?: string): SeedCollection => ({ slug, label, fields: [short('title', 'Title', true), short('sourceKey', 'Import source key (managed by agency)'), ...fields], supports: ['drafts', 'revisions', 'preview'], urlPattern, group: 'Surfactants', editLocking: true });
+const draft = (slug: string, data: Record<string, unknown>) => ({ id: `source:${slug}`, slug, status: 'draft' as const, data: wireData({sourceKey:`source:${slug}`,...data}) as Record<string, unknown> });
 const pairs = (items: string[][]) => items.map(([title, copy]) => ({ title, copy }));
 
 /** Source snapshots only: imports always create drafts and skip existing slugs. */
@@ -40,7 +40,7 @@ export function buildSeed(): SeedFile {
     videoHeading: 'From development to full-scale production', qualityHeading: 'High Standard, High Trust', qualityCopy: 'Our ISO-certified quality systems and full documentation support make audits and approvals straightforward for our customers.',
     awardTitle: 'Shell Gold Award for Operational Excellence', awardCopy: 'We are proud to be recognised for award-winning operations, with 24-hour responsiveness, proactive supply reliability, and co-created solutions, backed by ISO-certified management systems and a Platinum EcoVadis rating.',
     newsHeading: 'Latest News', newsCopy: 'Stay informed with the latest announcements, exhibitions, and milestones from KLK OLEO Surfactants. Explore how we continue to advance innovation and sustainability across our business.', faqHeading: 'Frequently Asked Questions',
-    heroSlides: source.heroSlides.map(slide => ({ ...slide, image: { id: `/images/hero/${slide.image}`, src: `/images/hero/${slide.image}`, alt: slide.alt, provider: 'external' } })),
+    heroSlides: source.heroSlides.map(slide => ({ ...slide, image: { id: `/images/hero/${slide.image}`, src: `/images/hero/${slide.image}`, alt: slide.alt, provider: 'external', mimeType: 'image/jpeg' } })),
     stats: [{ value: '100+', label: 'Years of surfactant expertise' }, { value: '100+', label: 'Countries supplied' }, { value: '7', label: 'Surfactants manufacturing\nsites in Europe and Asia' }],
     capabilities: pairs(source.capabilities), helpItems: pairs(source.helpItems),
     certifications: ['RSPO', 'ISCC PLUS', 'EcoVadis', 'ISO', 'Kosher', 'Halal', 'COSMOS ORGANIC', 'COSMOS APPROVED', 'Natural & Organic'].map(name => ({ name })),
@@ -49,7 +49,7 @@ export function buildSeed(): SeedFile {
     version: '1', meta: { name: 'KLK OLEO Surfactants', description: 'Source content imported as drafts for editorial review.' },
     collections: [
       collection('home', 'Home', [{...choice('identity', 'Fixed identity', ['home'], true), unique: true}, ...homeFields], '/surfactants'),
-      collection('brands', 'Brands', [choice('category', 'Category', ['anionic', 'cationic', 'nonionic'], true), short('descriptor', 'Descriptor'), text('summary', 'Approved summary'), { slug: 'order', label: 'Order', type: 'integer', indexed: true }, { slug: 'brochure', label: 'Approved brochure', type: 'file', validation: { allowedMimeTypes: ['application/pdf'] } }, image('image', 'Image'), short('sourceKey', 'Source key')], '/surfactants/brands/{slug}'),
+      collection('brands', 'Brands', [choice('category', 'Category', ['anionic', 'cationic', 'nonionic'], true), short('descriptor', 'Descriptor'), text('summary', 'Approved summary'), { slug: 'order', label: 'Order', type: 'integer', indexed: true }, { slug: 'brochure', label: 'Approved brochure', type: 'file', validation: { allowedMimeTypes: ['application/pdf'] } }, image('image', 'Image')], '/surfactants/brands/{slug}'),
       collection('markets', 'Markets', [text('copy', 'Description'), choice('colour', 'Overlay colour', ['teal', 'pink', 'green', 'grey', 'purple']), { slug: 'url', label: 'Approved destination', type: 'url' }, { slug: 'order', label: 'Order', type: 'integer', indexed: true }], '/surfactants/our-markets#{slug}'),
       collection('news', 'News', [choice('category', 'Category', ['Exhibition', 'Product', 'Corporate', 'Sustainability'], true), text('summary', 'Summary'), { slug: 'body', label: 'Article body', type: 'portableText' }, { slug: 'publication_date', label: 'Approved publication date', type: 'datetime' }, image('image', 'Featured image')], '/surfactants/news-media/{slug}'),
       collection('faqs', 'FAQs', [text('answer', 'Answer', true), { slug: 'order', label: 'Order', type: 'integer', indexed: true }], '/surfactants#faq'),

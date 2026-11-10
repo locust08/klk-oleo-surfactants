@@ -1,23 +1,24 @@
 import { getEmDashCollection } from 'emdash';
 import type { SiteData, Home, Site, Article, Media } from './types';
 import { safeDestination } from './content-policy';
+import { resolveCmsMedia } from './media';
 
 function camel(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(camel);
   if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, item]) => [key.replace(/_([a-z])/g, (_, c) => c.toUpperCase()), camel(item)]));
   return value;
 }
-const mediaSrc = (value: unknown) => safeDestination(typeof value === 'string' ? value : (value as Media | null)?.src || (value as Media | null)?.url);
 
 /** EmDash's request context supplies authorised previews; ordinary reads stay published-only. */
-export async function loadSiteContent() {
+export async function loadSiteContent(publicMediaUrl?: (key: string) => string) {
+  const mediaSrc = (value: unknown) => resolveCmsMedia(value, publicMediaUrl);
   const names = ['home', 'brands', 'markets', 'news', 'faqs', 'pages', 'site_content'] as const;
   const results = await Promise.all(names.map(name => getEmDashCollection(name, { limit: 100 })));
   for (const result of results) if (result.error) throw result.error;
   const mapped = results.map(result => result.entries.map((entry): Record<string, unknown> => ({ ...camel(entry.data) as Record<string, unknown>, slug: String(entry.data.slug || entry.id) })));
   const [homes, brands, markets, articles, faqs, pages, sites] = mapped;
-  const rawHome = homes.find(item => item.slug === 'home');
-  const rawSite = sites.find(item => item.slug === 'site');
+  const rawHome = homes.find(item => item.identity === 'home');
+  const rawSite = sites.find(item => item.identity === 'site');
   const data: SiteData = {
     home: rawHome ? {
       ...Object.fromEntries(['title','introduction','portfolioCopy','introHeading','helpHeading','portfolioHeading','portfolioInstruction','marketsHeading','marketsCopy','partnerHeading','partnerCopy','videoHeading','qualityHeading','qualityCopy','awardTitle','awardCopy','newsHeading','newsCopy','faqHeading'].map(key => [key, String(rawHome[key] || '')])),

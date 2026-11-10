@@ -10,6 +10,20 @@ test('CMS destinations reject executable and protocol-relative URLs', async () =
   assert.equal(policy.safeDestination('https://www.klkoleo.com/'), 'https://www.klkoleo.com/');
 });
 
+test('structured CMS policy enforces hero constraints and reserved entry identities', async () => {
+  const module = await import('../src/cms/content-policy.ts');
+  assert.equal(typeof module.validateStructuredContent, 'function');
+  const hero = { title: 'Approved title', kind: 'anchor', target: '#faq', image: { id: 'test', provider: 'external', src: '/images/source.jpg', mimeType: 'image/jpeg' } };
+  assert.throws(() => module.validateStructuredContent('home', { hero_slides: [{ ...hero, kind: 'unsupported' },hero,hero] }));
+  assert.throws(() => module.validateStructuredContent('home', { hero_slides: [{ ...hero, title: 'x'.repeat(6000) },hero,hero] }));
+  assert.throws(() => module.validateStructuredContent('home', { hero_slides: [{ ...hero, image: { ...hero.image, mimeType: 'application/pdf' } },hero,hero] }));
+  assert.doesNotThrow(() => module.validateStructuredContent('home', { hero_slides: [hero,hero,hero] }));
+  assert.throws(() => module.validateStructuredContent('home', { identity: 'other' }));
+  assert.throws(() => module.validateStructuredContent('pages', { route: 'contact' }, { current: { route: 'products' } }));
+  assert.throws(() => module.validateStructuredContent('home', { identity: 'home' }, { isNew: true }));
+  assert.throws(() => module.validateStructuredContent('brands', { source_key: 'changed' }, { current: { source_key: 'brand:palmosalt' } }));
+});
+
 test('CMS destination policy validates snake-case social fields', async () => {
   const { validateDestinations } = await import('../src/cms/content-policy.ts');
   assert.throws(() => validateDestinations({ header_linkedin: 'javascript:alert(1)' }));

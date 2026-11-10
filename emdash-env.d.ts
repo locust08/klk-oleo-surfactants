@@ -10,13 +10,13 @@ export interface Brand {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   category: "anionic" | "cationic" | "nonionic";
   descriptor?: string;
   summary?: string;
   order?: number;
   brochure?: { id: string; url?: string; src?: string; filename?: string; mimeType?: string; size?: number; provider?: string; meta?: Record<string, unknown> };
   image?: { id: string; src?: string; alt?: string; caption?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; caption?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
-  source_key?: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;
@@ -30,6 +30,7 @@ export interface Faq {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   answer: string;
   order?: number;
   createdAt: Date;
@@ -45,6 +46,7 @@ export interface Home {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   identity: "home";
   introduction?: string;
   intro_heading?: string;
@@ -67,7 +69,7 @@ export interface Home {
   news_heading?: string;
   news_copy?: string;
   faq_heading?: string;
-  hero_slides?: { "title": string; "copy"?: string | null; "image"?: { id: string; src?: string; alt?: string; caption?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; caption?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } } | null; "action"?: string | null; "kind": string; "target"?: string | null; "position"?: string | null }[];
+  hero_slides?: { "title": string; "copy"?: string | null; "image"?: { id: string; src?: string; alt?: string; caption?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; caption?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } } | null; "action"?: string | null; "kind": "article" | "anchor" | "external" | "deferred"; "target"?: string | null; "position"?: string | null }[];
   stats?: { "value": string; "label": string }[];
   capabilities?: { "title": string; "copy"?: string | null }[];
   help_items?: { "title": string; "copy"?: string | null }[];
@@ -85,6 +87,7 @@ export interface Market {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   copy?: string;
   colour?: "teal" | "pink" | "green" | "grey" | "purple";
   url?: string;
@@ -102,6 +105,7 @@ export interface New {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   category: "Exhibition" | "Product" | "Corporate" | "Sustainability";
   summary?: string;
   body?: PortableTextBlock[];
@@ -120,6 +124,7 @@ export interface Page {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   route: "products" | "our-markets" | "news-media" | "contact";
   heading?: string;
   introduction?: string;
@@ -138,6 +143,7 @@ export interface SiteContent {
   slug: string | null;
   status: string;
   title: string;
+  source_key?: string;
   identity: "site";
   cta_heading?: string;
   cta_copy?: string;

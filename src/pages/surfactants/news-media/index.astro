@@ -2,6 +2,6 @@
 import Layout from '../../../layouts/SiteLayout.astro';
 import { PageIsland } from '../../../components/site-islands';
 import { loadSiteContent } from '../../../cms/published';
-const {data} = await loadSiteContent();
+const {data} = await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
 ---
 <Layout data={data} title={data.pages["news-media"]?.seoTitle || "News & Media | KLK OLEO Surfactants"} description={data.pages["news-media"]?.seoDescription || undefined}><PageIsland data={data} view="news"  client:load /></Layout>

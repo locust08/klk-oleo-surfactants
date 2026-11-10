@@ -30,5 +30,12 @@ test('CMS import creates draft source records and preserves editor changes on re
     const edited = await sql<{ title: string }>`select title from ec_brands where slug='palmosalt'`.execute(db);
     assert.equal(edited.rows[0].title, 'Edited PALMOSALT');
     assert.equal((await sql`select * from ec_brands`.execute(db)).rows.length, 25);
+    await sql`update ec_brands set slug='editor-renamed-palmosalt' where slug='palmosalt'`.execute(db);
+    const importer = await import('../src/cms/import-policy.ts').catch(() => null);
+    assert.ok(importer, 'Stable source identity import policy must exist');
+    const rerun = await importer.preserveImportedEntries(db, module.buildSeed());
+    await applySeed(db, rerun, { includeContent: true, onConflict: 'skip' });
+    assert.equal((await sql`select * from ec_brands`.execute(db)).rows.length, 25);
+    assert.equal((await sql<{slug:string}>`select slug from ec_brands where source_key='brand:palmosalt'`.execute(db)).rows[0].slug, 'editor-renamed-palmosalt');
   } finally { await db.destroy(); await rm(directory, { recursive: true, force: true }); }
 });

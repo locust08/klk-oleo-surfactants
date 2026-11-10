@@ -19,6 +19,15 @@
           }
         },
         {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
           "slug": "identity",
           "label": "Fixed identity",
           "type": "select",
@@ -281,7 +290,13 @@
                     "external",
                     "deferred"
                   ]
-                }
+                },
+                "options": [
+                  "article",
+                  "anchor",
+                  "external",
+                  "deferred"
+                ]
               },
               {
                 "slug": "target",
@@ -437,6 +452,15 @@
           }
         },
         {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
           "slug": "category",
           "label": "Category",
           "type": "select",
@@ -495,15 +519,6 @@
               "image/avif"
             ]
           }
-        },
-        {
-          "slug": "source_key",
-          "label": "Source key",
-          "type": "string",
-          "required": false,
-          "validation": {
-            "maxLength": 500
-          }
         }
       ],
       "supports": [
@@ -524,6 +539,15 @@
           "label": "Title",
           "type": "string",
           "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
           "validation": {
             "maxLength": 500
           }
@@ -582,6 +606,15 @@
           "label": "Title",
           "type": "string",
           "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
           "validation": {
             "maxLength": 500
           }
@@ -656,6 +689,15 @@
           }
         },
         {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
           "slug": "answer",
           "label": "Answer",
           "type": "text",
@@ -689,6 +731,15 @@
           "label": "Title",
           "type": "string",
           "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
           "validation": {
             "maxLength": 500
           }
@@ -763,6 +814,15 @@
           "label": "Title",
           "type": "string",
           "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
           "validation": {
             "maxLength": 500
           }
@@ -862,6 +922,7 @@
         "slug": "home",
         "status": "draft",
         "data": {
+          "source_key": "source:home",
           "title": "Home",
           "identity": "home",
           "introduction": "Oleo-based, synthetic, and biodegradable surfactant solutions for customers worldwide, backed by 100 years of expertise, integrated oleochemical strength, and manufacturing in Europe and Asia.",
@@ -890,7 +951,8 @@
                 "id": "/images/hero/hero-01-100-years.jpg",
                 "src": "/images/hero/hero-01-100-years.jpg",
                 "alt": "A historic gathering beside a steam train",
-                "provider": "external"
+                "provider": "external",
+                "mimeType": "image/jpeg"
               },
               "alt": "A historic gathering beside a steam train",
               "action": "Read More",
@@ -905,7 +967,8 @@
                 "id": "/images/hero/hero-02-sustainability.jpg",
                 "src": "/images/hero/hero-02-sustainability.jpg",
                 "alt": "A glass globe resting among green plants",
-                "provider": "external"
+                "provider": "external",
+                "mimeType": "image/jpeg"
               },
               "alt": "A glass globe resting among green plants",
               "action": "Read More",
@@ -920,7 +983,8 @@
                 "id": "/images/hero/hero-03-custom-manufacturing.jpg",
                 "src": "/images/hero/hero-03-custom-manufacturing.jpg",
                 "alt": "Stainless steel manufacturing tanks and walkways",
-                "provider": "external"
+                "provider": "external",
+                "mimeType": "image/jpeg"
               },
               "alt": "Stainless steel manufacturing tanks and walkways",
               "action": "Read More",
@@ -935,7 +999,8 @@
                 "id": "/images/hero/hero-04-our-markets.jpg",
                 "src": "/images/hero/hero-04-our-markets.jpg",
                 "alt": "Personal care packaging with cotton and natural materials",
-                "provider": "external"
+                "provider": "external",
+                "mimeType": "image/jpeg"
               },
               "alt": "Personal care packaging with cotton and natural materials",
               "action": "Explore Our Markets",
@@ -950,7 +1015,8 @@
                 "id": "/images/hero/hero-05-pilot-plant.jpg",
                 "src": "/images/hero/hero-05-pilot-plant.jpg",
                 "alt": "Aerial view of a manufacturing facility surrounded by woodland",
-                "provider": "external"
+                "provider": "external",
+                "mimeType": "image/jpeg"
               },
               "alt": "Aerial view of a manufacturing facility surrounded by woodland",
               "action": "Read More",
@@ -1047,11 +1113,11 @@
         "slug": "palmosalt",
         "status": "draft",
         "data": {
+          "source_key": "brand:palmosalt",
           "title": "PALMOSALT",
           "category": "anionic",
           "descriptor": "Soap Noodles",
           "order": 0,
-          "source_key": "brand:palmosalt",
           "summary": "Soap compositions for cosmetic, toiletry and laundry detergent formulations."
         }
       },
@@ -1060,11 +1126,11 @@
         "slug": "palmfonate",
         "status": "draft",
         "data": {
+          "source_key": "brand:palmfonate",
           "title": "PALMFONATE",
           "category": "anionic",
           "descriptor": "Methyl Ester Sulphonates",
-          "order": 1,
-          "source_key": "brand:palmfonate"
+          "order": 1
         }
       },
       {
@@ -1072,10 +1138,10 @@
         "slug": "sermul",
         "status": "draft",
         "data": {
+          "source_key": "brand:sermul",
           "title": "SERMUL",
           "category": "anionic",
-          "order": 2,
-          "source_key": "brand:sermul"
+          "order": 2
         }
       },
       {
@@ -1083,10 +1149,10 @@
         "slug": "servo",
         "status": "draft",
         "data": {
+          "source_key": "brand:servo",
           "title": "SERVO",
           "category": "anionic",
-          "order": 3,
-          "source_key": "brand:servo"
+          "order": 3
         }
       },
       {
@@ -1094,10 +1160,10 @@
         "slug": "servoxyl",
         "status": "draft",
         "data": {
+          "source_key": "brand:servoxyl",
           "title": "SERVOXYL",
           "category": "anionic",
-          "order": 4,
-          "source_key": "brand:servoxyl"
+          "order": 4
         }
       },
       {
@@ -1105,10 +1171,10 @@
         "slug": "serwet",
         "status": "draft",
         "data": {
+          "source_key": "brand:serwet",
           "title": "SERWET",
           "category": "anionic",
-          "order": 5,
-          "source_key": "brand:serwet"
+          "order": 5
         }
       },
       {
@@ -1116,11 +1182,11 @@
         "slug": "sympare",
         "status": "draft",
         "data": {
+          "source_key": "brand:sympare",
           "title": "SYMPARE",
           "category": "anionic",
           "descriptor": "Methyl Ester Sulphonates",
-          "order": 6,
-          "source_key": "brand:sympare"
+          "order": 6
         }
       },
       {
@@ -1128,10 +1194,10 @@
         "slug": "tensafin",
         "status": "draft",
         "data": {
+          "source_key": "brand:tensafin",
           "title": "TENSAFIN",
           "category": "anionic",
-          "order": 7,
-          "source_key": "brand:tensafin"
+          "order": 7
         }
       },
       {
@@ -1139,11 +1205,11 @@
         "slug": "tensagex",
         "status": "draft",
         "data": {
+          "source_key": "brand:tensagex",
           "title": "TENSAGEX",
           "category": "anionic",
           "descriptor": "Alcohol Ether Sulphates",
-          "order": 8,
-          "source_key": "brand:tensagex"
+          "order": 8
         }
       },
       {
@@ -1151,11 +1217,11 @@
         "slug": "tensaryl",
         "status": "draft",
         "data": {
+          "source_key": "brand:tensaryl",
           "title": "TENSARYL",
           "category": "anionic",
           "descriptor": "Linear Alkylbenzene Sulphonates & Sulphonic Acids",
-          "order": 9,
-          "source_key": "brand:tensaryl"
+          "order": 9
         }
       },
       {
@@ -1163,11 +1229,11 @@
         "slug": "tensomild",
         "status": "draft",
         "data": {
+          "source_key": "brand:tensomild",
           "title": "TENSOMILD",
           "category": "anionic",
           "descriptor": "Sulphosuccinates",
-          "order": 10,
-          "source_key": "brand:tensomild"
+          "order": 10
         }
       },
       {
@@ -1175,11 +1241,11 @@
         "slug": "tensopol",
         "status": "draft",
         "data": {
+          "source_key": "brand:tensopol",
           "title": "TENSOPOL",
           "category": "anionic",
           "descriptor": "Alcohol Sulphates",
-          "order": 11,
-          "source_key": "brand:tensopol"
+          "order": 11
         }
       },
       {
@@ -1187,10 +1253,10 @@
         "slug": "servamine",
         "status": "draft",
         "data": {
+          "source_key": "brand:servamine",
           "title": "SERVAMINE",
           "category": "cationic",
-          "order": 12,
-          "source_key": "brand:servamine"
+          "order": 12
         }
       },
       {
@@ -1198,11 +1264,11 @@
         "slug": "aidigro",
         "status": "draft",
         "data": {
+          "source_key": "brand:aidigro",
           "title": "AIDIGRO",
           "category": "nonionic",
           "descriptor": "Agrochemicals",
-          "order": 13,
-          "source_key": "brand:aidigro"
+          "order": 13
         }
       },
       {
@@ -1210,11 +1276,11 @@
         "slug": "greenbentin",
         "status": "draft",
         "data": {
+          "source_key": "brand:greenbentin",
           "title": "GREENBENTIN",
           "category": "nonionic",
           "descriptor": "Ethoxylates & Alkoxylates",
-          "order": 14,
-          "source_key": "brand:greenbentin"
+          "order": 14
         }
       },
       {
@@ -1222,10 +1288,10 @@
         "slug": "hedicol",
         "status": "draft",
         "data": {
+          "source_key": "brand:hedicol",
           "title": "HEDICOL",
           "category": "nonionic",
-          "order": 15,
-          "source_key": "brand:hedicol"
+          "order": 15
         }
       },
       {
@@ -1233,11 +1299,11 @@
         "slug": "hedilub",
         "status": "draft",
         "data": {
+          "source_key": "brand:hedilub",
           "title": "HEDILUB",
           "category": "nonionic",
           "descriptor": "Alkoxylates & Ester",
-          "order": 16,
-          "source_key": "brand:hedilub"
+          "order": 16
         }
       },
       {
@@ -1245,11 +1311,11 @@
         "slug": "hedipin",
         "status": "draft",
         "data": {
+          "source_key": "brand:hedipin",
           "title": "HEDIPIN",
           "category": "nonionic",
           "descriptor": "Alkoxylates, Triglyceride Ethoxylates & Esters",
-          "order": 17,
-          "source_key": "brand:hedipin"
+          "order": 17
         }
       },
       {
@@ -1257,11 +1323,11 @@
         "slug": "hedjuvan",
         "status": "draft",
         "data": {
+          "source_key": "brand:hedjuvan",
           "title": "HEDJUVAN",
           "category": "nonionic",
           "descriptor": "Polysorbates, Sorbitan Esters & Polyethylene Glycols",
-          "order": 18,
-          "source_key": "brand:hedjuvan"
+          "order": 18
         }
       },
       {
@@ -1269,11 +1335,11 @@
         "slug": "imbentin",
         "status": "draft",
         "data": {
+          "source_key": "brand:imbentin",
           "title": "IMBENTIN",
           "category": "nonionic",
           "descriptor": "Ethoxylates & Alkoxylates",
-          "order": 19,
-          "source_key": "brand:imbentin"
+          "order": 19
         }
       },
       {
@@ -1281,11 +1347,11 @@
         "slug": "kotilen",
         "status": "draft",
         "data": {
+          "source_key": "brand:kotilen",
           "title": "KOTILEN",
           "category": "nonionic",
           "descriptor": "Sorbitan Ester Ethoxylates (Polysorbates)",
-          "order": 20,
-          "source_key": "brand:kotilen"
+          "order": 20
         }
       },
       {
@@ -1293,10 +1359,10 @@
         "slug": "serdas",
         "status": "draft",
         "data": {
+          "source_key": "brand:serdas",
           "title": "SERDAS",
           "category": "nonionic",
-          "order": 21,
-          "source_key": "brand:serdas"
+          "order": 21
         }
       },
       {
@@ -1304,10 +1370,10 @@
         "slug": "serdos",
         "status": "draft",
         "data": {
+          "source_key": "brand:serdos",
           "title": "SERDOS",
           "category": "nonionic",
-          "order": 22,
-          "source_key": "brand:serdos"
+          "order": 22
         }
       },
       {
@@ -1315,10 +1381,10 @@
         "slug": "servirox",
         "status": "draft",
         "data": {
+          "source_key": "brand:servirox",
           "title": "SERVIROX",
           "category": "nonionic",
-          "order": 23,
-          "source_key": "brand:servirox"
+          "order": 23
         }
       },
       {
@@ -1326,11 +1392,11 @@
         "slug": "sympatens",
         "status": "draft",
         "data": {
+          "source_key": "brand:sympatens",
           "title": "SYMPATENS",
           "category": "nonionic",
           "descriptor": "Fatty Alcohol & Fatty Acid Ethoxylates, Triglyceride Ethoxylates",
-          "order": 24,
-          "source_key": "brand:sympatens"
+          "order": 24
         }
       }
     ],
@@ -1340,6 +1406,7 @@
         "slug": "home-care",
         "status": "draft",
         "data": {
+          "source_key": "source:home-care",
           "title": "Home Care and I&I Cleaning",
           "copy": "Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.",
           "colour": "teal",
@@ -1351,6 +1418,7 @@
         "slug": "beauty-personal-care",
         "status": "draft",
         "data": {
+          "source_key": "source:beauty-personal-care",
           "title": "Beauty & Personal Care",
           "copy": "Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.",
           "colour": "pink",
@@ -1362,6 +1430,7 @@
         "slug": "agrochemicals",
         "status": "draft",
         "data": {
+          "source_key": "source:agrochemicals",
           "title": "Agrochemicals",
           "copy": "Surfactants for emulsifying, dispersing, wetting, penetrating, defoaming, and formulation stability in conventional, biological crop protection and related application.",
           "colour": "green",
@@ -1374,6 +1443,7 @@
         "slug": "lubricants",
         "status": "draft",
         "data": {
+          "source_key": "source:lubricants",
           "title": "Lubricants & Metalworking Fluids",
           "copy": "Surfactant solutions for emulsification, system stability, and robust process performance.",
           "colour": "grey",
@@ -1385,6 +1455,7 @@
         "slug": "textile-leather",
         "status": "draft",
         "data": {
+          "source_key": "source:textile-leather",
           "title": "Textile & Leather",
           "copy": "Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.",
           "colour": "purple",
@@ -1398,6 +1469,7 @@
         "slug": "century",
         "status": "draft",
         "data": {
+          "source_key": "source:century",
           "title": "A Century of Surfactant Excellence",
           "summary": "100 years of surfactant excellence.",
           "category": "Corporate"
@@ -1408,6 +1480,7 @@
         "slug": "sustainability",
         "status": "draft",
         "data": {
+          "source_key": "source:sustainability",
           "title": "Sustainability in Action",
           "summary": "20% more capacity and 30% less CO₂ emissions.",
           "category": "Sustainability"
@@ -1420,6 +1493,7 @@
         "slug": "faq-1",
         "status": "draft",
         "data": {
+          "source_key": "source:faq-1",
           "title": "What does KLK OLEO Surfactants manufacture?",
           "answer": "KLK OLEO Surfactants manufactures industrial and specialty surfactants for a wide range of applications. Our portfolio includes nonionic, anionic, and cationic surfactants, as well as tailored customer-specific solutions designed for performance, consistency, and reliable supply.",
           "order": 0
@@ -1430,6 +1504,7 @@
         "slug": "faq-2",
         "status": "draft",
         "data": {
+          "source_key": "source:faq-2",
           "title": "Is KLK OLEO Surfactants part of an oleochemical manufacturing group?",
           "answer": "Yes. KLK OLEO Surfactants is part of KLK OLEO, one of the world’s largest vertically integrated oleochemical groups. This integration supports raw material security, supply continuity, and the development of oleo-based surfactant solutions for global markets. Nevertheless, we also supply surfactants based on synthetic fatty alcohols.",
           "order": 1
@@ -1440,6 +1515,7 @@
         "slug": "faq-3",
         "status": "draft",
         "data": {
+          "source_key": "source:faq-3",
           "title": "How does KLK OLEO Surfactants support industrial chemical supply?",
           "answer": "We support reliable industrial chemical supply through integrated oleochemical sourcing, diversified manufacturing, technical documentation, and global supply capabilities.",
           "order": 2
@@ -1450,6 +1526,7 @@
         "slug": "faq-4",
         "status": "draft",
         "data": {
+          "source_key": "source:faq-4",
           "title": "Does KLK OLEO Surfactants offer custom chemical manufacturing?",
           "answer": "Yes. We provide custom chemical manufacturing and tailored production support for customers who need specific performance profiles, blends, or manufacturing routes. Our teams support projects from product selection and development through to industrial production.",
           "order": 3
@@ -1460,6 +1537,7 @@
         "slug": "faq-5",
         "status": "draft",
         "data": {
+          "source_key": "source:faq-5",
           "title": "Can KLK OLEO Surfactants support scale-up from lab trials to industrial production?",
           "answer": "Yes. KLK OLEO Surfactants supports scale-up from early development through to full industrial production. We help reduce scale-up risk with technical support, process know-how, and manufacturing capabilities designed to move formulations forward efficiently.",
           "order": 4
@@ -1472,6 +1550,7 @@
         "slug": "products",
         "status": "draft",
         "data": {
+          "source_key": "source:products",
           "route": "products",
           "title": "Products",
           "heading": "Enriching Performance\n Across Industries",
@@ -1484,6 +1563,7 @@
         "slug": "our-markets",
         "status": "draft",
         "data": {
+          "source_key": "source:our-markets",
           "route": "our-markets",
           "title": "Our Markets",
           "heading": "Surfactant Solutions for Key Industries",
@@ -1497,6 +1577,7 @@
         "slug": "news-media",
         "status": "draft",
         "data": {
+          "source_key": "source:news-media",
           "route": "news-media",
           "title": "News & Media",
           "heading": "Our Latest News",
@@ -1509,6 +1590,7 @@
         "slug": "contact",
         "status": "draft",
         "data": {
+          "source_key": "source:contact",
           "route": "contact",
           "title": "Contact Us",
           "heading": "Get in Touch with Our Team",
@@ -1523,6 +1605,7 @@
         "slug": "site",
         "status": "draft",
         "data": {
+          "source_key": "source:site",
           "title": "KLK OLEO | Surfactants",
           "identity": "site",
           "cta_heading": "How can we support your next formulation?",

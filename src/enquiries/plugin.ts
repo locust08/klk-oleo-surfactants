@@ -5,7 +5,7 @@ import { acceptEnquiry, notificationPreview, type Lead, type EnquirySettings } f
 async function publishedSettings(ctx: PluginContext): Promise<EnquirySettings | null> {
   if (!ctx.content) return null;
   const settings = await ctx.content.list('site_content', { where: { status: 'published' }, limit: 10 });
-  const site = settings.items.find(item => item.slug === 'site');
+  const site = settings.items.find(item => item.data.identity === 'site');
   if (!site) return null;
   const revision = site.liveRevisionId && ctx.content.getRevision ? await ctx.content.getRevision('site_content', site.id, site.liveRevisionId) : null;
   const data = revision?.data || site.data;

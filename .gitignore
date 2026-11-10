@@ -5,6 +5,9 @@ dist/
 uploads/
 .backups/
 data.db*
+*.db
+*.db-wal
+*.db-shm
 *.sqlite*
 playwright-report/
 *.tsbuildinfo

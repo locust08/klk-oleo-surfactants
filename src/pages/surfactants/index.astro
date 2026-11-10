@@ -2,7 +2,7 @@
 import Layout from '../../layouts/SiteLayout.astro';
 import { PageIsland } from '../../components/site-islands';
 import { loadSiteContent } from '../../cms/published';
-const {data, homeEdit} = await loadSiteContent();
+const {data, homeEdit} = await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
 const homeDescription = 'KLK OLEO Surfactants is a surfactant manufacturer & supplier, providing specialty surfactants, custom chemical manufacturing, and sustainable solutions. Contact us.';
 ---
 <Layout data={data} title="Global Oleochemicals & Surfactant Manufacturer | KLK OLEO Surfactants" description={homeDescription}><div {...homeEdit}><PageIsland data={data} view="home"  client:load /></div></Layout>

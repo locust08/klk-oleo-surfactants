@@ -2,7 +2,7 @@
 import Layout from '../../layouts/SiteLayout.astro';
 import { PageIsland } from '../../components/site-islands';
 import { loadSiteContent } from '../../cms/published';
-const {data} = await loadSiteContent();
+const {data} = await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
 const products=data.products;
 const product = products.find(item => item.brand === Astro.url.searchParams.get('product'))?.brand;
 ---

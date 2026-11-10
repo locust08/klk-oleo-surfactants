@@ -5,7 +5,7 @@ import { loadSiteContent } from '../cms/published';
 import type { SiteData } from '../cms/types';
 interface Props { title: string; description?: string; data?: SiteData; }
 const { title, description = 'Global surfactant solutions from KLK OLEO.' } = Astro.props;
-const data = Astro.props.data || (await loadSiteContent()).data;
+const data = Astro.props.data || (await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl)).data;
 ---
 <!doctype html>
 <html lang="en" data-scroll-behavior="smooth">

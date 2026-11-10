@@ -17,18 +17,18 @@ Open [Surfactants](http://127.0.0.1:4371/surfactants) and [EmDash administration
 
 The importer creates **43 drafts**: Home (1), Brands (25), Markets (5), News (2), FAQs (5), Pages (4), Site content (1). Anonymous visitors only see published content, so a new installation initially shows an awaiting-publication message. Review and publish the imported entries in EmDash to make the design/content visible. Preview drafts from EmDash before publishing. The browser suite publishes its own disposable fixture; it never publishes the local editorial database.
 
-`npm run cms:seed` uses stable source slugs and `--on-conflict skip`; rerunning preserves existing editorial changes. Source snapshots in `src/lib/content.ts` and `src/lib/catalog.ts` are import inputs. They are never public draft fallbacks. Schema changes after initial installation require a reviewed EmDash schema migration; rerunning the seed is not a schema update or a backup.
+`npm run cms:seed` matches immutable import source keys before using `--on-conflict skip`; rerunning preserves editorial changes even after a brand, market or article slug is renamed. Source snapshots in `src/lib/content.ts` and `src/lib/catalog.ts` are import inputs. They are never public draft fallbacks. Schema changes after initial installation require a reviewed EmDash schema migration; rerunning the seed is not a schema update or a backup.
 
 ## Administration
 
-Complete EmDash's first-site setup as the agency owner and register a passkey. Keep the development server bound to loopback; EmDash includes development-only authentication helpers, used solely with disposable automated fixtures in this repository. Production builds disable those helpers.
+Complete EmDash's first-site setup as the agency owner: enter the site title, keep “Sample content” to retain the imported drafts, then create the agency account and register a passkey. Keep the development server bound to loopback; EmDash includes development-only authentication helpers, used solely with disposable automated fixtures in this repository. Production builds disable those helpers.
 
 - **Agency Admin:** native Admin role; full content, users, schema, plugins/settings and private enquiry inbox.
 - **Client Editor:** native Editor role; edit, preview, publish and restore revisions for all Surfactants content; no users, schema, plugins/settings or enquiry records.
 
 After the agency account is configured, create/invite the client with **Editor** in the native Users screen. An actual invitation, email delivery setup and passkey enrollment are deliberate account setup steps; this migration sends no invitations or external email. Roles apply to this entire instance. Future KLK main/agrochemical applications need separate instances or a separately designed shared administration model.
 
-Home, Brands, Markets, News, FAQs, Pages and Site content appear under Surfactants. Fixed Home/Site identities and page routes are unique. Page SEO, optional approved PDFs/artwork, destinations, CTA/footer and consent text are editable. Brand preview aliases render category previews; normal brand URLs redirect to the corresponding category anchor. Article URLs become public when published content includes an approved body and date.
+Home, Brands, Markets, News, FAQs, Pages and Site content appear under Surfactants. The importer owns Home, Site content and the four fixed Pages. Save policies reject extra entries and identity changes; route guards reject slug edits and publication checks also protect native programmatic writes. Page SEO, optional approved PDFs/artwork, destinations, CTA/footer and consent text are editable. Brand preview aliases render category previews; normal brand URLs redirect to the corresponding category anchor. Article URLs become public when published content includes an approved body and date.
 
 The **Enquiries** plugin page is accessible to Admins. EmDash may display its navigation item to Editors, but both the page and direct API enforce denial; personal data is never loaded for Editors. No enquiry MCP tools or public content collections are registered.
 
