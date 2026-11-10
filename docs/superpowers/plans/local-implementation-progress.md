@@ -43,3 +43,8 @@ Review: fresh read-only reviewer found no critical runtime defect. Two important
 - Banner and News & Media Read More links now open full articles. Added relevant cover images, section navigation, milestone subheadings, expansion target cards and related reading.
 - Banner retains sharp images and existing transitions; improved headline wrapping and keyboard focus styling.
 - Local production build, lint and four existing tests passed. Both banner navigation flows and mobile article layout verified without overflow.
+
+
+## Pilot Plant landing page — 10 November 2026
+
+Implemented `/surfactants/pilot-plant` from AK_Pilot plant.pdf with branded hero, proof points, three scale-up stages, reaction families, licensed raw materials, four reactor specifications, operating standards, three project-support steps and a five-field enquiry draft. Homepage slide five and footer now link directly to it. Uses existing supplied plant and tank photos; reference screenshots guide card and process layouts. The form retains the existing local review/download behavior; no email backend is configured. Verified homepage navigation, draft review, desktop and 390px mobile layouts without horizontal overflow.
