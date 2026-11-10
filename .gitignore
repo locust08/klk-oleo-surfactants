@@ -15,3 +15,9 @@ local-server-error.log
 /output/
 /tmp/
 /design-qa.md
+
+# Cloudflare generated output and local secrets
+.open-next/
+.wrangler/
+.dev.vars*
+cloudflare-env.d.ts

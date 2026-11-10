@@ -6,11 +6,11 @@ export const portfolioCopy='KLK OLEO Surfactants supplies global customers with 
 export const ctaCopy='From surfactant selection to industrial scale-up of a customised product, KLK OLEO Surfactants helps you achieve reliable performance, consistent quality, and global supply.';
 export const footerCopy='KLK OLEO Surfactants is your global partner for surfactants. We combine quality, dependable capacity, and technical support to help you achieve results from development to full scale production.';
 export const markets=[
- {name:'Home Care and I&I Cleaning',slug:'home-care',copy:'Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.',colour:'teal'},
- {name:'Beauty & Personal Care',slug:'beauty-personal-care',copy:'Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.',colour:'pink'},
+ {name:'Home Care and I&I Cleaning',slug:'home-care',copy:'Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.',colour:'teal',url:'https://www.klkoleo.com/markets/home-care-industries-institutional-ii-cleaning/'},
+ {name:'Beauty & Personal Care',slug:'beauty-personal-care',copy:'Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.',colour:'pink',url:'https://www.klkoleo.com/markets/beauty-personal-care/'},
  {name:'Agrochemicals',slug:'agrochemicals',copy:'Surfactants for emulsifying, dispersing, wetting, penetrating, defoaming, and formulation stability in conventional, biological crop protection and related application.',colour:'green',url:'https://www.klkoleo.com/agrochemicals'},
- {name:'Lubricants & Metalworking Fluids',slug:'lubricants',copy:'Surfactant solutions for emulsification, system stability, and robust process performance.',colour:'grey'},
- {name:'Textile & Leather',slug:'textile-leather',copy:'Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.',colour:'purple'},
+ {name:'Lubricants & Metalworking Fluids',slug:'lubricants',copy:'Surfactant solutions for emulsification, system stability, and robust process performance.',colour:'grey',url:'https://www.klkoleo.com/markets/lubricants/'},
+ {name:'Textile & Leather',slug:'textile-leather',copy:'Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.',colour:'purple',url:'https://www.klkoleo.com/brand/imbentin-ethoxylates-alkoxylates/'},
 ];
 export const heroSlides=[
  {title:'100 YEARS',copy:'A Century of Surfactant Excellence.',image:'hero-01-100-years.jpg',alt:'A historic gathering beside a steam train',action:'Read More',kind:'article',target:'century',position:'50% 45%'},

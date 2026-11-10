@@ -1,21 +1,20 @@
 'use client';
 import Image from 'next/image';
 import { useEffect,useState,useSyncExternalStore } from 'react';
-import { FiArrowLeft,FiArrowRight,FiPause,FiPlay } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 import { heroSlides } from '@/lib/content';
 import { InfoButton } from './info-button';
 function subscribeMotion(callback:()=>void){const q=window.matchMedia('(prefers-reduced-motion: reduce)');q.addEventListener('change',callback);return()=>q.removeEventListener('change',callback);}
 export function HeroSlider(){
- const[index,setIndex]=useState(0);const[playing,setPlaying]=useState(true);const[hovered,setHovered]=useState(false);const[focusWithin,setFocusWithin]=useState(false);
+ const[index,setIndex]=useState(0);const[focusWithin,setFocusWithin]=useState(false);
  const reduced=useSyncExternalStore(subscribeMotion,()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches,()=>false);
- useEffect(()=>{if(!playing||hovered||focusWithin||reduced)return;const timer=window.setInterval(()=>{if(!document.hidden)setIndex(i=>(i+1)%heroSlides.length);},7000);return()=>window.clearInterval(timer);},[playing,hovered,focusWithin,reduced]);
- const next=(direction:number)=>setIndex(i=>(i+direction+heroSlides.length)%heroSlides.length);
- return <section className={`hero-slider ${index===3?'is-light':''}`} aria-roledescription="carousel" aria-label="KLK OLEO Surfactants highlights" onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)} onFocusCapture={()=>setFocusWithin(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocusWithin(false);}}>
-  {heroSlides.map((slide,i)=><div className={`hero-slide ${i===index?'is-active':''} ${i===3?'hero-light':''}`} key={slide.image} aria-hidden={i!==index} inert={i!==index}>
-   <Image src={`/images/hero/${slide.image}`} alt={slide.alt} fill sizes="100vw" priority={i===0} style={{objectPosition:slide.position}}/>
+ useEffect(()=>{if(focusWithin||reduced)return;const timer=window.setInterval(()=>{if(!document.hidden)setIndex(i=>(i+1)%heroSlides.length);},5500);return()=>window.clearInterval(timer);},[focusWithin,reduced]);
+ return <section className="hero-slider revamp-hero" aria-roledescription="carousel" aria-label="KLK OLEO Surfactants highlights" onFocusCapture={()=>setFocusWithin(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocusWithin(false);}}>
+  {heroSlides.map((slide,i)=><div className={`hero-slide ${i===index?'is-active':''}`} key={slide.image} aria-hidden={i!==index} inert={i!==index}>
+   <Image src={`/images/hero/${slide.image}`} alt={slide.alt} fill sizes="100vw" preload={i===0} loading={i===0?undefined:'eager'} style={{objectPosition:slide.position}}/>
    <div className="hero-shade"/>
-   <div className="container hero-content"><h1>{slide.title}</h1><p>{slide.copy}</p>{slide.kind==='anchor'?<a href={slide.target} className="button button-outline">{slide.action}<FiArrowRight aria-hidden="true"/></a>:<InfoButton label={slide.action} className="button button-outline" title={slide.kind==='article'?(slide.target==='century'?'A Century of Surfactant Excellence':'Sustainability in Action'):slide.target} description={slide.kind==='article'?`${slide.copy} The full article will be added when the source content is available.`:undefined}/>}</div>
+   <div className="container hero-content"><h1>{slide.title}</h1><p>{slide.copy}</p>{slide.kind==='anchor'?<a href={slide.target} className="button hero-action"><span className="hero-action-icon" aria-hidden="true"><FiArrowRight/></span>{slide.action}</a>:<InfoButton label={slide.action} className="button hero-action" leadingIcon title={slide.kind==='article'?(slide.target==='century'?'A Century of Surfactant Excellence':'Sustainability in Action'):slide.target} description={slide.kind==='article'?`${slide.copy} The full article will be added when the source content is available.`:undefined}/>}</div>
   </div>)}
-  <div className="hero-controls container"><div className="hero-direction"><button className="icon-button" aria-label="Previous hero slide" onClick={()=>next(-1)}><FiArrowLeft/></button><button className="icon-button" aria-label="Next hero slide" onClick={()=>next(1)}><FiArrowRight/></button></div><div className="hero-selectors" aria-label="Choose a hero slide">{heroSlides.map((slide,i)=><button key={slide.image} aria-label={`Show slide ${i+1} of 5: ${slide.title}`} aria-current={i===index?'true':undefined} className={i===index?'is-active':''} onClick={()=>setIndex(i)}>{String(i+1).padStart(2,'0')}</button>)}</div>{!reduced&&<button className="hero-pause icon-button" aria-label={playing?'Pause slideshow':'Play slideshow'} onClick={()=>setPlaying(!playing)}>{playing?<FiPause/>:<FiPlay/>}</button>}</div>
+  <div className="hero-controls container"><div className="hero-selectors" aria-label="Choose a hero slide">{heroSlides.map((slide,i)=><button key={slide.image} aria-label={`Show slide ${i+1} of 5: ${slide.title}`} aria-current={i===index?'true':undefined} className={i===index?'is-active':''} onClick={()=>setIndex(i)}><span className="sr-only">{i+1}</span></button>)}</div></div>
  </section>;
 }

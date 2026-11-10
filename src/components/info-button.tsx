@@ -2,10 +2,10 @@
 import Link from 'next/link';
 import { useRef } from 'react';
 import { FiArrowRight, FiX, FiInfo } from 'react-icons/fi';
-export function InfoButton({title,description,label='Learn More',className='text-link',product}:{title:string;description?:string;label?:string;className?:string;product?:string}){
+export function InfoButton({title,description,label='Learn More',className='text-link',product,leadingIcon=false}:{title:string;description?:string;label?:string;className?:string;product?:string;leadingIcon?:boolean}){
  const ref=useRef<HTMLDialogElement>(null);
  return <>
-  <button type="button" className={className} onClick={()=>ref.current?.showModal()}>{label}<FiArrowRight aria-hidden="true"/></button>
+  <button type="button" className={className} onClick={()=>ref.current?.showModal()}>{leadingIcon&&<span className="hero-action-icon" aria-hidden="true"><FiArrowRight/></span>}{label}{!leadingIcon&&<FiArrowRight aria-hidden="true"/>}</button>
   <dialog ref={ref} className="info-dialog" aria-label={title}>
    <button className="dialog-close icon-button" aria-label="Close information" onClick={()=>ref.current?.close()}><FiX/></button>
    <span className="eyebrow"><FiInfo aria-hidden="true"/> KLK OLEO Surfactants</span>

@@ -21,7 +21,7 @@ npm run build
 ## Implemented
 
 - Shared Agrochemicals-style two-tier header, responsive menu, three-category Products submenu and product-only search.
-- Five homepage hero images in the supplied order, numbered selectors, previous/next, pause, reduced-motion handling and independent hover/focus pausing.
+- Five supplied homepage hero images with the main revamp fade/zoom transition, dot selectors, PDF-style icon buttons and reduced-motion handling.
 - Complete homepage section sequence, 25-brand carousel, five markets, quality/film placements, four news categories, five FAQs and the shared two-part footer.
 - Products archive with exactly Anionic, Cationic and Nonionic category boxes; brand-led category listings and anchored search results.
 - Our Markets, News & Media, Contact and product-search routes; exact supplied Home and Markets metadata.
@@ -29,16 +29,25 @@ npm run build
 
 ## Content boundaries
 
-Custom Manufacturing and Pilot Plant Special Landing Pages remain deferred. Product-inner structures, technical grades, brochure files, article bodies/dates, award/certification artwork, brand film, four market destinations, Career destination and enquiry recipient remain pending. Available product information is shown in a dialog with a contact action; no detailed product pages have been invented. The two supplied article titles/summaries are previews, not fabricated full articles. News uses labelled update placements until source copy is supplied. Certification names are textual references, not recreated certification marks.
+Custom Manufacturing and Pilot Plant Special Landing Pages remain deferred. Product-inner structures, technical grades, brochure files, article bodies/dates, brand film, Career destination and enquiry recipient remain pending. Available product information is shown in a dialog with a contact action; no detailed product pages have been invented. The two supplied article titles/summaries are previews, not fabricated full articles. News uses labelled update placements until source copy is supplied. The quality section uses supplied certification logos and Shell award artwork. Certification artwork retains supplied dates and reference text.
 
-Draft content is noindex. Before any future launch, complete the content review, delivery integration, legal wording, original artwork and production metadata/indexing review. No push or deployment was performed for this task.
+Draft content is noindex. Before any future launch, complete the content review, delivery integration, legal wording, original artwork and production metadata/indexing review. The Cloudflare Worker is a review deployment; draft content remains noindex.
 
 ## Assets and sources
 
 - The five original JPGs are copied byte-for-byte from `design-reference/supplied-assets/` into `public/images/hero/`; they are used only by the homepage hero.
 - Official white KLK OLEO logo and Poppins font files reuse the adjacent local Agrochemicals project's assets.
-- Contact banner reuses the Agrochemicals reference image. Two main-site product reference images are retained locally for future content review, but are not used to replace the approved text-led archive layout.
+- Contact banner reuses the Agrochemicals reference image. The Products archive and category banners use the exact background images from the revamped main-site project.
 - Header LinkedIn: `https://www.linkedin.com/company/klkberhad/`.
 - Footer LinkedIn: `https://www.linkedin.com/company/klk-oleo-surfactants/`.
 
 The complete source/content record is in `docs/superpowers/specs/2026-11-06-surfactants-design.md`. Large design exports, supplied source documents, screenshots and `design-qa.md` remain in the local workspace and are excluded from Git. All assets needed to run the website are versioned under `public/`.
+
+## Cloudflare Worker
+
+- Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
+- Worker: `klk-oleo-surfactants` (separate from the main website).
+- Runtime: Next.js with the OpenNext Cloudflare adapter, static asset and Images bindings.
+- Run `npm run build:worker`, then `npm run deploy` using an authenticated Wrangler session.
+- Run `npm run cf-typegen` after changing bindings; generated types and build output are ignored.
+- The root URL redirects to `/surfactants`. Contact enquiries still use the review/download flow; email delivery is not configured.

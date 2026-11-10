@@ -11,3 +11,28 @@ Task 4: complete. Final production build (including TypeScript), lint and 4/4 un
 Rulings: user-requested Next.js supersedes Product Design Vite starter. New repository has no initial commit, so no linked worktree was created; work stays on codex/surfactants-local. No implicit design-file commit, push, deployment, provisioned service or enquiry transmission.
 
 Review: fresh read-only reviewer found no critical runtime defect. Two important hero accessibility findings fixed; minor whitespace validation fixed as well. Pending content and local-only contact delivery are intentional scoped limitations.
+
+## 10 November 2026 homepage updates
+- Replaced help icons with supplied SVG artwork and the award placeholder with the supplied Shell artwork.
+- Matched the live Agrochemicals Product Finder centred, scaled card carousel; all 25 brands rotate with manual selection, pause on hover/focus and reduced-motion support.
+- Replaced certification text with nine supplied logos in a continuous looping strip, with pause and reduced-motion support. Artwork dates and reference text are preserved.
+- Linked Home Care, Beauty and Lubricants to main-site market pages; Agrochemicals retains its minisite URL. No dedicated Textile & Leather market page is listed, so its card links to the relevant main-site IMBENTIN brand page instead.
+- Local changes only; no push or deployment in this update.
+
+## Products alignment with main revamp
+- Reused the exact products-background.jpg and palmerol-background.jpg assets from the main-site project.
+- Matched centred archive introduction, translucent category cards, category descriptions and links, plus listing banner and sidebar proportions.
+- Retained the three surfactant categories, original surfactants introduction and brand catalogue, header-only product search and Agrochemicals-style navigation.
+- Production build and lint passed; desktop category navigation and mobile single-column layout verified.
+
+## Hero alignment with main revamp
+- Kept all five supplied Surfactants images and text. Matched the main hero radial overlay, image scale/fade, text reveal, bottom-left composition and centred dot navigation. Rotation uses the main reference 5.5-second interval and 600ms transition.
+- Replaced hero CTA treatment with the PDF slide 6 leading circled arrow and outlined divided button. Removed hero playback control.
+- Retained reduced-motion and keyboard-focus handling. All five mobile slides fit without overflow; lint and production build passed.
+
+## Cloudflare deployment preparation
+- Target: new klk-oleo-surfactants Worker in Eason CF Main; no custom-domain changes.
+- Updated Next.js and ESLint configuration to 16.4.6 for OpenNext Cloudflare 1.20.16 compatibility; Wrangler 4.159.0.
+- Added reproducible Worker build/deploy scripts, account-pinned configuration, Images/Assets/self bindings, observability and static asset caching. Generated output and local secrets stay excluded.
+- Lint, type checks, 4 catalogue tests, Worker build and Wrangler dry run passed. Local Workers-runtime smoke checks returned HTTP 200 for Home, Products, category listing, Markets, Search, Contact and image optimisation.
+- npm audit reports transitive build-tool advisories (glob/minimatch and ESLint dependency chains); no forced adapter downgrade was applied.
