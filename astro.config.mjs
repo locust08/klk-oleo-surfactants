@@ -14,7 +14,8 @@ export default defineConfig({
   integrations: [react(), emdash({
     database: sqlite({ url: process.env.EMDASH_DATABASE_URL || 'file:./data.db' }),
     storage: local({ directory: process.env.EMDASH_UPLOADS_DIR || './uploads', baseUrl: '/_emdash/api/media/file' }),
-    siteUrl: process.env.EMDASH_SITE_URL || 'http://127.0.0.1:4371',
+    // WebAuthn requires a domain: localhost works for local passkeys; an IP literal does not.
+    siteUrl: process.env.EMDASH_SITE_URL || 'http://localhost:4371',
     fonts: false,
     updateCheck: false,
     admin: { siteName: 'KLK OLEO Surfactants CMS', locales: ['en'] },

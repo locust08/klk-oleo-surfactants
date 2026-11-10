@@ -1,5 +1,15 @@
 # Surfactants migration verification — 10 November 2026
 
+## Follow-up: local review setup
+
+At the user's subsequent request, the first Agency Admin account was created through native passkey enrollment and all 43 imported entries were published using EmDash's administration UI. Verified persisted state: one Administrator, one registered credential, 43 published records and zero drafts. The admin dashboard and homepage were left open for review. Recovery snapshots before and after setup remain in ignored private `.backups/` directories.
+
+The local canonical origin is now `http://localhost:4371`. The earlier numeric loopback URL caused WebAuthn's `SecurityError`; configuration, example environment and startup links were corrected to localhost, which supports local passkeys. The user then successfully completed enrollment. Unit/integration tests (15), Astro check and production build passed after the correction. Authentication protections remain enabled.
+
+The migration verification below records the earlier pre-enrollment state. Publication here is for local review; content placeholders, noindex and external delivery/hosting boundaries remain as documented.
+
+## Original migration handoff
+
 The separate Surfactants clone now runs as one Astro + EmDash application on branch `codex/surfactants-astro-emdash`. The baseline Next.js revision remains `16c7b3b`; adjacent KLK applications were not changed. No remote push or deployment was performed.
 
 ## Evidence

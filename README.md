@@ -13,7 +13,7 @@ npm run cms:seed
 npm run dev
 ```
 
-Open [Surfactants](http://127.0.0.1:4371/surfactants) and [EmDash administration](http://127.0.0.1:4371/_emdash/admin/). Use this exact origin; the configured site URL also controls same-origin enquiry validation and authentication links. `/` redirects to `/surfactants`.
+Open [Surfactants](http://localhost:4371/surfactants) and [EmDash administration](http://localhost:4371/_emdash/admin/). Use this exact localhost origin: passkeys require a domain rather than an IP address. The configured site URL also controls same-origin enquiry validation and authentication links. `/` redirects to `/surfactants`.
 
 The importer creates **43 drafts**: Home (1), Brands (25), Markets (5), News (2), FAQs (5), Pages (4), Site content (1). Anonymous visitors only see published content, so a new installation initially shows an awaiting-publication message. Review and publish the imported entries in EmDash to make the design/content visible. Preview drafts from EmDash before publishing. The browser suite publishes its own disposable fixture; it never publishes the local editorial database.
 
