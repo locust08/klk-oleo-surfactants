@@ -209,3 +209,95 @@
  .pilot-reactors,.pilot-standards{grid-template-columns:1fr}
  .market-value-grid{grid-template-columns:1fr}
 }
+/* Agrochemicals reference: translucent navigation and contact layout. */
+.site-header{top:-52px}.corporate-bar{height:52px}.corporate-bar .header-inner{width:calc(100% - 120px)}
+.main-nav{min-height:74px;background:rgb(255 255 255 / 59%);backdrop-filter:blur(8px);border-bottom:0}
+.main-nav>.header-inner{min-height:74px;gap:20px;width:calc(100% - 120px)}
+.navigation{gap:20px}.navigation>a,.nav-products-trigger>a{padding:23px 0;font-size:12px;letter-spacing:.06em}
+.navigation a.active{color:var(--green)}.navigation a.active:after{display:none}
+.header-search{border-radius:0;background:white;height:43px;max-width:195px}
+.header-search input{font-size:13px}.division-name{font-size:20px}
+.agro-contact-page .contact-hero{position:relative;isolation:isolate;min-height:550px;margin-top:-74px;display:flex;align-items:center;border-radius:0 0 18px 0;overflow:hidden;padding-top:74px}
+.contact-hero>img{object-fit:cover;object-position:center;z-index:-2}.contact-hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#01683680,#01683620)}
+.contact-hero>.container{width:80%}.contact-hero h1{color:white;font-size:48px;font-weight:600}
+.agro-contact-page .contact-section{padding:96px 0 120px;background:white}
+.contact-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;width:calc(100% - 120px);max-width:1380px;align-items:start}
+.contact-layout>div{min-width:0}.contact-copy h2{font-size:36px;line-height:1.25;margin:0 0 24px}.contact-copy p{font-size:16px;line-height:1.8}
+.agro-contact-page .contact-form-wrap{margin:0;max-width:none}
+.agro-contact-page .preview-note{background:transparent;border:0;border-left:3px solid var(--green);padding:0 0 0 15px;margin:0 0 24px;font-size:12px}
+.agro-contact-page .form-grid{gap:24px 22px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.agro-contact-page .form-grid label{font-size:14px;font-weight:400;min-width:0}
+.agro-contact-page .form-grid input,.agro-contact-page .form-grid select,.agro-contact-page .form-grid textarea{border:1px solid #cfcfcf;border-radius:0;background:white;width:100%;min-width:0;min-height:48px;font-size:16px;padding:10px 12px}
+.agro-contact-page .form-grid textarea{height:150px;resize:vertical}
+.agro-contact-page .consent-label{font-size:13px;align-items:flex-start;margin-top:24px}
+.agro-contact-page form>.button{border-radius:0;padding-inline:38px;min-height:48px}
+@media(max-width:1200px){.main-nav>.header-inner{width:calc(100% - 60px)}.navigation{gap:13px}.navigation>a,.nav-products-trigger>a{font-size:11px}.division-name{font-size:18px}.header-search{max-width:175px}.contact-layout{gap:40px;width:calc(100% - 70px)}}
+@media(max-width:1100px){.navigation.is-open{background:white}.main-nav>.header-inner{min-height:74px}.navigation>a,.nav-products-trigger>a{font-size:14px;padding:15px 0}.contact-copy h2{font-size:32px}}
+@media(max-width:760px){.contact-layout{grid-template-columns:1fr;gap:36px;width:calc(100% - 44px)}.agro-contact-page .contact-section{padding:56px 0 64px}.agro-contact-page .contact-hero{min-height:410px}.contact-hero h1{font-size:38px}.contact-copy h2{font-size:30px}.contact-copy p{font-size:15px}.corporate-bar .header-inner{width:calc(100% - 44px)}}
+@media(max-width:700px){.main-nav>.header-inner{width:calc(100% - 44px)}.header-search{max-width:none}.agro-contact-page .contact-hero{margin-top:0;padding-top:0;min-height:330px}.agro-contact-page .form-grid{grid-template-columns:1fr}.contact-hero>img{object-position:65% center}.contact-hero>.container{width:calc(100% - 44px)}}
+@media(min-width:1101px){
+ .product-submenu{display:grid;grid-template-columns:180px 1fr;gap:0;padding:0;width:560px;border-radius:0;border:0;box-shadow:0 8px 24px #002f1820;background:#fff}
+ .product-submenu .submenu-overview{display:flex;align-items:center;justify-content:space-between;background:var(--green);color:white;padding:28px 22px;font-size:18px;font-weight:500}
+ .submenu-categories{padding:18px 22px}.submenu-categories a{display:block;padding:14px 10px;font-size:14px;border-bottom:1px solid #d9e5dc}.submenu-categories a:last-child{border-bottom:0}
+}
+@media(max-width:1100px){.product-submenu .submenu-overview{display:flex;justify-content:space-between;font-weight:600}.submenu-categories a{display:block;padding:12px 10px}}
+/* Match the Agrochemicals green contact form panel. */
+.agro-contact-page .contact-form-wrap{background:var(--green);border-radius:8px;padding:42px 44px 45px;color:white}
+.agro-contact-page .contact-form-wrap .preview-note{color:white;border-left-color:#ffffff80}
+.agro-contact-page .contact-form-wrap .form-grid label,.agro-contact-page .contact-form-wrap .form-grid label>span,.agro-contact-page .contact-form-wrap .consent-label,.agro-contact-page .contact-form-wrap .consent-label a,.agro-contact-page .contact-form-wrap .small-note{color:white}
+.agro-contact-page .contact-form-wrap .form-grid{gap:18px 14px}
+.agro-contact-page .contact-form-wrap .form-grid label{font-weight:600}
+.agro-contact-page .contact-form-wrap form>.button{background:var(--lime);color:var(--deep);border-color:var(--lime);border-radius:7px}
+.agro-contact-page .contact-form-wrap form>.button:hover{background:#94cc43;border-color:#94cc43}
+.agro-contact-page .contact-form-wrap .consent-label input{accent-color:var(--lime)}
+.agro-contact-page .contact-form-wrap .enquiry-review{color:var(--ink)}
+@media(max-width:1199px){.agro-contact-page .contact-form-wrap{padding:34px 30px 38px}}
+@media(max-width:767px){.agro-contact-page .contact-form-wrap{padding:28px 22px 30px}.agro-contact-page .contact-form-wrap .form-grid{grid-template-columns:1fr}}
+/* Keep the mobile menu separate from the translucent header row. */
+@media(max-width:1100px){
+ .main-nav:has(.navigation.is-open){background:white;backdrop-filter:none}
+ .main-nav>.header-inner{position:relative}
+ .navigation.is-open{position:absolute;top:100%;left:0;right:0;z-index:45;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:8px 20px 16px;margin:0;background:white;border-top:1px solid #d9e5dc;box-shadow:0 12px 22px #002f1820;max-height:calc(100dvh - 150px);overflow-y:auto;overscroll-behavior:contain;flex:none;height:auto}
+ .navigation.is-open>a,.navigation.is-open .nav-products-trigger{flex:none;min-height:52px;border-bottom:1px solid #edf2ef}
+ .navigation.is-open>a,.navigation.is-open .nav-products-trigger>a{padding:15px 0;font-size:14px;line-height:22px}
+ .navigation.is-open .nav-products{flex:none;align-self:stretch}
+ .navigation.is-open .nav-products-trigger{display:flex;align-items:center;justify-content:space-between}
+ .navigation.is-open .nav-products-trigger button{min-width:44px;min-height:44px;padding:12px}
+ .navigation.is-open .product-submenu{position:static;transform:none;min-width:0;width:100%;padding:8px 12px;margin:0;background:var(--mint);border-radius:0;box-shadow:none}
+ .navigation.is-open .submenu-overview{display:none}
+ .navigation.is-open .submenu-categories a{font-size:13px;padding:12px 4px;line-height:1.5}
+ .navigation.is-open .nav-products-trigger button[aria-expanded=true] svg{transform:rotate(180deg)}
+}
+@media(max-width:700px){.navigation.is-open{left:-22px;right:-22px;padding-inline:22px;max-height:calc(100dvh - 145px)}}
+@media(max-width:700px){.navigation.is-open{max-height:calc(100dvh - 200px)}}
+/* Agrochemicals mobile navigation: compact brand row and search-first menu. */
+.mobile-menu-search{display:none}
+@media(max-width:1100px){
+ .main-nav:has(.navigation.is-open){background:rgb(255 255 255 / 59%);backdrop-filter:blur(8px)}
+ .main-nav>.header-inner{padding-block:10px;min-height:74px;flex-wrap:nowrap;gap:16px}
+ .main-nav .header-search{display:none}
+ .main-nav .division-name{font-size:20px;min-width:0}
+ .main-nav .mobile-toggle{display:grid;place-items:center;margin-left:auto;width:44px;height:44px;min-width:44px;padding:10px;border:0;border-radius:5px;background:var(--green);color:white}
+ .mobile-toggle svg{width:25px;height:25px}
+ .navigation.is-open{left:-30px;right:-30px;padding:18px 28px 16px;border:0;box-shadow:none;max-height:calc(100dvh - 130px)}
+ .navigation.is-open .mobile-menu-search{display:block;flex:none;margin:0 0 14px;padding:0}
+ .mobile-menu-search input{display:block;width:100%;height:48px;padding:10px;border:1px solid var(--green);border-radius:0;background:white;color:var(--ink);font-size:16px;min-width:0}
+ .navigation.is-open>a,.navigation.is-open .nav-products-trigger{min-height:56px;border:0}
+ .navigation.is-open>a,.navigation.is-open .nav-products-trigger>a{font-size:16px;line-height:24px;padding:16px 0;font-weight:600;letter-spacing:.06em}
+ .navigation.is-open .nav-products-trigger button{color:var(--ink)}
+ .navigation.is-open .product-submenu{background:white;border-left:2px solid #c7d8ce;padding:0 12px;margin:0 0 10px}
+ .navigation.is-open .submenu-categories a{font-size:15px;font-weight:500;letter-spacing:0;padding:10px 4px}
+}
+@media(max-width:700px){
+ .navigation.is-open{left:-22px;right:-22px;padding-inline:22px}
+ .main-nav>.header-inner{padding-block:10px;gap:10px}
+}
+@media(max-width:380px){.main-nav .division-name{font-size:18px;gap:5px}}
+.brand-film{position:relative;width:100%;aspect-ratio:16/9;margin-top:36px;background:#002f18;border-radius:12px;overflow:hidden}.brand-film iframe{display:block;position:absolute;inset:0;width:100%;height:100%;border:0}@media(max-width:700px){.brand-film{margin-top:26px;border-radius:8px}}
+.brand-film{min-height:200px}
+.downloads-page h1{font-size:48px}.resource-intro{max-width:1000px;margin:24px 0 38px;font-size:18px}
+.resource-filters{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:18px;align-items:end;padding:26px;background:var(--mint);border-radius:8px;margin-bottom:26px}
+.resource-filters label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;min-width:0}.resource-filters input,.resource-filters select{height:48px;width:100%;min-width:0;border:1px solid var(--border);background:white;border-radius:0;padding:10px;font-size:14px}
+.resource-results-heading{display:flex;justify-content:space-between;gap:20px;margin-bottom:18px;font-size:13px}.resource-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:36px;align-items:start}.resource-row{display:flex;align-items:center;gap:20px;padding:26px 20px;border-top:1px solid var(--border);cursor:pointer}.resource-row:last-child{border-bottom:1px solid var(--border)}.resource-row.is-selected{background:#f1f7f3}.resource-row input{width:20px;height:20px;flex:none;accent-color:var(--green)}.resource-row>svg{color:var(--green);width:25px;height:25px;flex:none}.resource-row>span{min-width:0}.resource-row strong{display:block;font-size:19px;line-height:1.4;color:var(--green);overflow-wrap:anywhere}.resource-row .eyebrow{font-size:11px;margin-bottom:6px}.resource-access{display:block;margin-top:8px;font-size:12px;color:var(--copy)}.resource-basket{background:var(--mint);padding:26px;border-radius:8px}.resource-basket h2{font-size:25px}.resource-basket p{font-size:14px}.resource-basket li{display:flex;justify-content:space-between;gap:14px;font-size:13px;padding:18px 0;border-bottom:1px solid var(--border)}.resource-basket li button{align-self:start;padding:4px;flex:none}.resource-basket .button{width:100%;margin-top:24px;font-size:13px;padding-inline:12px}.resource-basket>.text-link{margin-top:14px}.resource-request{margin-top:60px;padding:35px;background:#f6faf7;border:1px solid var(--border);scroll-margin-top:110px}.resource-request h2{font-size:30px}.resource-request .contact-form-wrap{max-width:850px}.resource-request:focus{outline:2px solid var(--green)}
+@media(max-width:1100px){.resource-filters{grid-template-columns:1fr 1fr}.resource-layout{grid-template-columns:minmax(0,1fr) 270px;gap:24px}}
+@media(max-width:700px){.downloads-page h1{font-size:36px}.resource-intro{font-size:16px}.resource-filters{grid-template-columns:1fr;padding:20px}.resource-layout{display:flex;flex-direction:column}.resource-list,.resource-basket{width:100%}.resource-basket{order:-1}.resource-results-heading{flex-direction:column;gap:8px}.resource-row{padding:22px 12px;gap:12px}.resource-row>svg{display:none}.resource-row strong{font-size:17px}.resource-request{padding:24px 18px}.resource-request h2{font-size:26px}}

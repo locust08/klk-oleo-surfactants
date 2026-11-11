@@ -4,7 +4,7 @@ import { FiArrowRight,FiArrowLeft,FiDownload,FiCheckCircle } from 'react-icons/f
 const countryCodes='AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI CV KH CM CA CF TD CL CN CO KM CG CR CI HR CU CY CZ CD DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW'.split(' ');
 const regionNames=new Intl.DisplayNames(['en'],{type:'region'});
 const countries=countryCodes.map(code=>regionNames.of(code)!).sort((a,b)=>a.localeCompare(b));
-export function ContactForm({product,pilot=false}:{product?:string;pilot?:boolean}){
+export function ContactForm({product,pilot=false,message}:{product?:string;pilot?:boolean;message?:string}){
  const formRef=useRef<HTMLFormElement>(null);const reviewRef=useRef<HTMLElement>(null);const[review,setReview]=useState<Record<string,string>|null>(null);
  const download=()=>{if(!review)return;const text='KLK OLEO Surfactants — Enquiry draft\nPrepared locally; not submitted.\n\n'+Object.entries(review).map(([key,value])=>`${key}: ${value||'—'}`).join('\n\n');const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='klk-oleo-enquiry-draft.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
  return <div className="contact-form-wrap"><p className="preview-note"><strong>Local preview</strong> — this form prepares an enquiry draft for review. Nothing is sent or stored.</p>
@@ -18,7 +18,7 @@ export function ContactForm({product,pilot=false}:{product?:string;pilot?:boolea
    <label>Country <span>*</span><select name="Country" autoComplete="country-name" required defaultValue=""><option value="" disabled>Select Country</option>{countries.map(country=><option key={country}>{country}</option>)}</select></label>
    <label>Email <span>*</span><input name="Email" type="email" autoComplete="email" required maxLength={254}/></label>
    <label className="full-width">Company Website<input name="Company Website" type="url" autoComplete="url" placeholder="https://" maxLength={300}/></label>
-   <label className="full-width">Message <span>*</span><textarea name="Message" required minLength={10} maxLength={5000} rows={6} defaultValue={product?`I would like to enquire about ${product}.`:''}/></label>
+   <label className="full-width">Message <span>*</span><textarea name="Message" required minLength={10} maxLength={5000} rows={6} defaultValue={message??(product?`I would like to enquire about ${product}.`:'')}/></label>
   </>}
   </div>
   <label className="consent-label"><input name="consent" type="checkbox" required/> <span>I agree that KLK OLEO may use my submitted details to respond to this enquiry. <a href="https://www.klkoleo.com/privacy-policy/">Privacy information</a></span></label>
