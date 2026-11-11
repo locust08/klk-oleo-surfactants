@@ -4,8 +4,8 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `31413db`.
-Cloudflare version: `d27ed641-0bdd-46a4-9fc4-548c4aadb556`.
+Deployed application source: `9e0cc46`.
+Cloudflare version: `2a657d83-13c2-4a57-88c0-61bc4455c42e`.
 Deployed 11 November 2026; 100% traffic on this version.
 
 ## Commands
@@ -47,3 +47,6 @@ Portfolio autoplay and category heading update deployed from `ce813c9` as `da5de
 
 
 Homepage FAQ update deployed from `31413db` as `d27ed641-0bdd-46a4-9fc4-548c4aadb556` on 11 November 2026. User confirmed use of the supplied document despite its Agrochemicals title. Live readback verified all eight question texts and 21 answer paragraphs in source order, native accordion interaction and no horizontal overflow. Mobile wrapping, lint, typecheck, four tests and Worker build passed.
+
+
+News dual filters deployed from `9e0cc46` as `2a657d83-13c2-4a57-88c0-61bc4455c42e`. Live verification confirmed exact category/market options, Articles -> one result, combined Agrochemicals -> empty state, and reset -> four updates. Existing posts have no confirmed market tags and are therefore visible only under All markets. Mobile layout, six tests, lint, typecheck and Worker build passed.
