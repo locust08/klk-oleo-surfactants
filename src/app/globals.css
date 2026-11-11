@@ -184,3 +184,28 @@
 @media(max-width:700px){#markets-we-serve .section-heading-row{align-items:flex-start}.industry-window{padding-inline:22px;gap:20px}.industry-card{flex-basis:82vw;aspect-ratio:31/33}.industry-card h3{font-size:29px}.industry-card-copy{padding:25px}.industry-card p{font-size:13px}.markets-source-heading{margin-bottom:42px}.markets-source-heading>p{font-size:17px}.markets-archive h2{font-size:30px}.market-values-layout{grid-template-columns:1fr;gap:30px}.market-values h2{font-size:32px}.market-values-layout>div>p{font-size:16px}.market-value-grid{gap:14px}.market-value-grid article{padding:18px 15px}.market-value-grid h3{font-size:16px;gap:8px}.market-value-grid p{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.industry-card>img,.industry-card p{transition:none}.industry-card:hover>img{transform:none}.industry-window{scroll-snap-type:x mandatory}.industry-card{scroll-snap-align:start}}
 .industry-overlay{background:linear-gradient(0deg,#00000026,transparent 70%),linear-gradient(180deg,rgba(var(--market-rgb),0) 20%,rgba(var(--market-rgb),.22) 44%,rgba(var(--market-rgb),.93) 100%)}.markets-archive .market-card{background:linear-gradient(#00000018,#00000018),rgb(var(--market-rgb))}
+/* Responsive content must grow with its copy, including touch-only cards. */
+@media(max-width:1100px){
+ .industry-card{aspect-ratio:auto;min-height:410px;display:flex;align-items:flex-end}
+ .industry-card-copy{position:static;width:100%;min-width:0}
+ .industry-card p,.industry-card:hover p,.industry-card:focus-within p{max-height:none;opacity:1;margin-bottom:22px}
+ .industry-card h3{overflow-wrap:anywhere}
+}
+@media(max-width:700px){
+ .market-values-layout>div,.market-value-grid article,.manufacturing-support-grid article{min-width:0}
+ .market-value-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .market-value-grid h3{flex-wrap:wrap;overflow-wrap:anywhere}
+ .manufacturing-support-grid h3,.manufacturing-hero h1,.pilot-hero h1,.revamp-hero h1{overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+ .stats-grid{grid-template-columns:1fr;gap:24px}
+ .stats-grid>div{padding:0;border-left:0}
+ .market-value-grid,.manufacturing-support-grid{grid-template-columns:1fr}
+ .revamp-hero .hero-content h1{font-size:30px}
+ .pilot-hero h1,.manufacturing-hero h1{font-size:32px}
+ .industry-card{min-height:440px}
+}
+@media(max-width:480px){
+ .pilot-reactors,.pilot-standards{grid-template-columns:1fr}
+ .market-value-grid{grid-template-columns:1fr}
+}

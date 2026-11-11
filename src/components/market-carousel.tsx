@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import {useEffect,useRef,useState,type CSSProperties} from 'react';
 import {FiArrowUpRight} from 'react-icons/fi';
 import {markets} from '@/lib/content';
@@ -39,7 +38,6 @@ export function MarketCarousel(){
    onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();move((active+(e.key==='ArrowRight'?1:-1)+markets.length)%markets.length);}}}
    onScroll={()=>{const node=viewport.current;if(!node)return;const cards=node.querySelectorAll<HTMLElement>('.industry-card');const step=cards[1].offsetLeft-cards[0].offsetLeft;if(step)setActive(Math.round(node.scrollLeft/step)%markets.length);}}>
    {[...markets,...markets,...markets].map((market,i)=>{const visual=marketVisuals[market.slug];const duplicate=i<markets.length||i>=markets.length*2;return <article className="industry-card" key={`${market.slug}-${i}`} aria-hidden={duplicate||undefined} style={{'--market-rgb':visual.rgb} as CSSProperties}>
-    <Image src={visual.image} alt="" fill sizes="(max-width:700px) 82vw, (max-width:1100px) 46vw, 33vw" draggable={false}/><div className="industry-overlay"/>
     <div className="industry-card-copy"><h3>{market.name}</h3><p>{market.copy}</p><a href={market.url} tabIndex={duplicate?-1:0} className="text-link">Explore market<FiArrowUpRight aria-hidden="true"/></a></div>
    </article>;})}
   </div>
