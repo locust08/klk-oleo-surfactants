@@ -4,8 +4,8 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `9e0cc46`.
-Cloudflare version: `2a657d83-13c2-4a57-88c0-61bc4455c42e`.
+Deployed application source: `e2f41ba`.
+Cloudflare version: `8231e50f-8d66-4472-aab0-4b829ed431d8`.
 Deployed 11 November 2026; 100% traffic on this version.
 
 ## Commands
@@ -50,3 +50,6 @@ Homepage FAQ update deployed from `31413db` as `d27ed641-0bdd-46a4-9fc4-548c4aad
 
 
 News dual filters deployed from `9e0cc46` as `2a657d83-13c2-4a57-88c0-61bc4455c42e`. Live verification confirmed exact category/market options, Articles -> one result, combined Agrochemicals -> empty state, and reset -> four updates. Existing posts have no confirmed market tags and are therefore visible only under All markets. Mobile layout, six tests, lint, typecheck and Worker build passed.
+
+
+Markets/news reference alignment deployed from `e2f41ba` as `8231e50f-8d66-4472-aab0-4b829ed431d8`. Verified live exact five Markets labels/order, full-box destinations (Textile -> official KLK Kolb Performance Chemicals), supplied metadata, two featured news stories, loaded images and Articles filtering. Existing market-tag limitations and pending story placements retained. Lint, typecheck, six tests, Worker build and mobile overflow checks passed. Banner image source is the supplied main prototype news-events page.
