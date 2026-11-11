@@ -31,13 +31,7 @@ export const helpItems=[
  ['Speed up approvals and audits','with responsible sourcing, certifications, and documentation support.'],
  ['Avoid supply risk','with diversified manufacturing capacity across Europe and Asia.'],
 ];
-export const faqs=[
- ['What does KLK OLEO Surfactants manufacture?','KLK OLEO Surfactants manufactures industrial and specialty surfactants for a wide range of applications. Our portfolio includes nonionic, anionic, and cationic surfactants, as well as tailored customer-specific solutions designed for performance, consistency, and reliable supply.'],
- ['Is KLK OLEO Surfactants part of an oleochemical manufacturing group?','Yes. KLK OLEO Surfactants is part of KLK OLEO, one of the world’s largest vertically integrated oleochemical groups. This integration supports raw material security, supply continuity, and the development of oleo-based surfactant solutions for global markets. Nevertheless, we also supply surfactants based on synthetic fatty alcohols.'],
- ['How does KLK OLEO Surfactants support industrial chemical supply?','We support reliable industrial chemical supply through integrated oleochemical sourcing, diversified manufacturing, technical documentation, and global supply capabilities.'],
- ['Does KLK OLEO Surfactants offer custom chemical manufacturing?','Yes. We provide custom chemical manufacturing and tailored production support for customers who need specific performance profiles, blends, or manufacturing routes. Our teams support projects from product selection and development through to industrial production.'],
- ['Can KLK OLEO Surfactants support scale-up from lab trials to industrial production?','Yes. KLK OLEO Surfactants supports scale-up from early development through to full industrial production. We help reduce scale-up risk with technical support, process know-how, and manufacturing capabilities designed to move formulations forward efficiently.'],
-];
+export { faqs } from './faqs';
 export const newsCategories=['Exhibition','Product','Corporate','Sustainability'] as const;
 export type NewsCategory=typeof newsCategories[number];
 export const articles:{slug:string;title:string;category:NewsCategory;summary:string}[]=[

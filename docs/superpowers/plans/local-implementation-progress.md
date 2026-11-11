@@ -63,3 +63,8 @@ Inspected live Agrochemicals capability cards: vertical front/back slide at 0.8s
 ## Portfolio autoplay and category heading alignment — 10 November 2026
 
 Removed the portfolio hover-pause condition so its existing 3.2-second automatic slide progression continues with the pointer over the section. Keyboard focus pausing, reduced-motion support and seamless duplicated-slide looping are retained. Shortened Products archive card headings to Anionic, Cationic and Nonionic without changing category names elsewhere or destinations. Browser observed automatic progression from SERVO to TENSOMILD and matching one-line heading heights. Lint, typecheck and four tests passed.
+
+
+## Homepage FAQ source update — 11 November 2026
+
+User explicitly confirmed using the supplied Agrochemicals-titled document for the Surfactants homepage. Replaced the previous five generic FAQs with all eight questions and 21 answer paragraphs from document 1Gx5dt2O3-yyznmLr_WYd0RzJcoUln-YR, preserving source wording and order. Extracted typed FAQ data into src/lib/faqs.ts and added paragraph spacing inside existing native details/summary accordions. Browser verified eight disclosures, 21 paragraphs and opening the second answer.
