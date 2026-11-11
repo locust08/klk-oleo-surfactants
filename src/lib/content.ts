@@ -1,3 +1,4 @@
+import type { NewsMarket } from './news-filters';
 export const BASE='/surfactants';
 export const sustainabilityUrl='https://www.klkoleo.com/sustainability-principled-by-integrity/';
 export const homeDescription='KLK OLEO Surfactants is a surfactant manufacturer & supplier, providing specialty surfactants, custom chemical manufacturing, and sustainable solutions. Contact us.';
@@ -32,9 +33,9 @@ export const helpItems=[
  ['Avoid supply risk','with diversified manufacturing capacity across Europe and Asia.'],
 ];
 export { faqs } from './faqs';
-export const newsCategories=['Exhibition','Product','Corporate','Sustainability'] as const;
+export const newsCategories=['Corporate','Exhibition','Products','Articles'] as const;
 export type NewsCategory=typeof newsCategories[number];
-export const articles:{slug:string;title:string;category:NewsCategory;summary:string}[]=[
+export const articles:{slug:string;title:string;category:NewsCategory;summary:string;markets?:NewsMarket[]}[]=[
  {slug:'century',title:'A Century of Surfactant Excellence',category:'Corporate',summary:'100 years of surfactant excellence.'},
- {slug:'sustainability',title:'Sustainability in Action',category:'Sustainability',summary:'20% more capacity and 30% less CO₂ emissions.'},
+ {slug:'sustainability',title:'Sustainability in Action',category:'Articles',summary:'20% more capacity and 30% less CO₂ emissions.'},
 ];

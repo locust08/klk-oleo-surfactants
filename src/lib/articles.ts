@@ -90,7 +90,7 @@ export const articleContent: Article[] = [
   {
     "slug": "sustainability-in-action",
     "key": "sustainability",
-    "category": "Sustainability",
+    "category": "Articles",
     "title": "Sustainability in Action",
     "subtitle": "20% more capacity and 30% less CO₂ emissions.",
     "metaTitle": "Moerdijk Expansion: 20% More Capacity & 30% Less CO₂ Emissions",

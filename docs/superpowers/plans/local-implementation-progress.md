@@ -68,3 +68,8 @@ Removed the portfolio hover-pause condition so its existing 3.2-second automatic
 ## Homepage FAQ source update — 11 November 2026
 
 User explicitly confirmed using the supplied Agrochemicals-titled document for the Surfactants homepage. Replaced the previous five generic FAQs with all eight questions and 21 answer paragraphs from document 1Gx5dt2O3-yyznmLr_WYd0RzJcoUln-YR, preserving source wording and order. Extracted typed FAQ data into src/lib/faqs.ts and added paragraph spacing inside existing native details/summary accordions. Browser verified eight disclosures, 21 paragraphs and opening the second answer.
+
+
+## News category and market filters — 11 November 2026
+
+Replaced the single archive filter with combined category and market controls. Categories: Corporate, Exhibition, Products, Articles; Sustainability in Action now uses Articles consistently on cards and its article page. Five market options follow established site grouping: Beauty & Personal Care, Home Care and I&I Cleaning, Lubricants, Agrochemicals, Textile and Leather. Added reset, live result count, empty state, keyboard focus styles and stacked mobile layout. Existing stories remain without market tags because source content supplies no market taxonomy; optional typed market tags can be assigned in content.ts when confirmed. Specific-market filters require an explicit tag. Two new tests cover combined filters and unassigned items; all six tests, lint and typecheck pass. Browser verified category/market changes, empty state, reset and mobile overflow.

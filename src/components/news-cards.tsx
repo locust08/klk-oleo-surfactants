@@ -3,16 +3,18 @@ import { useState } from 'react';
 import { FiArrowRight,FiCalendar,FiPackage,FiUsers,FiFeather } from 'react-icons/fi';
 import Link from 'next/link';
 import { articles,newsCategories,type NewsCategory } from '@/lib/content';
+import { filterNews,newsMarketOptions,type NewsMarket } from '@/lib/news-filters';
 import { articlePath } from '@/lib/articles';
 import { InfoButton } from './info-button';
 const items=[
- {slug:'exhibition-pending',title:'Meet us at upcoming exhibitions',category:'Exhibition' as NewsCategory,summary:'Exhibition announcements will be added here.',pending:true},
- {slug:'product-pending',title:'Discover our latest product updates',category:'Product' as NewsCategory,summary:'Product updates will be added here.',pending:true},
- ...articles.map(a=>({...a,pending:false})),
+ {slug:'exhibition-pending',title:'Meet us at upcoming exhibitions',category:'Exhibition' as NewsCategory,summary:'Exhibition announcements will be added here.',pending:true,markets:[] as NewsMarket[]},
+ {slug:'product-pending',title:'Discover our latest product updates',category:'Products' as NewsCategory,summary:'Product updates will be added here.',pending:true,markets:[] as NewsMarket[]},
+ ...articles.map(a=>({...a,pending:false,markets:a.markets??[]})),
 ];
-const icons={Exhibition:FiCalendar,Product:FiPackage,Corporate:FiUsers,Sustainability:FiFeather};
-export function NewsCards({archive=false}:{archive?:boolean}){const[filter,setFilter]=useState('All');const visible=filter==='All'?items:items.filter(a=>a.category===filter);return <>
- {archive&&<div className="news-filter"><label htmlFor="news-category">Filter by</label><select id="news-category" value={filter} onChange={e=>setFilter(e.target.value)}><option>All</option>{newsCategories.map(c=><option key={c}>{c}</option>)}</select><span aria-live="polite">{visible.length} {visible.length===1?'update':'updates'}</span></div>}
+const icons={Exhibition:FiCalendar,Products:FiPackage,Corporate:FiUsers,Articles:FiFeather};
+export function NewsCards({archive=false}:{archive?:boolean}){const[filter,setFilter]=useState('All');const[market,setMarket]=useState('All');const visible=filterNews(items,filter,market);const reset=()=>{setFilter('All');setMarket('All');};return <>
+ {archive&&<div className="news-filter news-filter-panel"><div className="news-filter-fields"><div className="news-filter-field"><label htmlFor="news-category">News category</label><select id="news-category" value={filter} onChange={e=>setFilter(e.target.value)} aria-controls="news-results"><option value="All">All categories</option>{newsCategories.map(c=><option key={c}>{c}</option>)}</select></div><div className="news-filter-field"><label htmlFor="news-market">Market</label><select id="news-market" value={market} onChange={e=>setMarket(e.target.value)} aria-controls="news-results"><option value="All">All markets</option>{newsMarketOptions.map(m=><option key={m}>{m}</option>)}</select></div><button type="button" className="news-filter-reset" onClick={reset} disabled={filter==='All'&&market==='All'}>Reset filters</button></div><p className="news-result-count" role="status" aria-live="polite">{visible.length} {visible.length===1?'update':'updates'}{filter!=='All'?` in ${filter}`:''}{market!=='All'?` for ${market}`:''}</p></div>}
  {!archive&&<Link href="/surfactants/news-media" className="text-link news-all">View all news<FiArrowRight aria-hidden="true"/></Link>}
- <div className={`news-grid ${archive?'news-archive-grid':''}`}>{visible.map(a=>{const Icon=icons[a.category];return <article className="news-card" key={a.slug}><div className="news-artwork"><Icon aria-hidden="true"/><span>{a.category}</span></div><div className="news-card-copy"><span className="eyebrow">{a.category}</span><h3>{a.title}</h3><p>{a.summary}</p>{a.pending?<InfoButton title={a.title} description="This section will be updated when the source content is confirmed." label="More information"/>:<Link className="text-link" href={articlePath(a.slug)}>Read More<FiArrowRight aria-hidden="true"/></Link>}</div></article>;})}</div>
+ <div id={archive?"news-results":undefined} className={`news-grid ${archive?'news-archive-grid':''}`}>{visible.map(a=>{const Icon=icons[a.category];return <article className="news-card" key={a.slug}><div className="news-artwork"><Icon aria-hidden="true"/><span>{a.category}</span></div><div className="news-card-copy"><span className="eyebrow">{a.category}</span><h3>{a.title}</h3><p>{a.summary}</p>{a.pending?<InfoButton title={a.title} description="This section will be updated when the source content is confirmed." label="More information"/>:<Link className="text-link" href={articlePath(a.slug)}>Read More<FiArrowRight aria-hidden="true"/></Link>}</div></article>;})}</div>
+ {archive&&visible.length===0&&<div className="news-empty"><h3>No matching news yet</h3><p>There are no updates tagged with this combination. Try another category or market, or reset the filters to view all updates.</p><button type="button" className="text-link" onClick={reset}>View all updates<FiArrowRight aria-hidden="true"/></button></div>}
  </>;}
