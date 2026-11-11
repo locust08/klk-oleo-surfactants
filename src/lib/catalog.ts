@@ -9,7 +9,7 @@ const rows: [string,CategorySlug,string?][] = [
  ['PALMOSALT','anionic','Soap Noodles'],['PALMFONATE','anionic','Methyl Ester Sulphonates'],
  ['SERMUL','anionic'],['SERVO','anionic'],['SERVOXYL','anionic'],['SERWET','anionic'],
  ['SYMPARE','anionic','Methyl Ester Sulphonates'],['TENSAFIN','anionic'],
- ['TENSAGEX','anionic','Alcohol Ether Sulphates'],['TENSARYL','anionic','Linear Alkylbenzene Sulphonates & Sulphonic Acids'],
+ ['TENSAGEX','anionic','Alcohol Ether Sulphates'],['TENSARYLY','anionic','Linear Alkylbenzene Sulphonates & Sulphonic Acids'],
  ['TENSOMILD','anionic','Sulphosuccinates'],['TENSOPOL','anionic','Alcohol Sulphates'],
  ['SERVAMINE','cationic'],['AIDIGRO','nonionic','Agrochemicals'],
  ['GREENBENTIN','nonionic','Ethoxylates & Alkoxylates'],['HEDICOL','nonionic'],
@@ -18,7 +18,7 @@ const rows: [string,CategorySlug,string?][] = [
  ['KOTILEN','nonionic','Sorbitan Ester Ethoxylates (Polysorbates)'],['SERDAS','nonionic'],['SERDOS','nonionic'],['SERVIROX','nonionic'],
  ['SYMPATENS','nonionic','Fatty Alcohol & Fatty Acid Ethoxylates, Triglyceride Ethoxylates'],
 ];
-export const products: Product[] = rows.map(([brand,category,descriptor])=>({brand,category,descriptor,slug:brand.toLowerCase()}));
+export const products: Product[] = rows.map(([brand,category,descriptor])=>({brand,category,descriptor,slug:brand.toLowerCase(),...(brand==='PALMOSALT'?{summary:'Soap compositions for cosmetic, toiletry and laundry detergent formulations.'}:{})}));
 export function categoryName(slug:CategorySlug){ return categories.find(c=>c.slug===slug)!.name; }
 export function searchProducts(input:string):Product[]{
  const query=input.normalize('NFKC').trim().toLowerCase().slice(0,120);
@@ -29,4 +29,4 @@ export function searchProducts(input:string):Product[]{
    return words.every(word=>haystack.includes(word));
  });
 }
-export const productPath=(p:Product)=>`/surfactants/products/${p.category}#${p.slug}`;
+export const productPath=(p:Product)=>`/surfactants/products/${p.category}/${p.slug}`;

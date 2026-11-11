@@ -1,5 +1,7 @@
-import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/page-heading';
-import { MarketCards } from '@/components/market-cards';
+import type {Metadata} from 'next';
+import {FiCheckCircle} from 'react-icons/fi';
+import {Breadcrumbs} from '@/components/page-heading';
+import {MarketCards} from '@/components/market-cards';
+import {marketIntroduction,marketPillars} from '@/lib/market-content';
 export const metadata:Metadata={title:'KLK OLEO Surfactants for Key Industries',description:'Explore KLK OLEO surfactants for personal care, home care, agriculture, and more. High performance, compliant, and sustainable solutions',alternates:{canonical:'/surfactants/our-markets'}};
-export default function MarketsPage(){return <><Breadcrumbs items={[{label:'Our Markets'}]}/><section className="section markets-archive"><div className="container"><span className="eyebrow">Our Markets</span><h1>Surfactant Solutions for Key Industries</h1><p className="wide-copy">Oleo-based and synthetic solutions for key industries where performance and reliability matter.</p><MarketCards archive/></div></section></>;}
+export default function MarketsPage(){return <><Breadcrumbs items={[{label:'Our Markets'}]}/><section className="section markets-archive"><div className="container"><div className="markets-source-heading"><h1>KLK OLEO Surfactants for Key Industries</h1><p>A broad market portfolio built around formulation performance, compliance and technical partnership.</p></div><h2>Markets We Serve</h2><p className="wide-copy">{marketIntroduction}</p><MarketCards archive/></div></section><section className="section market-values"><div className="container market-values-layout"><div><h2>We connect every market</h2><p>Across each industry page, the same value pillars come through clearly: performance-led chemistry, a strong compliance mindset, reduced PCF focus and hands-on technical support.</p></div><div className="market-value-grid">{marketPillars.map(pillar=><article key={pillar.title}><h3><FiCheckCircle aria-hidden="true"/>{pillar.title}</h3><p>{pillar.copy}</p></article>)}</div></div></section></>;}
