@@ -4,9 +4,9 @@ Account: Eason CF Main (`e7c515dde995479daacd82ad79dfc3e8`).
 Worker: `klk-oleo-surfactants`.
 URL: https://klk-oleo-surfactants.easondev.workers.dev/surfactants
 
-Deployed application source: `ce813c9`.
-Cloudflare version: `da5de557-c682-4ec1-b43f-e45adce7841f`.
-Deployed 10 November 2026; 100% traffic on this version.
+Deployed application source: `31413db`.
+Cloudflare version: `d27ed641-0bdd-46a4-9fc4-548c4aadb556`.
+Deployed 11 November 2026; 100% traffic on this version.
 
 ## Commands
 
@@ -44,3 +44,6 @@ Pilot Plant reference-motion refinement deployed from `2235c45` as `528df596-36d
 
 
 Portfolio autoplay and category heading update deployed from `ce813c9` as `da5de557-c682-4ec1-b43f-e45adce7841f`. Autoplay no longer pauses on pointer hover; keyboard focus and reduced-motion preferences remain respected. Live Products headings verified as Anionic, Cationic and Nonionic with identical 410px top positions and 50px heading boxes at the review viewport. Lint, typecheck, four tests and Worker build passed.
+
+
+Homepage FAQ update deployed from `31413db` as `d27ed641-0bdd-46a4-9fc4-548c4aadb556` on 11 November 2026. User confirmed use of the supplied document despite its Agrochemicals title. Live readback verified all eight question texts and 21 answer paragraphs in source order, native accordion interaction and no horizontal overflow. Mobile wrapping, lint, typecheck, four tests and Worker build passed.
