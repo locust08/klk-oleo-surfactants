@@ -1,10 +1,17 @@
 import { useSiteData } from '@/components/site-context';
-import { useHydrated } from '@/lib/use-hydrated';
-import { useEffect,useRef,useState } from 'react';
-import { FiArrowLeft,FiArrowRight,FiPause,FiPlay } from 'react-icons/fi';
-export function CertificationCarousel(){const hydrated=useHydrated();const {home}=useSiteData();const references=home?.certifications||[];
- const ref=useRef<HTMLDivElement>(null);const[playing,setPlaying]=useState(true);const[hovered,setHovered]=useState(false);const[focused,setFocused]=useState(false);
- useEffect(()=>{if(!playing||hovered||focused)return;const timer=window.setInterval(()=>{const node=ref.current;if(!node||document.hidden||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const end=node.scrollWidth-node.clientWidth;node.scrollTo({left:node.scrollLeft>=end-2?0:Math.min(end,node.scrollLeft+230),behavior:'smooth'});},5000);return()=>window.clearInterval(timer);},[playing,hovered,focused]);
- const scroll=(direction:number)=>ref.current?.scrollBy({left:direction*230,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
- return <div className="certification-carousel" onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)} onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocused(false);}}><div ref={ref} className="certifications" aria-label="Quality and certification references" tabIndex={0}>{references.map(name=><span key={name}>{name}{name==='ISO'&&<small>50001 · 14001 · 9001 · 45001</small>}</span>)}</div><div className="certification-controls"><button disabled={!hydrated} className="icon-button" aria-label="Previous certification references" onClick={()=>scroll(-1)}><FiArrowLeft/></button><button disabled={!hydrated} className="icon-button" aria-label={playing?'Pause certification rotation':'Play certification rotation'} onClick={()=>setPlaying(!playing)}>{playing?<FiPause/>:<FiPlay/>}</button><button disabled={!hydrated} className="icon-button" aria-label="Next certification references" onClick={()=>scroll(1)}><FiArrowRight/></button></div></div>;
+/** Versioned logo artwork for the editable certification references; unknown names render as text. */
+const logos:Record<string,{file:string;alt:string}>={
+ 'RSPO':{file:'rspo.png',alt:'RSPO'},'ISCC PLUS':{file:'iscc.png',alt:'ISCC'},'ISCC':{file:'iscc.png',alt:'ISCC'},
+ 'EcoVadis':{file:'ecovadis.svg',alt:'EcoVadis Platinum 2022'},'ISO':{file:'iso.svg',alt:'ISO'},
+ 'Kosher':{file:'kosher.jpg',alt:'Kosher'},'Halal':{file:'halal.jpg',alt:'Halal'},
+ 'COSMOS ORGANIC':{file:'cosmos-organic.avif',alt:'COSMOS ORGANIC'},
+ 'COSMOS APPROVED':{file:'cosmos-approved.jpg',alt:'ECOCERT COSMOS APPROVED raw material'},
+ 'Natural & Organic':{file:'natural-organic.png',alt:'NATRUE Certified Natural & Organic Cosmetic'},
+};
+export function CertificationCarousel(){const {home}=useSiteData();const references=home?.certifications||[];
+ return <div className="certification-carousel logo-carousel">
+  <div className="logo-window" tabIndex={0} role="region" aria-label="Quality and certification references">
+   <div className="logo-track">{[0,1].map(copy=><div className="logo-group" key={copy} aria-hidden={copy===1?true:undefined}>{references.map(name=>{const logo=logos[name];return <div className="certification-logo" key={name}>{logo?<img src={`/images/certifications/${logo.file}`} alt={copy===0?logo.alt:''} width={180} height={110} loading="eager"/>:<span>{name}</span>}</div>;})}</div>)}</div>
+  </div>
+ </div>;
 }

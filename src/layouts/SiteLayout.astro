@@ -18,7 +18,7 @@ const data = Astro.props.data || (await loadSiteContent(Astro.locals.emdash?.get
     <link rel="preload" href="/fonts/poppins-400.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/fonts/poppins-600.ttf" as="font" type="font/ttf" crossorigin />
   </head>
-  <body><HeaderIsland data={data} pathname={Astro.url.pathname} client:load /><main id="main"><slot /></main><FooterIsland data={data} client:load /></body>
+  <body><HeaderIsland data={data} pathname={Astro.url.pathname} client:load /><main id="main"><slot /></main><FooterIsland data={data} client:load /><script is:inline id="bugherd" async src="https://www.bugherd.com/sidebarv2.js?apikey=1zcriyjxi2lgyzfihwarha"></script></body>
 </html>
 <style is:global>
   @font-face{font-family:Poppins;src:url('/fonts/poppins-400.ttf') format('truetype');font-weight:400;font-display:swap}
