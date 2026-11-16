@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "klk-oleo-surfactants",
+  "account_id": "e7c515dde995479daacd82ad79dfc3e8",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-11-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "d1_databases": [{ "binding": "DB", "database_name": "klk-oleo-surfactants-cms" }],
+  "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "klk-oleo-surfactants-media" }],
+  "vars": { "EMDASH_SITE_URL": "https://klk-oleo-surfactants.easondev.workers.dev" },
+  "triggers": { "crons": ["* * * * *"] },
+  "observability": { "enabled": true }
+}

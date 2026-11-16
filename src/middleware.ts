@@ -1,9 +1,22 @@
 import { defineMiddleware } from 'astro:middleware';
 
+const setupPath=/^\/_emdash\/(admin|api)\/setup(\/|$)/;
+const setupCookie='surfactants_setup_key';
+
+// Hosted first-admin setup is public until claimed. With EMDASH_SETUP_KEY set, only a visitor who opened
+// /_emdash/admin/setup?setup_key=<key> (stored as an HttpOnly cookie) can reach the setup pages and API.
+const setupBlocked=(url:URL,cookies:{get:(name:string)=>{value:string}|undefined;set:(name:string,value:string,options:Record<string,unknown>)=>void})=>{
+  const key=process.env.EMDASH_SETUP_KEY;
+  if(!key||!setupPath.test(url.pathname))return false;
+  if(url.searchParams.get('setup_key')===key){cookies.set(setupCookie,key,{httpOnly:true,secure:url.protocol==='https:',sameSite:'strict',path:'/_emdash'});return false;}
+  return cookies.get(setupCookie)?.value!==key;
+};
+
 const fixedCollections=new Set(['home','site_content','pages','service_pages']);
 
 // Native slug-only updates and duplication bypass beforeSave. Fence both exposed transports.
-export const onRequest = defineMiddleware(async ({request,url,locals},next) => {
+export const onRequest = defineMiddleware(async ({request,url,locals,cookies},next) => {
+  if(setupBlocked(url,cookies))return new Response('Not found',{status:404,headers:{'Cache-Control':'private, no-store'}});
   if(!locals.user)return next();
   const expectedRoute=async(collection:string,id:string)=>{
     if(collection==='home')return 'home';

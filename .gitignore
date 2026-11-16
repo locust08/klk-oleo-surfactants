@@ -25,3 +25,4 @@ local-server-error.log
 /output/
 /tmp/
 /design-qa.md
+.wrangler/

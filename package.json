@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
+    "build:worker": "EMDASH_TARGET=cloudflare EMDASH_SITE_URL=https://klk-oleo-surfactants.easondev.workers.dev astro build",
+    "deploy": "npm run build:worker && wrangler deploy",
     "start": "node dist/server/entry.mjs",
     "lint": "eslint src tests",
     "typecheck": "astro check",
@@ -19,20 +21,26 @@
     "cms:restore": "node scripts/local-backup.mjs restore"
   },
   "dependencies": {
-    "@emdash-cms/auth": "1.4.0",
+    "@astrojs/cloudflare": "14.4.8",
     "@astrojs/node": "11.1.11",
     "@astrojs/react": "7.1.5",
+    "@cloudflare/kumo": "2.15.0",
+    "@emdash-cms/auth": "1.5.0",
+    "@emdash-cms/cloudflare": "1.5.0",
     "astro": "7.4.8",
-    "emdash": "1.4.0",
+    "emdash": "1.5.0",
     "kysely": "0.29.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-icons": "^5.7.0",
     "zod": "4.6.7"
   },
-  "overrides": { "zod": "$zod" },
+  "overrides": {
+    "zod": "$zod"
+  },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
+    "@cloudflare/workers-types": "^5.20261116.1",
     "@playwright/test": "1.65.0",
     "@types/node": "^24",
     "@types/react": "^19",
@@ -40,11 +48,16 @@
     "eslint": "^9",
     "tsx": "4.23.15",
     "typescript": "^5",
-    "typescript-eslint": "8.72.2"
+    "typescript-eslint": "8.72.2",
+    "wrangler": "4.162.0"
   },
   "exports": {
     "./cms-plugin": "./src/cms/plugin.ts",
     "./enquiries-plugin": "./src/enquiries/plugin.ts",
     "./enquiries-admin": "./src/enquiries/admin.tsx"
+  },
+  "allowScripts": {
+    "workerd@1.20261110.1": true,
+    "workerd@1.20261113.1": true
   }
 }

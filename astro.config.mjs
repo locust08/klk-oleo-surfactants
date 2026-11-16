@@ -6,14 +6,19 @@ import { existsSync } from 'node:fs';
 import emdash, { local } from 'emdash/astro';
 import { sqlite } from 'emdash/db';
 
+// Cloudflare build: `EMDASH_TARGET=cloudflare` (see `npm run build:worker`). Local/test builds keep Node + SQLite.
+const cloudflareTarget = process.env.EMDASH_TARGET === 'cloudflare';
+const cf = cloudflareTarget ? await import('@emdash-cms/cloudflare') : null;
+const cloudflareAdapter = cloudflareTarget ? (await import('@astrojs/cloudflare')).default : null;
+
 if (existsSync('.env')) process.loadEnvFile('.env');
 
 export default defineConfig({
   output: 'server',
-  adapter: node({ mode: 'standalone' }),
+  adapter: cloudflareTarget ? cloudflareAdapter() : node({ mode: 'standalone' }),
   integrations: [react(), emdash({
-    database: sqlite({ url: process.env.EMDASH_DATABASE_URL || 'file:./data.db' }),
-    storage: local({ directory: process.env.EMDASH_UPLOADS_DIR || './uploads', baseUrl: '/_emdash/api/media/file' }),
+    database: cf ? cf.d1({ binding: 'DB' }) : sqlite({ url: process.env.EMDASH_DATABASE_URL || 'file:./data.db' }),
+    storage: cf ? cf.r2({ binding: 'MEDIA' }) : local({ directory: process.env.EMDASH_UPLOADS_DIR || './uploads', baseUrl: '/_emdash/api/media/file' }),
     // WebAuthn requires a domain: localhost works for local passkeys; an IP literal does not.
     siteUrl: process.env.EMDASH_SITE_URL || 'http://localhost:4371',
     fonts: false,

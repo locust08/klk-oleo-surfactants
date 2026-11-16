@@ -83,7 +83,7 @@ npm audit --omit=dev
 
 Browser tests use a separate temporary SQLite database, genuine Admin/Editor sessions and synthetic enquiries. They cover desktop/tablet/mobile interactions, draft isolation, preview/publish/revision restoration, denied Editor administration, duplicate intake, inbox authorization and receipt verification. Google Chrome is used by default; set `PLAYWRIGHT_CHANNEL` to another installed Playwright browser channel if needed. Local test sessions/screenshots stay in ignored `.superpowers/`.
 
-`npm start` runs the built standalone Node server. Configure `EMDASH_DATABASE_URL`, `EMDASH_UPLOADS_DIR` and `EMDASH_SITE_URL` **before building**; the Astro integration embeds adapter configuration. Start the server with the same working directory and writable persistent database/uploads locations. Build output does not contain a database or uploads. The local Node implementation is complete; a Cloudflare adapter/storage migration is separate work.
+`npm start` runs the built standalone Node server. Configure `EMDASH_DATABASE_URL`, `EMDASH_UPLOADS_DIR` and `EMDASH_SITE_URL` **before building**; the Astro integration embeds adapter configuration. Start the server with the same working directory and writable persistent database/uploads locations. Build output does not contain a database or uploads. Cloudflare Workers hosting (D1, R2) is described in [Cloudflare deployment](docs/cloudflare-deployment.md).
 
 EmDash pins an older Zod transitively. The package override selects compatible patched Zod 4.6.7; the production dependency audit is clean with this lockfile. Keep that override reviewed during upgrades.
 
