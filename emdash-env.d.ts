@@ -106,7 +106,8 @@ export interface New {
   status: string;
   title: string;
   source_key?: string;
-  category: "Exhibition" | "Product" | "Corporate" | "Sustainability";
+  category: "Corporate" | "Exhibition" | "Products" | "Articles";
+  markets?: ("Beauty & Personal Care" | "Home Care and I&I Cleaning" | "Lubricants" | "Agrochemicals" | "Textile and Leather")[];
   summary?: string;
   body?: PortableTextBlock[];
   publication_date?: string;

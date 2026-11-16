@@ -10,20 +10,20 @@ for(const service of source.pages)test(`${service.slug} renders supplied editabl
   await expect(page.locator('.service-steps li')).toHaveCount(service.data.process_steps.length);
   await expect(page.locator('.service-technologies li')).toHaveCount(service.data.technologies.length);
   if(service.slug==='pilot-plant') {
-    await expect(page.locator('.service-equipment article')).toHaveCount(4);
+    await expect(page.locator('.service-equipment .pilot-reveal-card')).toHaveCount(4);
     await expect(page.locator('.service-materials li')).toHaveCount(10);
     await expect(page.locator('main')).toContainText('Halal possible on request');
     await expect(page.locator('main')).toContainText('350 °C');
   } else {
     await expect(page.locator('.service-support article')).toHaveCount(5);
-    await expect(page.locator('main')).toContainText('1 mt to 35 mt');
-    await expect(page.locator('main img')).toHaveCount(9);
+    await expect(page.locator('.manufacturing-scale')).toContainText(/1 mt\s*to\s*35 mt/);
+    await expect(page.locator('main img')).toHaveCount(15);
     expect(await page.locator('main').innerText()).not.toContain('I believe the chemistries');
   }
   await page.evaluate(()=>document.fonts.ready);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:`.superpowers/landing-pages/${service.slug}-${info.project.name}.png`,fullPage:true,animations:'disabled'});
-  await page.locator('.service-intro a').click();
+  await page.locator('.service-intro a.hero-action').click();
   await expect(page).toHaveURL(/#project-enquiry$/);
   await expect(page.getByLabel('First Name')).toBeVisible();
 });

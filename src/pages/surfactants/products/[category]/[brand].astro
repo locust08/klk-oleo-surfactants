@@ -1,0 +1,13 @@
+---
+import Layout from '../../../../layouts/SiteLayout.astro';
+import { PageIsland } from '../../../../components/site-islands';
+import { loadSiteContent } from '../../../../cms/published';
+import { brandRedirect } from '../../../../cms/legacy-routes';
+const {category,brand}=Astro.params as {category:string;brand:string};
+const {data}=await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
+const product=data.products.find(item=>item.slug===brand&&item.category===category);
+if(!product){const target=brandRedirect(data.products,category,brand);return target?Astro.redirect(target,301):Astro.rewrite('/404');}
+const title=`${product.brand}${product.descriptor?` | ${product.descriptor}`:''} | KLK OLEO Surfactants`;
+const description=`Explore ${product.brand}${product.descriptor?`, ${product.descriptor}`:''} from KLK OLEO Surfactants. Contact our team for product grades, applications and technical documentation.`;
+---
+<Layout data={data} title={title} description={description}><PageIsland data={data} view="brand" brand={product.slug} client:load /></Layout>

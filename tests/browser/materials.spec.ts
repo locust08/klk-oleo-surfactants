@@ -7,7 +7,7 @@ test('supplied Century article publishes its body, source date and SEO with a wo
   await expect(link).toHaveAttribute('href', '/surfactants/news-media/century');
   await link.click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(materials.articles[0].data.title);
-  await expect(page.locator('main article')).toContainText('10/06/2026');
+  await expect(page.locator('main article')).toContainText('10 June 2026');
   await expect(page.getByRole('heading', { name: 'A century of progress in Delden' })).toBeVisible();
   await expect(page).toHaveTitle(materials.articles[0].data.seo_title);
   await expect(page.locator('meta[name=description]')).toHaveAttribute('content', materials.articles[0].data.seo_description!);

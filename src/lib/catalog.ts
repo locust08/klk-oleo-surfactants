@@ -9,7 +9,7 @@ const rows: [string,CategorySlug,string?][] = [
  ['PALMOSALT','anionic','Soap Noodles'],['PALMFONATE','anionic','Methyl Ester Sulphonates'],
  ['SERMUL','anionic'],['SERVO','anionic'],['SERVOXYL','anionic'],['SERWET','anionic'],
  ['SYMPARE','anionic','Methyl Ester Sulphonates'],['TENSAFIN','anionic'],
- ['TENSAGEX','anionic','Alcohol Ether Sulphates'],['TENSARYL','anionic','Linear Alkylbenzene Sulphonates & Sulphonic Acids'],
+ ['TENSAGEX','anionic','Alcohol Ether Sulphates'],['TENSARYLY','anionic','Linear Alkylbenzene Sulphonates & Sulphonic Acids'],
  ['TENSOMILD','anionic','Sulphosuccinates'],['TENSOPOL','anionic','Alcohol Sulphates'],
  ['SERVAMINE','cationic'],['AIDIGRO','nonionic','Agrochemicals'],
  ['GREENBENTIN','nonionic','Ethoxylates & Alkoxylates'],['HEDICOL','nonionic'],
@@ -29,4 +29,4 @@ export function searchProducts(input:string):Product[]{
    return words.every(word=>haystack.includes(word));
  });
 }
-export const productPath=(p:Product)=>`/surfactants/products/${p.category}#${p.slug}`;
+export const productPath=(p:Product)=>`/surfactants/products/${p.category}/${p.slug}`;

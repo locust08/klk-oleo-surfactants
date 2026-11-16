@@ -5,7 +5,7 @@ import type { Database } from 'emdash';
 import { loadLocalConfig } from './local-config.mjs';
 import { backupLocal } from './local-backup.mjs';
 import { applyMaterials } from '../src/cms/material-import';
-import { buildMaterialPatches } from '../src/cms/material-patches';
+import { buildMaterialPatches, buildSiteUpdatePatches } from '../src/cms/material-patches';
 
 // Stop the local application before invoking this offline import.
 const [flag, destination, ...extra] = process.argv.slice(2);
@@ -15,5 +15,6 @@ const config = loadLocalConfig();
 await backupLocal({ ...config, destination: resolve(destination) });
 console.log(`Pre-import backup: ${resolve(destination)}`);
 const db = new Kysely<Database>({ dialect: createDialect({ url: `file:${config.database}` }) });
-try { console.log(JSON.stringify(await applyMaterials(db, buildMaterialPatches()), null, 2)); }
+// Source versions apply in order; each version is one transaction and completed receipts are skipped.
+try { for (const patches of [buildMaterialPatches(), buildSiteUpdatePatches()]) console.log(JSON.stringify(await applyMaterials(db, patches), null, 2)); }
 finally { await db.destroy(); }

@@ -7,8 +7,10 @@ const { entry, isPreview, error } = await getEmDashEntry('brands', Astro.params.
 if (error) throw error;
 if (!entry) return Astro.rewrite('/404');
 const category = String(entry.data.category);
-if (!isPreview) return Astro.redirect(`/surfactants/products/${category}#${entry.data.slug}`, 302);
+const slug = String(entry.data.slug || Astro.params.slug);
+if (!isPreview) return Astro.redirect(`/surfactants/products/${category}/${slug}`, 302);
 const {data} = await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
+const shown = data.products.some(item => item.slug === slug);
 Astro.response.headers.set('Cache-Control', 'private, no-store');
 ---
-<Layout data={data} title={`${entry.data.title} preview | KLK OLEO Surfactants`}><div {...entry.edit}><PageIsland data={data} view="category" category={category} client:load /></div></Layout>
+<Layout data={data} title={`${entry.data.title} preview | KLK OLEO Surfactants`}><div {...entry.edit}><PageIsland data={data} view={shown ? 'brand' : 'category'} brand={slug} category={category} client:load /></div></Layout>

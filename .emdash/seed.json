@@ -6,6 +6,630 @@
   },
   "collections": [
     {
+      "slug": "service_pages",
+      "label": "Service pages",
+      "group": "Surfactants",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "editLocking": true,
+      "urlPattern": "/surfactants/{slug}",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "source_key",
+          "label": "Import source key (managed by agency)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "route",
+          "label": "Fixed service route",
+          "type": "select",
+          "required": true,
+          "unique": true,
+          "validation": {
+            "options": [
+              "custom-manufacturing",
+              "pilot-plant"
+            ]
+          }
+        },
+        {
+          "slug": "heading",
+          "label": "Main heading",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "introduction",
+          "label": "Introduction",
+          "type": "text",
+          "required": true,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "cta_label",
+          "label": "Introduction button",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "benefits_heading",
+          "label": "Benefits heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "overview_heading",
+          "label": "Overview heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "overview_copy",
+          "label": "Overview copy",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "process_heading",
+          "label": "Process heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "technologies_heading",
+          "label": "Technologies heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "technologies_copy",
+          "label": "Technologies introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "materials_heading",
+          "label": "Raw materials heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "materials_copy",
+          "label": "Raw materials introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "equipment_heading",
+          "label": "Reactors heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "equipment_copy",
+          "label": "Reactors introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "assurance_heading",
+          "label": "Assurances heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "assurance_copy",
+          "label": "Assurances introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "support_heading",
+          "label": "Support heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "support_copy",
+          "label": "Support introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "scale_label",
+          "label": "Scale range label",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "scale_value",
+          "label": "Scale range",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "closing_heading",
+          "label": "Closing heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "closing_copy",
+          "label": "Closing copy",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "form_heading",
+          "label": "Project form heading",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "form_copy",
+          "label": "Project form introduction",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
+          }
+        },
+        {
+          "slug": "form_action_label",
+          "label": "Project form submit label",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "seo_title",
+          "label": "SEO title",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "seo_description",
+          "label": "SEO description",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "intro_image",
+          "label": "Optional introduction image",
+          "type": "image",
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "highlights",
+          "label": "Highlights",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 4,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading / value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Icon / image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "benefits",
+          "label": "Benefits",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 6,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading / value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Icon / image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "process_steps",
+          "label": "Process steps",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 6,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading / value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Icon / image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "technologies",
+          "label": "Manufacturing technologies / reaction families",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 12,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Name",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "materials",
+          "label": "Raw materials",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 15,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Name",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "equipment",
+          "label": "Reactors",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 8,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading / value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Icon / image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "assurances",
+          "label": "Assurances",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 6,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading / value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Icon / image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "slug": "support_items",
+          "label": "Support cards",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 8,
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Heading / value",
+                "type": "string",
+                "required": true,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "copy",
+                "label": "Description",
+                "type": "text",
+                "validation": {
+                  "maxLength": 5000
+                }
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string",
+                "required": false,
+                "validation": {
+                  "maxLength": 500
+                }
+              },
+              {
+                "slug": "image",
+                "label": "Icon / image",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "slug": "home",
       "label": "Home",
       "fields": [
@@ -402,6 +1026,19 @@
                 "validation": {
                   "maxLength": 5000
                 }
+              },
+              {
+                "slug": "image",
+                "label": "Icon",
+                "type": "image",
+                "validation": {
+                  "allowedMimeTypes": [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp",
+                    "image/avif"
+                  ]
+                }
               }
             ],
             "maxItems": 4,
@@ -626,10 +1263,24 @@
           "required": true,
           "validation": {
             "options": [
-              "Exhibition",
-              "Product",
               "Corporate",
-              "Sustainability"
+              "Exhibition",
+              "Products",
+              "Articles"
+            ]
+          }
+        },
+        {
+          "slug": "markets",
+          "label": "Markets",
+          "type": "multiSelect",
+          "validation": {
+            "options": [
+              "Beauty & Personal Care",
+              "Home Care and I&I Cleaning",
+              "Lubricants",
+              "Agrochemicals",
+              "Textile and Leather"
             ]
           }
         },
@@ -663,6 +1314,24 @@
               "image/webp",
               "image/avif"
             ]
+          }
+        },
+        {
+          "slug": "seo_title",
+          "label": "SEO title",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 500
+          }
+        },
+        {
+          "slug": "seo_description",
+          "label": "SEO description",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 5000
           }
         }
       ],
@@ -916,6 +1585,494 @@
     }
   ],
   "content": {
+    "service_pages": [
+      {
+        "id": "source:custom-manufacturing",
+        "slug": "custom-manufacturing",
+        "status": "draft",
+        "data": {
+          "cta_label": "Talk to our team",
+          "form_heading": "Tell us about your project",
+          "form_copy": "Share your product idea, performance requirements, or scale-up challenge. Our team will get back to you to discuss the best next step.",
+          "form_action_label": "Contact KLK OLEO Surfactants",
+          "title": "Custom Manufacturing",
+          "route": "custom-manufacturing",
+          "heading": "Custom Chemical Manufacturing that brings your ideas to life.",
+          "introduction": "From contract chemical manufacturing to industrial-scale production, KLK OLEO Surfactants helps turn your product or intermediate into a scalable reality. We combine specialty chemical know-how, manufacturing expertise, and dedicated support teams to co-create solutions that meet your performance, quality, regulatory, and ESG requirements.",
+          "technologies_heading": "Our Manufacturing Technologies",
+          "technologies_copy": "From alkoxylation and phosphation to sulphation, sulphonation, esterification, amidation, polymerization, and quaternisation, our broad manufacturing capabilities turn complex chemistry into high-performance solutions.",
+          "technologies": [
+            {
+              "title": "Alkoxylation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Phosphation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Sulphation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Sulphonation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Esterification",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Amidation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Polymerization",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Quaternisation",
+              "copy": "",
+              "label": ""
+            }
+          ],
+          "benefits_heading": "Why customers choose KLK OLEO Surfactants",
+          "benefits": [
+            {
+              "title": "Tailor-made solutions",
+              "copy": "Designed around a defined performance profile and your application target.",
+              "label": ""
+            },
+            {
+              "title": "Reliable scale-up",
+              "copy": "From lab results to industrial readiness with repeatable performance in focus.",
+              "label": ""
+            },
+            {
+              "title": "Quality, regulatory, and ESG support",
+              "copy": "Documentation, compliance, and sustainability expectations supported throughout the process.",
+              "label": ""
+            }
+          ],
+          "highlights": [
+            {
+              "title": "Dedicated project teams",
+              "copy": "",
+              "label": "Collaboration",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/collaboration.png",
+                "src": "/images/services/collaboration.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "Secure long-term capacity",
+              "copy": "",
+              "label": "Production",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/production.png",
+                "src": "/images/services/production.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "Quality",
+              "copy": "",
+              "label": "Consistent",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/quality.png",
+                "src": "/images/services/quality.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "Faster route to market",
+              "copy": "",
+              "label": "Outcome",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/outcome.png",
+                "src": "/images/services/outcome.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            }
+          ],
+          "overview_heading": "We don’t just supply products. We co-create solutions.",
+          "overview_copy": "Custom manufacturing at KLK OLEO Surfactants is built for customers who need more than capacity. It is designed for businesses looking for a partner that can take an idea, develop the right process, and deliver reliable production at scale. Our technical and operations teams work closely with you to create a solution around your target profile, streamline the path from development to production, and support a faster, more confident route to market.",
+          "process_heading": "From idea to full-scale manufacturing",
+          "process_steps": [
+            {
+              "title": "Define the target",
+              "copy": "Start with your product concept, performance needs, and business requirements.",
+              "label": ""
+            },
+            {
+              "title": "Develop the route",
+              "copy": "Support product development, process design, and preparation for industrialisation.",
+              "label": ""
+            },
+            {
+              "title": "Scale with confidence",
+              "copy": "Enable efficient scale-up from lab and pilot stages to industrial production.",
+              "label": ""
+            },
+            {
+              "title": "Produce for the long term",
+              "copy": "Secure capacity, transparent collaboration, and dependable quality for lasting partnerships.",
+              "label": ""
+            }
+          ],
+          "assurance_heading": "What you can count on",
+          "assurance_copy": "KLK OLEO Surfactants combines specialty chemical expertise with practical manufacturing know-how, enabling dependable execution from development to long-term supply.",
+          "assurances": [
+            {
+              "title": "Consistent quality",
+              "copy": "Repeatable performance that helps protect your application and brand expectations.",
+              "label": ""
+            },
+            {
+              "title": "Secure, long-term capacity",
+              "copy": "Capacity planning and operational reliability that support business continuity.",
+              "label": ""
+            },
+            {
+              "title": "Transparent and efficient collaboration",
+              "copy": "Dedicated project teams that keep development and operations aligned.",
+              "label": ""
+            },
+            {
+              "title": "Shorter time-to-market",
+              "copy": "Integrated support across development, regulatory, and logistics to keep momentum high.",
+              "label": ""
+            }
+          ],
+          "support_heading": "Technical and operational support",
+          "support_items": [
+            {
+              "title": "R&D for product development",
+              "copy": "Development expertise to shape the right product and process route.",
+              "label": "",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/research.png",
+                "src": "/images/services/research.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "Regulatory affairs support",
+              "copy": "Documentation and compliance support for confident market readiness.",
+              "label": "",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/regulatory.png",
+                "src": "/images/services/regulatory.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "Efficient scale-up",
+              "copy": "Industrialisation support from development through production ramp-up.",
+              "label": "",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/scale-up.png",
+                "src": "/images/services/scale-up.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "State-of-the-art logistics",
+              "copy": "Reliable logistics support to keep supply chains moving efficiently.",
+              "label": "",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/logistics.png",
+                "src": "/images/services/logistics.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            },
+            {
+              "title": "ESG and sustainability support",
+              "copy": "Alignment with sustainability expectations and certified support where relevant.",
+              "label": "",
+              "image": {
+                "provider": "external",
+                "id": "/images/services/sustainability.png",
+                "src": "/images/services/sustainability.png",
+                "mimeType": "image/png",
+                "alt": ""
+              }
+            }
+          ],
+          "scale_label": "Scale-up range",
+          "scale_value": "1 mt to 35 mt",
+          "closing_heading": "Let’s bring your product or intermediate to life.",
+          "closing_copy": "Looking for a partner to turn an idea into reliable production? Let’s talk about how KLK OLEO Surfactants’ custom manufacturing can support your business.",
+          "seo_title": "Custom Chemical Manufacturing | KLK OLEO Surfactants",
+          "seo_description": "Expert custom and contract chemical manufacturing for industrial and specialty applications. Partner with KLK OLEO Surfactants — contact us today!",
+          "source_key": "service:custom-manufacturing"
+        }
+      },
+      {
+        "id": "source:pilot-plant",
+        "slug": "pilot-plant",
+        "status": "draft",
+        "data": {
+          "cta_label": "Talk to our team",
+          "form_heading": "Tell us about your project",
+          "form_copy": "Share your product idea, performance requirements, or scale-up challenge. Our team will get back to you to discuss the best next step.",
+          "form_action_label": "Contact KLK OLEO Surfactants",
+          "title": "Pilot Plant",
+          "route": "pilot-plant",
+          "heading": "Where ideas become scalable reality — Pilot Plant Chemical Manufacturing",
+          "introduction": "From a first lab concept to a 1,000 kg batch, our multipurpose pilot plant manufacturing services bridge the gap between R&D and full-scale production. Built for flexibility, speed to market, and confident scale-up, it gives start-ups, scale-ups, and established manufacturers a reliable path from promising chemistry to production-ready process.",
+          "highlights": [
+            {
+              "title": "4",
+              "copy": "Flexible reactors including glass-lined and stainless-steel options",
+              "label": ""
+            },
+            {
+              "title": "ATEX",
+              "copy": "Compliant operating environment with high ventilation and controlled handling",
+              "label": ""
+            },
+            {
+              "title": "7+",
+              "copy": "Core reaction families supported, with additional technologies on site",
+              "label": ""
+            },
+            {
+              "title": "End-to-end",
+              "copy": "Process, permits, safety, and supply-chain support throughout the project",
+              "label": ""
+            }
+          ],
+          "benefits_heading": "Scale-up support for every stage of growth",
+          "benefits": [
+            {
+              "title": "Built for flexible batch production",
+              "copy": "Scale from 100 to 1,000 kg with the flexibility to validate, refine, and prepare your process for the next manufacturing step.",
+              "label": ""
+            },
+            {
+              "title": "Many chemistries, one partner",
+              "copy": "From polymerization to quaternization, we support a wide range of reactions with the know-how and plant fit needed for specialty-chemical projects.",
+              "label": ""
+            },
+            {
+              "title": "Safety and compliance built in",
+              "copy": "ATEX compliance, PLC-supported operation, site certifications, and strong hygiene standards help keep projects controlled and reliable.",
+              "label": ""
+            }
+          ],
+          "overview_heading": "From lab idea to reliable pilot batch",
+          "overview_copy": "Our pilot plant closes the gap between R&D and full-scale production, helping transform first ideas into stable, repeatable pilot batches.",
+          "process_heading": "",
+          "process_steps": [
+            {
+              "title": "Validate the chemistry",
+              "copy": "Select the right reactor, utilities, and work-up route for your chemistry.",
+              "label": ""
+            },
+            {
+              "title": "Refine the process",
+              "copy": "Refine process conditions, handling, and purification for reliable pilot performance.",
+              "label": ""
+            },
+            {
+              "title": "Prepare for scale",
+              "copy": "Move forward with stronger process confidence and a clearer route to manufacturing.",
+              "label": ""
+            }
+          ],
+          "technologies_heading": "Many chemistries. One experienced partner.",
+          "technologies_copy": "Our permit covers a broad range of reactions, giving customers the flexibility to scale specialty-chemical projects with confidence.",
+          "technologies": [
+            {
+              "title": "Polymerization",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Amidation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Phosphatation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Sulphitation",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Esterification",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Neutralization",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Quaternization",
+              "copy": "",
+              "label": ""
+            }
+          ],
+          "materials_heading": "Licensed for challenging raw materials",
+          "materials_copy": "Our European site is licensed and equipped to handle demanding raw materials, supported by strong safety standards and disciplined operation.",
+          "materials": [
+            {
+              "title": "Hexamethyl di-isocyanate",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Methyl chloride and benzyl chloride",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Dimethyl sulfate",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Acrylic acid and methacrylic acid",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Caustic soda, sulphuric acid, and hydrochloric acid",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Amines and anhydrous ammonia",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Phosphorous pentoxide",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Styrene and xylene",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Ethanol and isopropanol",
+              "copy": "",
+              "label": ""
+            },
+            {
+              "title": "Vinyl acetate",
+              "copy": "",
+              "label": ""
+            }
+          ],
+          "equipment_heading": "Four reactors and clean work-up options",
+          "equipment_copy": "The pilot plant includes three stainless-steel reactors and one glass-lined reactor, supported by work-up options that help deliver clean product quality.",
+          "equipment": [
+            {
+              "title": "200 L",
+              "copy": "High-temperature capability up to 350 °C with distillation support.",
+              "label": "Stainless steel"
+            },
+            {
+              "title": "500 L",
+              "copy": "Controlled reflux and distillation column for flexible process development.",
+              "label": "Stainless steel"
+            },
+            {
+              "title": "500 L",
+              "copy": "Added material compatibility for projects needing a glass-lined environment.",
+              "label": "Glass-lined"
+            },
+            {
+              "title": "1000 L",
+              "copy": "Anchor agitation and high-viscosity handling for larger pilot batches.",
+              "label": "Stainless steel"
+            }
+          ],
+          "assurance_heading": "Controlled, compliant, and designed for safe operation",
+          "assurance_copy": "Your project runs in an environment designed for consistency, compliance, and operational control from start to finish.",
+          "assurances": [
+            {
+              "title": "PLC control room",
+              "copy": "Partly automated operation with controlled process monitoring and a clear production environment.",
+              "label": "Operations"
+            },
+            {
+              "title": "ATEX compliant",
+              "copy": "Suitable for projects requiring controlled handling in a safety-focused operating setup.",
+              "label": "Compliance"
+            },
+            {
+              "title": "High hygiene level",
+              "copy": "Tiled floor and wall areas support clean handling and production discipline.",
+              "label": "Site standards"
+            },
+            {
+              "title": "Kosher / Halal",
+              "copy": "Kosher-certified site, with Halal possible on request depending on project requirements.",
+              "label": "Certifications"
+            }
+          ],
+          "support_heading": "More than production: end-to-end project support",
+          "support_copy": "From process development to permits and supply-chain topics, our team supports the work around the batch so you can focus on moving your project forward.",
+          "support_items": [
+            {
+              "title": "Process development",
+              "copy": "Improve robustness, repeatability, and scale-up readiness before the next production step.",
+              "label": ""
+            },
+            {
+              "title": "Permits & operations",
+              "copy": "Benefit from a team that understands permits, safe handling, and the realities of demanding chemistries.",
+              "label": ""
+            },
+            {
+              "title": "Supply-chain perspective",
+              "copy": "Build a more practical route to commercialization with support that goes beyond the reactor itself.",
+              "label": ""
+            }
+          ],
+          "closing_heading": "How could we support your next project?",
+          "closing_copy": "Get in touch to explore how we can turn your next idea into a reliable, scalable reality — from first concept to pilot batch and beyond.",
+          "seo_title": "Chemical Pilot Plant & Scale-Up Services | KLK OLEO Surfactants",
+          "seo_description": "Scale chemistry from lab to 100–1,000 kg batches with KLK OLEO Surfactants pilot plant and process development support. Discuss your project today.",
+          "source_key": "service:pilot-plant"
+        }
+      }
+    ],
     "home": [
       {
         "id": "source:home",
@@ -936,6 +2093,7 @@
           "partner_heading": "Your Partner of Choice for Surfactants",
           "partner_copy": "KLK OLEO is one of the world's largest vertically integrated oleochemicals manufacturers, giving you direct access to oleochemicals and their derivatives, raw material security, global production capacity, and consistent supply.",
           "video_heading": "From development to full-scale production",
+          "video_url": "https://www.youtube-nocookie.com/embed/UKwlxsZb8cI",
           "quality_heading": "High Standard, High Trust",
           "quality_copy": "Our ISO-certified quality systems and full documentation support make audits and approvals straightforward for our customers.",
           "award_title": "Shell Gold Award for Operational Excellence",
@@ -1213,12 +2371,12 @@
         }
       },
       {
-        "id": "source:tensaryl",
-        "slug": "tensaryl",
+        "id": "source:tensaryly",
+        "slug": "tensaryly",
         "status": "draft",
         "data": {
           "source_key": "brand:tensaryl",
-          "title": "TENSARYL",
+          "title": "TENSARYLY",
           "category": "anionic",
           "descriptor": "Linear Alkylbenzene Sulphonates & Sulphonic Acids",
           "order": 9
@@ -1402,18 +2560,6 @@
     ],
     "markets": [
       {
-        "id": "source:home-care",
-        "slug": "home-care",
-        "status": "draft",
-        "data": {
-          "source_key": "source:home-care",
-          "title": "Home Care and I&I Cleaning",
-          "copy": "Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.",
-          "colour": "teal",
-          "order": 0
-        }
-      },
-      {
         "id": "source:beauty-personal-care",
         "slug": "beauty-personal-care",
         "status": "draft",
@@ -1422,6 +2568,20 @@
           "title": "Beauty & Personal Care",
           "copy": "Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.",
           "colour": "pink",
+          "url": "https://www.klkoleo.com/markets/beauty-personal-care/",
+          "order": 0
+        }
+      },
+      {
+        "id": "source:home-care",
+        "slug": "home-care",
+        "status": "draft",
+        "data": {
+          "source_key": "source:home-care",
+          "title": "Home Care and I&I Cleaning",
+          "copy": "Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.",
+          "colour": "teal",
+          "url": "https://www.klkoleo.com/markets/home-care-industries-institutional-ii-cleaning/",
           "order": 1
         }
       },
@@ -1431,7 +2591,7 @@
         "status": "draft",
         "data": {
           "source_key": "source:agrochemicals",
-          "title": "Agrochemicals",
+          "title": "Agriculture",
           "copy": "Surfactants for emulsifying, dispersing, wetting, penetrating, defoaming, and formulation stability in conventional, biological crop protection and related application.",
           "colour": "green",
           "url": "https://www.klkoleo.com/agrochemicals",
@@ -1447,6 +2607,7 @@
           "title": "Lubricants & Metalworking Fluids",
           "copy": "Surfactant solutions for emulsification, system stability, and robust process performance.",
           "colour": "grey",
+          "url": "https://www.klkoleo.com/markets/lubricants/",
           "order": 3
         }
       },
@@ -1456,9 +2617,10 @@
         "status": "draft",
         "data": {
           "source_key": "source:textile-leather",
-          "title": "Textile & Leather",
+          "title": "Textile and Leather",
           "copy": "Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.",
           "colour": "purple",
+          "url": "https://www.kolb.ch/products-markets/performance-chemicals/",
           "order": 4
         }
       }
@@ -1472,7 +2634,15 @@
           "source_key": "source:century",
           "title": "A Century of Surfactant Excellence",
           "summary": "100 years of surfactant excellence.",
-          "category": "Corporate"
+          "category": "Corporate",
+          "markets": [],
+          "image": {
+            "id": "/images/hero/hero-01-100-years.jpg",
+            "src": "/images/hero/hero-01-100-years.jpg",
+            "alt": "Historic gathering beside a steam train in Delden",
+            "provider": "external",
+            "mimeType": "image/jpeg"
+          }
         }
       },
       {
@@ -1483,7 +2653,15 @@
           "source_key": "source:sustainability",
           "title": "Sustainability in Action",
           "summary": "20% more capacity and 30% less CO₂ emissions.",
-          "category": "Sustainability"
+          "category": "Articles",
+          "markets": [],
+          "image": {
+            "id": "/images/hero/hero-02-sustainability.jpg",
+            "src": "/images/hero/hero-02-sustainability.jpg",
+            "alt": "A glass globe among green plants",
+            "provider": "external",
+            "mimeType": "image/jpeg"
+          }
         }
       }
     ],
@@ -1494,8 +2672,8 @@
         "status": "draft",
         "data": {
           "source_key": "source:faq-1",
-          "title": "What does KLK OLEO Surfactants manufacture?",
-          "answer": "KLK OLEO Surfactants manufactures industrial and specialty surfactants for a wide range of applications. Our portfolio includes nonionic, anionic, and cationic surfactants, as well as tailored customer-specific solutions designed for performance, consistency, and reliable supply.",
+          "title": "What should be considered when replacing a dispersant in an existing SC formulation?",
+          "answer": "Replacing a dispersant in a suspension concentrate (SC) formulation requires more than matching its chemical type or dosage. Differences in adsorption behaviour, active ingredient compatibility and interactions with other formulation components can affect particle size stability, viscosity and redispersibility. Comparative evaluation should include dispersion efficiency, rheology, accelerated storage stability and dilution behaviour.\n\nAidigro offers dispersants for evaluation in different SC formulation systems. Customers can explore the Product Finder or contact our technical team to discuss suitable alternatives.",
           "order": 0
         }
       },
@@ -1505,8 +2683,8 @@
         "status": "draft",
         "data": {
           "source_key": "source:faq-2",
-          "title": "Is KLK OLEO Surfactants part of an oleochemical manufacturing group?",
-          "answer": "Yes. KLK OLEO Surfactants is part of KLK OLEO, one of the world’s largest vertically integrated oleochemical groups. This integration supports raw material security, supply continuity, and the development of oleo-based surfactant solutions for global markets. Nevertheless, we also supply surfactants based on synthetic fatty alcohols.",
+          "title": "Why can an SC formulation develop hard sediment during storage despite showing good initial stability?",
+          "answer": "Initial physical stability does not necessarily predict long-term storage behaviour. Hard sedimentation may result from particle aggregation, crystal growth or insufficient suspension structure. Temperature fluctuations and interactions between formulation ingredients can further influence sediment formation. Increasing viscosity alone may not resolve the problem.\n\nEvaluation of particle size distribution, rheology, dispersant compatibility and storage behaviour is important in identifying the underlying cause. Our technical team can assist in identifying suitable Aidigro ingredients for evaluation.",
           "order": 1
         }
       },
@@ -1516,8 +2694,8 @@
         "status": "draft",
         "data": {
           "source_key": "source:faq-3",
-          "title": "How does KLK OLEO Surfactants support industrial chemical supply?",
-          "answer": "We support reliable industrial chemical supply through integrated oleochemical sourcing, diversified manufacturing, technical documentation, and global supply capabilities.",
+          "title": "Can two emulsifiers with similar specifications perform differently in the same EC formulation?",
+          "answer": "Yes. Emulsifiers with similar general specifications may differ in molecular composition, hydrophilic-lipophilic balance and compatibility with the solvent and active ingredient. These differences can influence emulsion formation, droplet size and stability upon dilution.\n\nComparative testing should consider different water hardness levels, dilution ratios and temperatures. Selection should be based on performance in the intended formulation rather than specifications alone.\n\nCustomers can explore available emulsifiers through our Product Finder or contact us for product selection and technical support.",
           "order": 2
         }
       },
@@ -1527,8 +2705,8 @@
         "status": "draft",
         "data": {
           "source_key": "source:faq-4",
-          "title": "Does KLK OLEO Surfactants offer custom chemical manufacturing?",
-          "answer": "Yes. We provide custom chemical manufacturing and tailored production support for customers who need specific performance profiles, blends, or manufacturing routes. Our teams support projects from product selection and development through to industrial production.",
+          "title": "Does improving wetting performance necessarily compromise microbial viability in biological formulations?",
+          "answer": "Not necessarily. Wetting performance and microbial compatibility are influenced by surfactant chemistry, concentration, microorganism type and formulation conditions. A surfactant that provides effective wetting may still be compatible with certain biological systems, but this cannot be assumed across different organisms.\n\nSelected Aidigro ingredients have demonstrated wetting improvement while maintaining biological compatibility under evaluated conditions. Both properties should be assessed together when developing biological crop protection formulations.\n\nContact our technical team for supporting compatibility information on selected Aidigro ingredients.",
           "order": 3
         }
       },
@@ -1538,9 +2716,42 @@
         "status": "draft",
         "data": {
           "source_key": "source:faq-5",
-          "title": "Can KLK OLEO Surfactants support scale-up from lab trials to industrial production?",
-          "answer": "Yes. KLK OLEO Surfactants supports scale-up from early development through to full industrial production. We help reduce scale-up risk with technical support, process know-how, and manufacturing capabilities designed to move formulations forward efficiently.",
+          "title": "Is complete reformulation necessary to improve wetting in an existing biological pesticide?",
+          "answer": "Not always. Direct addition of a suitable wetting agent may be considered where the existing formulation is physically stable but requires improved wetting performance. However, the added ingredient may influence microbial viability, formulation stability and storage behaviour.\n\nDirect incorporation, reformulation and tank-mix addition are different development approaches, each requiring appropriate evaluation. Aidigro offers selected ingredients for investigating these options.\n\nContact our technical team to discuss suitable wetting agents and evaluation approaches.",
           "order": 4
+        }
+      },
+      {
+        "id": "source:faq-6",
+        "slug": "faq-6",
+        "status": "draft",
+        "data": {
+          "source_key": "source:faq-6",
+          "title": "Why can irrigation water penetrate unevenly into soil even when sufficient water is applied?",
+          "answer": "Uneven water penetration may result from soil water repellency, differences in soil texture, compaction or preferential water flow. In water-repellent soils, irrigation water may bypass certain areas rather than wetting the soil uniformly.\n\nSoil-wetting agents can improve contact between water and soil surfaces, supporting more uniform wetting and water distribution. SoilHydrate is KLK OLEO's soil-wetting agent range developed for direct field application. Performance depends on soil conditions, application rates and irrigation practices.\n\nExplore our SoilHydrate range for product information, application guidance and supporting field trial results.",
+          "order": 5
+        }
+      },
+      {
+        "id": "source:faq-7",
+        "slug": "faq-7",
+        "status": "draft",
+        "data": {
+          "source_key": "source:faq-7",
+          "title": "What should be evaluated when qualifying an alternative agrochemical surfactant supplier?",
+          "answer": "Supplier qualification should consider more than product specifications and pricing. Important factors include batch-to-batch consistency, impurity profiles, formulation performance, regulatory documentation and supply reliability.\n\nEven products with similar specifications may behave differently in a formulation. Comparative laboratory evaluation and appropriate stability testing are recommended before substitution.\n\nKLK OLEO can provide relevant technical information and samples to support qualification of selected Aidigro products. Customers can explore our Product Finder or contact us for further information.",
+          "order": 6
+        }
+      },
+      {
+        "id": "source:faq-8",
+        "slug": "faq-8",
+        "status": "draft",
+        "data": {
+          "source_key": "source:faq-8",
+          "title": "What information should be provided when requesting an alternative surfactant or formulation recommendation?",
+          "answer": "Providing the formulation type, active ingredient, existing surfactant system and intended performance requirements helps identify suitable alternatives. Information on current formulation challenges, regulatory restrictions and target market is also useful.\n\nFor commercial evaluation, estimated volume and destination country can help clarify supply requirements.",
+          "order": 7
         }
       }
     ],
@@ -1566,8 +2777,8 @@
           "source_key": "source:our-markets",
           "route": "our-markets",
           "title": "Our Markets",
-          "heading": "Surfactant Solutions for Key Industries",
-          "introduction": "Oleo-based and synthetic solutions for key industries where performance and reliability matter.",
+          "heading": "KLK OLEO Surfactants for Key Industries",
+          "introduction": "From consumer care to crop protection, industrial cleaning, lubrication and process chemistry, KLK OLEO Surfactants support formulators with application-focused ingredients and a strong performance, sustainability and compliance mindset.",
           "seo_title": "KLK OLEO Surfactants for Key Industries",
           "seo_description": "Explore KLK OLEO surfactants for personal care, home care, agriculture, and more. High performance, compliant, and sustainable solutions"
         }

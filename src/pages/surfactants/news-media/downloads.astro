@@ -1,0 +1,7 @@
+---
+import Layout from '../../../layouts/SiteLayout.astro';
+import { PageIsland } from '../../../components/site-islands';
+import { loadSiteContent } from '../../../cms/published';
+const {data} = await loadSiteContent(Astro.locals.emdash?.getPublicMediaUrl);
+---
+<Layout data={data} title="Downloads | KLK OLEO Surfactants" description="Request product brochures, leaflets and formulation guides for KLK OLEO Surfactants."><PageIsland data={data} view="downloads" client:load /></Layout>

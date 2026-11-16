@@ -81,8 +81,8 @@ test.describe('EmDash administration and publishing', () => {
       await page.goto('/surfactants');
       expect(await page.locator('.hero-slide').first().locator('img').getAttribute('src')).toContain(image.storageKey);
       await expect(page.locator('.award-artwork img')).toHaveAttribute('src',new RegExp(image.storageKey));
-      await page.goto('/surfactants/products/anionic');
-      const href=await page.locator('#palmosalt').getByRole('link',{name:'Download brochure (PDF)'}).getAttribute('href');
+      await page.goto('/surfactants/products/anionic/palmosalt');
+      const href=await page.locator('.brand-detail').getByRole('link',{name:'Download brochure (PDF)'}).getAttribute('href');
       expect(href).toContain(pdf.storageKey);
       expect((await request.get(href!)).status()).toBe(200);
     } finally {
