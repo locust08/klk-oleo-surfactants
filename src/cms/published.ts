@@ -2,6 +2,7 @@ import { getEmDashCollection } from 'emdash';
 import type { SiteData, Home, Site, Article, Media } from './types';
 import { safeDestination } from './content-policy';
 import { resolveCmsMedia } from './media';
+import { normalizeNewsCategory, newsMarkets } from './news-categories';
 
 function camel(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(camel);
@@ -36,7 +37,7 @@ export async function loadSiteContent(publicMediaUrl?: (key: string) => string) 
     site: rawSite ? { ...rawSite, ...Object.fromEntries(['sustainabilityUrl', 'headerLinkedin', 'footerLinkedin', 'careerUrl'].map(key => [key, safeDestination(rawSite[key])])) } as unknown as Site : null,
     products: brands.sort((a, b) => Number(a.order || 0) - Number(b.order || 0)).map(item => ({ brand: String(item.title), slug: String(item.slug), category: item.category as 'anionic' | 'cationic' | 'nonionic', descriptor: item.descriptor as string | undefined, summary: item.summary as string | undefined, brochure: mediaSrc(item.brochure) })),
     markets: markets.sort((a, b) => Number(a.order || 0) - Number(b.order || 0)).map(item => ({ name: String(item.title), slug: String(item.slug), copy: String(item.copy || ''), colour: String(item.colour || 'green'), url: safeDestination(item.url) })),
-    articles: articles.map(item => ({ ...item, image: mediaSrc(item.image), publishedAt: item.publicationDate })) as Article[],
+    articles: articles.map(item => ({ ...item, category: normalizeNewsCategory(item.category), markets: (Array.isArray(item.markets) ? item.markets : []).filter(market => (newsMarkets as readonly unknown[]).includes(market)), image: mediaSrc(item.image), imageAlt: (item.image as Media)?.alt || '', publishedAt: item.publicationDate })) as Article[],
     faqs: faqs.sort((a, b) => Number(a.order || 0) - Number(b.order || 0)).map(item => [String(item.title), String(item.answer)]),
     pages: Object.fromEntries(pages.map(item => [String(item.route), { title: String(item.title || ''), heading: String(item.heading || ''), introduction: String(item.introduction || ''), seoTitle: String(item.seoTitle || ''), seoDescription: String(item.seoDescription || '') }])),
   };

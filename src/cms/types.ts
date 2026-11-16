@@ -1,8 +1,10 @@
+import type { NewsCategory } from './news-categories';
+import type { NewsMarket } from '../lib/news-filters';
 import type { Product } from '../lib/product-catalog';
 export type Media = { id: string; src?: string; url?: string; alt?: string; filename?: string; mimeType?: string };
 export type Hero = { title: string; copy: string; image: string; alt: string; action: string; kind: string; target: string; position: string };
 export type Market = { name: string; slug: string; copy: string; colour: string; url?: string };
-export type Article = { slug: string; title: string; category: 'Exhibition' | 'Product' | 'Corporate' | 'Sustainability'; summary: string; body?: unknown[]; publishedAt?: string; image?: string };
+export type Article = { slug: string; title: string; category: NewsCategory; markets: NewsMarket[]; summary: string; body?: unknown[]; publishedAt?: string; image?: string; imageAlt?: string };
 export type Home = {
   title: string; introduction: string; portfolioCopy: string; heroSlides: Hero[];
   capabilities: [string, string][]; helpItems: [string, string, string?][];

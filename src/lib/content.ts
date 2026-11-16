@@ -1,3 +1,4 @@
+import type { NewsMarket } from './news-filters';
 export const BASE='/surfactants';
 export const sustainabilityUrl='https://www.klkoleo.com/sustainability-principled-by-integrity/';
 export const homeDescription='KLK OLEO Surfactants is a surfactant manufacturer & supplier, providing specialty surfactants, custom chemical manufacturing, and sustainable solutions. Contact us.';
@@ -6,11 +7,11 @@ export const portfolioCopy='KLK OLEO Surfactants supplies global customers with 
 export const ctaCopy='From surfactant selection to industrial scale-up of a customised product, KLK OLEO Surfactants helps you achieve reliable performance, consistent quality, and global supply.';
 export const footerCopy='KLK OLEO Surfactants is your global partner for surfactants. We combine quality, dependable capacity, and technical support to help you achieve results from development to full scale production.';
 export const markets=[
- {name:'Home Care and I&I Cleaning',slug:'home-care',copy:'Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.',colour:'teal'},
- {name:'Beauty & Personal Care',slug:'beauty-personal-care',copy:'Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.',colour:'pink'},
- {name:'Agrochemicals',slug:'agrochemicals',copy:'Surfactants for emulsifying, dispersing, wetting, penetrating, defoaming, and formulation stability in conventional, biological crop protection and related application.',colour:'green',url:'https://www.klkoleo.com/agrochemicals'},
- {name:'Lubricants & Metalworking Fluids',slug:'lubricants',copy:'Surfactant solutions for emulsification, system stability, and robust process performance.',colour:'grey'},
- {name:'Textile & Leather',slug:'textile-leather',copy:'Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.',colour:'purple'},
+ {name:'Beauty & Personal Care',slug:'beauty-personal-care',copy:'Surfactants and blends for mild cleansing, solubilising, and formulation stability, with well-balanced sensory performance.',colour:'pink',url:'https://www.klkoleo.com/markets/beauty-personal-care/'},
+ {name:'Home Care and I&I Cleaning',slug:'home-care',copy:'Surfactants for detergency, wetting, degreasing, and low-foam cleaning systems.',colour:'teal',url:'https://www.klkoleo.com/markets/home-care-industries-institutional-ii-cleaning/'},
+ {name:'Agriculture',slug:'agrochemicals',copy:'Surfactants for emulsifying, dispersing, wetting, penetrating, defoaming, and formulation stability in conventional, biological crop protection and related application.',colour:'green',url:'https://www.klkoleo.com/agrochemicals'},
+ {name:'Lubricants & Metalworking Fluids',slug:'lubricants',copy:'Surfactant solutions for emulsification, system stability, and robust process performance.',colour:'grey',url:'https://www.klkoleo.com/markets/lubricants/'},
+ {name:'Textile and Leather',slug:'textile-leather',copy:'Surfactants for pretreatment, scouring, dyeing support and consistent finishing results in the textile industry, as well as for tanning and beamhouse processes in leather production.',colour:'purple',url:'https://www.kolb.ch/products-markets/performance-chemicals/'},
 ];
 export const heroSlides=[
  {title:'100 YEARS',copy:'A Century of Surfactant Excellence.',image:'hero-01-100-years.jpg',alt:'A historic gathering beside a steam train',action:'Read More',kind:'article',target:'century',position:'50% 45%'},
@@ -31,16 +32,12 @@ export const helpItems=[
  ['Speed up approvals and audits','with responsible sourcing, certifications, and documentation support.'],
  ['Avoid supply risk','with diversified manufacturing capacity across Europe and Asia.'],
 ];
-export const faqs=[
- ['What does KLK OLEO Surfactants manufacture?','KLK OLEO Surfactants manufactures industrial and specialty surfactants for a wide range of applications. Our portfolio includes nonionic, anionic, and cationic surfactants, as well as tailored customer-specific solutions designed for performance, consistency, and reliable supply.'],
- ['Is KLK OLEO Surfactants part of an oleochemical manufacturing group?','Yes. KLK OLEO Surfactants is part of KLK OLEO, one of the world’s largest vertically integrated oleochemical groups. This integration supports raw material security, supply continuity, and the development of oleo-based surfactant solutions for global markets. Nevertheless, we also supply surfactants based on synthetic fatty alcohols.'],
- ['How does KLK OLEO Surfactants support industrial chemical supply?','We support reliable industrial chemical supply through integrated oleochemical sourcing, diversified manufacturing, technical documentation, and global supply capabilities.'],
- ['Does KLK OLEO Surfactants offer custom chemical manufacturing?','Yes. We provide custom chemical manufacturing and tailored production support for customers who need specific performance profiles, blends, or manufacturing routes. Our teams support projects from product selection and development through to industrial production.'],
- ['Can KLK OLEO Surfactants support scale-up from lab trials to industrial production?','Yes. KLK OLEO Surfactants supports scale-up from early development through to full industrial production. We help reduce scale-up risk with technical support, process know-how, and manufacturing capabilities designed to move formulations forward efficiently.'],
-];
-export const newsCategories=['Exhibition','Product','Corporate','Sustainability'] as const;
+// Homepage FAQs from the supplied FAQ document; paragraphs are stored blank-line separated in EmDash.
+export { faqs } from './faqs';
+export const newsCategories=['Corporate','Exhibition','Products','Articles'] as const;
 export type NewsCategory=typeof newsCategories[number];
-export const articles:{slug:string;title:string;category:NewsCategory;summary:string}[]=[
- {slug:'century',title:'A Century of Surfactant Excellence',category:'Corporate',summary:'100 years of surfactant excellence.'},
- {slug:'sustainability',title:'Sustainability in Action',category:'Sustainability',summary:'20% more capacity and 30% less CO₂ emissions.'},
+export const articles:{slug:string;title:string;category:NewsCategory;summary:string;markets?:NewsMarket[];image:string;alt:string}[]=[
+ {slug:'century',title:'A Century of Surfactant Excellence',category:'Corporate',summary:'100 years of surfactant excellence.',image:'hero-01-100-years.jpg',alt:'Historic gathering beside a steam train in Delden'},
+ {slug:'sustainability',title:'Sustainability in Action',category:'Articles',summary:'20% more capacity and 30% less CO₂ emissions.',image:'hero-02-sustainability.jpg',alt:'A glass globe among green plants'},
 ];
+export const brandFilmUrl='https://www.youtube-nocookie.com/embed/UKwlxsZb8cI';

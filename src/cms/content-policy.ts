@@ -30,6 +30,7 @@ function validateFields(data: Record<string, unknown>, fields: SeedField[], path
     const label = `${path}${field.slug}`;
     if (typeof value === 'string' && rules?.maxLength && value.length > rules.maxLength) throw new Error(`${label} is too long.`);
     if (field.type === 'select' && rules?.options && !rules.options.includes(String(value))) throw new Error(`${label} has an unsupported choice.`);
+    if (field.type === 'multiSelect' && (!Array.isArray(value) || value.some(item => !rules?.options?.includes(String(item))))) throw new Error(`${label} has an unsupported choice.`);
     if (field.type === 'image' || field.type === 'file') {
       const mime = (value as {mimeType?:string}).mimeType;
       if (!mime || (rules?.allowedMimeTypes && !rules.allowedMimeTypes.includes(mime))) throw new Error(`${label} requires an approved ${field.type === 'image' ? 'image' : 'file'} type.`);
