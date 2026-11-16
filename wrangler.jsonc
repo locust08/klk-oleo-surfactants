@@ -6,7 +6,7 @@
   "compatibility_date": "2026-11-10",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
-  "d1_databases": [{ "binding": "DB", "database_name": "klk-oleo-surfactants-cms" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "klk-oleo-surfactants-cms", "database_id": "acf99cf9-5cc2-4726-a95f-d022c0a9c50e" }],
   "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "klk-oleo-surfactants-media" }],
   "vars": { "EMDASH_SITE_URL": "https://klk-oleo-surfactants.easondev.workers.dev" },
   "triggers": { "crons": ["* * * * *"] },

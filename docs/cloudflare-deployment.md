@@ -39,3 +39,13 @@ Hosted setup is closed by the `EMDASH_SETUP_KEY` Worker secret (`npx wrangler se
 Open `/_emdash/admin/setup?setup_key=<key>`, leave sample content off (content is already imported),
 create the agency Admin and register a passkey. Delete the secret afterwards
 (`npx wrangler secret delete EMDASH_SETUP_KEY`); EmDash closes setup once it is complete.
+
+## Deployments
+
+16 November 2026: Astro + EmDash deployed from `872e89e` as version `f427a286-17e7-4057-8c92-4f71a9454bb5`,
+replacing the Next.js/OpenNext version `9d0bb6a4-e69e-4ee4-b934-c7ee1f558825` (rollback:
+`npx wrangler rollback 9d0bb6a4-e69e-4ee4-b934-c7ee1f558825`; that version does not use D1/R2).
+D1 `klk-oleo-surfactants-cms` (`acf99cf9-5cc2-4726-a95f-d022c0a9c50e`) was loaded from the local editorial
+database after the `live-site-2026-11-16-v1` import (851 statements; 25 brands, 8 FAQs, all published).
+Live checks: 14 public routes 200, legacy redirects 301, unknown route 404, setup returns 404 without the key,
+home page images load with no console errors or horizontal overflow.
