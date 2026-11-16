@@ -1,27 +1,85 @@
 ---
-import type { ServicePageData } from '../cms/service-types';
-import Rows from './service-rows.astro';
+import type { ServiceItem, ServicePageData } from '../cms/service-types';
 import { ServiceForm } from './service-form';
+import { PilotRevealCard } from './pilot-reveal-card';
 import type { SiteData } from '../cms/types';
 import { resolveCmsMedia } from '../cms/media';
-import '../styles/service-pages.css';
+import { FiArrowRight,FiCheckCircle,FiFileText,FiLayers,FiSettings,FiShield,FiTarget,FiTrendingUp,FiTruck } from 'react-icons/fi';
 interface Props { data:ServicePageData; siteData:SiteData; }
 const {data,siteData}=Astro.props;
 const custom=data.route==='custom-manufacturing';
-const image=resolveCmsMedia(data.intro_image,Astro.locals.emdash?.getPublicMediaUrl);
+const media=(value:unknown)=>resolveCmsMedia(value,Astro.locals.emdash?.getPublicMediaUrl);
+const rows=(items?:ServiceItem[]|null)=>items??[];
+const pad=(index:number)=>String(index+1).padStart(2,'0');
+// Layout labels and default photography are agency controlled; headings, copy and lists are EmDash content.
+const heroImage=media(data.intro_image)||`/images/hero/${custom?'hero-03-custom-manufacturing.jpg':'hero-05-pilot-plant.jpg'}`;
+const heroAlt=data.intro_image?.alt||(custom?'Stainless-steel manufacturing tanks and process walkways':'Manufacturing facility surrounded by woodland');
+const photo=custom?['/images/hero/hero-05-pilot-plant.jpg','Manufacturing facility surrounded by woodland']:['/images/hero/hero-03-custom-manufacturing.jpg','Stainless-steel manufacturing tanks and process walkways'];
+const commitmentIcons=['quality','production','collaboration','outcome'];
+const pilotPublished=siteData.servicePages.some(page=>page.route==='pilot-plant');
+const [scaleFrom,scaleTo]=(data.scale_value||'').split(/\s+to\s+/);
 ---
-<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/surfactants">Home</a><span aria-hidden="true">›</span><span aria-current="page">{data.title}</span></div></nav>
-<section class="section service-intro"><div class="container service-intro-grid"><div><span class="eyebrow">{data.title}</span><h1>{data.heading}</h1></div><div><p>{data.introduction}</p><a class="button" href="#project-enquiry">{data.cta_label||'Talk to our team'}<span aria-hidden="true">↗</span></a></div>{image&&<img class="service-intro-image" src={image} alt={data.intro_image?.alt||''}/>}</div></section>
-{!custom&&<section class="section service-highlights-section"><div class="container"><Rows items={data.highlights} kind="highlights"/></div></section>}
-{custom&&<section class="section"><div class="container"><h2>{data.technologies_heading}</h2><p class="service-lead">{data.technologies_copy}</p><ul class="service-technologies">{data.technologies?.map(item=><li>{item.title}</li>)}</ul></div></section>}
-<section class={`section ${custom?'':'service-mint'}`}><div class="container"><h2>{data.benefits_heading}</h2><Rows items={data.benefits} kind="benefits" numbered={!custom}/></div></section>
-{custom&&<section class="section service-mint"><div class="container"><Rows items={data.highlights} kind="highlights"/><a href="#project-enquiry" class="text-link service-secondary-cta">{data.cta_label||'Contact us'}<span aria-hidden="true">→</span></a></div></section>}
-<section class="section"><div class="container"><h2>{data.overview_heading}</h2><p class="service-lead">{data.overview_copy}</p>{data.process_heading&&<h2 class="service-subheading">{data.process_heading}</h2>}<Rows items={data.process_steps} kind="steps" numbered/></div></section>
-{!custom&&<>
-  <section class="section service-mint"><div class="container"><h2>{data.technologies_heading}</h2><p class="service-lead">{data.technologies_copy}</p><ul class="service-technologies">{data.technologies?.map(item=><li>{item.title}</li>)}</ul></div></section>
-  <section class="section"><div class="container"><h2>{data.materials_heading}</h2><p class="service-lead">{data.materials_copy}</p><ul class="service-materials">{data.materials?.map(item=><li>{item.title}</li>)}</ul></div></section>
-  <section class="section service-mint"><div class="container"><h2>{data.equipment_heading}</h2><p class="service-lead">{data.equipment_copy}</p><Rows items={data.equipment} kind="equipment"/></div></section>
+<section class={`pilot-hero ${custom?'manufacturing-hero':''}`}>
+  <img src={heroImage} alt={heroAlt} fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%"/>
+  <div class="pilot-hero-shade"/>
+  <div class="container pilot-hero-copy service-intro">
+    <nav aria-label="Breadcrumb"><a href="/surfactants">Home</a><span>/</span><span>{data.title}</span></nav>
+    <span class="eyebrow">{custom?'From your idea to industrial production':data.title}</span>
+    <h1>{data.heading}</h1>
+    <p>{data.introduction}</p>
+    <a href="#project-enquiry" class="button hero-action"><span class="hero-action-icon"><FiArrowRight aria-hidden="true"/></span>{data.cta_label||'Talk to our team'}</a>
+  </div>
+</section>
+{custom ? <>
+  <section class="section manufacturing-technologies" aria-labelledby="manufacturing-technologies-title"><div class="container">
+    <span class="eyebrow">Specialty chemistry. Practical expertise.</span>
+    <h2 id="manufacturing-technologies-title">{data.technologies_heading}</h2>
+    <p class="pilot-intro">{data.technologies_copy}</p>
+    <ul class="manufacturing-technology-grid service-technologies">{rows(data.technologies).map((item,i)=><li><span aria-hidden="true">{pad(i)}</span><h3>{item.title}</h3><FiCheckCircle aria-hidden="true"/></li>)}</ul>
+  </div></section>
+  <section class="section pilot-mint"><div class="container">
+    <span class="eyebrow">Built around your requirements</span><h2>{data.benefits_heading}</h2>
+    <div class="pilot-three pilot-benefits service-benefits">{rows(data.benefits).map(item=><article><FiCheckCircle aria-hidden="true"/><h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</article>)}</div>
+    <div class="pilot-four manufacturing-promises service-highlights">{rows(data.highlights).map(item=><article>{media(item.image)&&<img src={media(item.image)} alt={item.image?.alt||''} width="64" height="64" class="manufacturing-icon" loading="lazy"/>}{item.label&&<span class="eyebrow">{item.label}</span>}<h3>{item.title}</h3></article>)}</div>
+    <a href="#project-enquiry" class="text-link">Contact us<FiArrowRight aria-hidden="true"/></a>
+  </div></section>
+  <section class="section">
+    <div class="container pilot-split manufacturing-partner"><div class="pilot-photo"><img src={photo[0]} alt={photo[1]} loading="lazy" style="position:absolute;inset:0;width:100%;height:100%"/></div><div><span class="eyebrow">A partnership built to deliver</span><h2>{data.overview_heading}</h2><p>{data.overview_copy}</p></div></div>
+    <div class="container manufacturing-process"><span class="eyebrow">Connected from the start</span><h2>{data.process_heading}</h2><ol class="pilot-four manufacturing-steps service-steps">{rows(data.process_steps).map((item,i)=><li><span class="manufacturing-step-number">{pad(i)}</span><h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</li>)}</ol></div>
+  </section>
+  <section class="section manufacturing-commitments"><div class="container">
+    <div class="manufacturing-commitments-heading"><span class="eyebrow">Dependable execution. Long-term supply.</span><h2>{data.assurance_heading}</h2><p class="pilot-intro">{data.assurance_copy}</p></div>
+    <div class="manufacturing-commitment-grid service-assurances">{rows(data.assurances).map((item,i)=><article><img src={media(item.image)||`/images/custom-manufacturing/${commitmentIcons[i%commitmentIcons.length]}.svg`} alt={item.image?.alt||''} width="64" height="64" class="manufacturing-icon" loading="lazy"/><div><h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</div></article>)}</div>
+  </div></section>
+  <section class="section pilot-mint"><div class="container">
+    <span class="eyebrow">Support throughout your project</span><h2>{data.support_heading}</h2>{data.support_copy&&<p class="pilot-intro">{data.support_copy}</p>}
+    <div class="manufacturing-support-grid service-support">{rows(data.support_items).map(item=><article>{media(item.image)&&<img src={media(item.image)} alt={item.image?.alt||''} width="64" height="64" class="manufacturing-icon" loading="lazy"/>}<h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</article>)}</div>
+    {data.scale_value&&<div class="manufacturing-scale"><div><span class="eyebrow">{data.scale_label}</span><strong>{scaleTo?<>{scaleFrom} <span>to</span> {scaleTo}</>:data.scale_value}</strong></div>{pilotPublished&&<a href="/surfactants/pilot-plant" class="text-link">Explore our Pilot Plant<FiArrowRight aria-hidden="true"/></a>}</div>}
+  </div></section>
+</> : <>
+  <section class="pilot-proof"><div class="container pilot-four service-highlights">{rows(data.highlights).map(item=><div><strong>{item.title}</strong>{item.copy&&<p>{item.copy}</p>}</div>)}</div></section>
+  <section class="section"><div class="container"><span class="eyebrow">Flexible by design</span><h2>{data.benefits_heading}</h2>
+    <div class="pilot-three pilot-benefits service-benefits">{rows(data.benefits).map((item,i)=>{const Icon=[FiLayers,FiSettings,FiShield][i%3];return <article><Icon aria-hidden="true"/><h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</article>;})}</div>
+  </div></section>
+  <section class="section pilot-mint"><div class="container"><span class="eyebrow">A clearer path to production</span><h2>{data.overview_heading}</h2><p class="pilot-intro">{data.overview_copy}</p>
+    <ol class="pilot-three pilot-stage service-steps">{rows(data.process_steps).map((item,i)=>{const Icon=[FiTarget,FiSettings,FiTrendingUp][i%3];return <li><span class="pilot-step">{pad(i)}</span><Icon aria-hidden="true"/><h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</li>;})}</ol>
+  </div></section>
+  <section class="section">
+    <div class="container pilot-split"><div class="pilot-photo"><img src={photo[0]} alt={photo[1]} loading="lazy" style="position:absolute;inset:0;width:100%;height:100%"/></div><div><span class="eyebrow">Chemistry without compromise</span><h2>{data.technologies_heading}</h2><p>{data.technologies_copy}</p><ul class="pilot-reactions service-technologies">{rows(data.technologies).map(item=><li><FiCheckCircle aria-hidden="true"/>{item.title}</li>)}</ul></div></div>
+    <div class="container pilot-materials"><div><span class="eyebrow">Licensed capabilities</span><h2>{data.materials_heading}</h2><p>{data.materials_copy}</p></div><ul class="service-materials">{rows(data.materials).map(item=><li>{item.title}</li>)}</ul></div>
+  </section>
+  <section class="section pilot-mint"><div class="container"><span class="eyebrow">Equipment built for flexibility</span><h2>{data.equipment_heading}</h2><p class="pilot-intro">{data.equipment_copy}</p>
+    <div class="pilot-four pilot-reactors service-equipment">{rows(data.equipment).map((item,i)=><PilotRevealCard client:visible title={`${item.title} ${item.label||''} reactor`.replace(/\s+/g,' ')} description={item.copy||''} index={i}><span class="pilot-reactor-number">Reactor {pad(i)}</span><FiLayers aria-hidden="true"/><strong>{item.title}</strong>{item.label&&<span class="pilot-reveal-title">{item.label}</span>}</PilotRevealCard>)}</div>
+  </div></section>
+  <section class="section"><div class="container"><span class="eyebrow">Confidence at every stage</span><h2>{data.assurance_heading}</h2><p class="pilot-intro">{data.assurance_copy}</p>
+    <div class="pilot-four pilot-standards service-assurances">{rows(data.assurances).map((item,i)=><PilotRevealCard client:visible title={item.title} description={item.copy||''} index={i}><FiShield aria-hidden="true"/>{item.label&&<span class="eyebrow">{item.label}</span>}<span class="pilot-reveal-title">{item.title}</span></PilotRevealCard>)}</div>
+  </div></section>
+  <section class="section pilot-support"><div class="container"><span class="eyebrow">With you beyond the batch</span><h2>{data.support_heading}</h2>{data.support_copy&&<p class="pilot-intro">{data.support_copy}</p>}
+    <div class="pilot-three pilot-process service-support">{rows(data.support_items).map((item,i)=>{const Icon=[FiSettings,FiFileText,FiTruck][i%3];const src=media(item.image);return <article><span class="pilot-process-icon">{src?<img src={src} alt={item.image?.alt||''} width="32" height="32" loading="lazy"/>:<Icon aria-hidden="true"/>}</span><span class="eyebrow">{item.label||`Step ${i+1}`}</span><h3>{item.title}</h3>{item.copy&&<p>{item.copy}</p>}</article>;})}</div>
+    {data.scale_value&&<div class="manufacturing-scale"><div><span class="eyebrow">{data.scale_label}</span><strong>{data.scale_value}</strong></div></div>}
+  </div></section>
 </>}
-<section class={`section ${custom?'service-mint':''}`}><div class="container"><h2>{data.assurance_heading}</h2><p class="service-lead">{data.assurance_copy}</p><Rows items={data.assurances} kind="assurances"/></div></section>
-<section class={`section ${custom?'':'service-mint'}`}><div class="container"><h2>{data.support_heading}</h2>{data.support_copy&&<p class="service-lead">{data.support_copy}</p>}<Rows items={data.support_items} kind="support" numbered={!custom}/>{data.scale_value&&<div class="service-scale"><span>{data.scale_label}</span><strong>{data.scale_value}</strong></div>}</div></section>
-<section class="section service-project-section" id="project-enquiry"><div class="container"><h2>{data.closing_heading}</h2><p class="service-lead">{data.closing_copy}</p><div class="service-project"><div class="service-project-intro"><span class="eyebrow">{data.title}</span><h2>{data.form_heading}</h2><p>{data.form_copy}</p></div><ServiceForm siteData={siteData} title={data.title} submitLabel={data.form_action_label} client:load/></div></div></section>
+<section class={`section ${custom?'':'pilot-mint'}`} id="project-enquiry"><div class="container pilot-enquiry">
+  <div><span class="eyebrow">{custom?'Let’s create what comes next':'Let’s build what comes next'}</span><h2>{data.closing_heading}</h2><p>{data.closing_copy}</p></div>
+  <div class={`pilot-form ${custom?'manufacturing-form':''}`}><h3>{data.form_heading}</h3><p>{data.form_copy}</p><ServiceForm siteData={siteData} title={data.title} submitLabel={data.form_action_label} client:load/></div>
+</div></section>
