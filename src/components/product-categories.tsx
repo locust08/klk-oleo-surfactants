@@ -1,0 +1,3 @@
+import { useSiteData } from '@/components/site-context';
+import { categories } from '@/lib/product-catalog';
+export function ProductCategories({active}:{active:string}){const {products}=useSiteData();return <aside className="category-sidebar"><nav aria-label="Product categories"><a href="/surfactants/products" className="catalogue-back">All products</a><h2>Category</h2>{categories.map(category=><a key={category.slug} href={`/surfactants/products/${category.slug}`} aria-current={category.slug===active?'page':undefined} className={category.slug===active?'active':''}><span>{category.name.replace(' Surfactants','')}</span><span className="category-brand-count">{products.filter(product=>product.category===category.slug).length}</span></a>)}</nav></aside>;}
