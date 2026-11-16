@@ -34,7 +34,7 @@ export function BrandCarousel() {
     if(e.target!==e.currentTarget)return;
     if(index>=count*2||index<count){setTransitioning(false);setIndex(count+active);}
    }}>
-    {slides.map((p,i)=><div className="portfolio-carousel-slot" key={`${p.slug}-${i}`} aria-hidden={i!==index}><a href={productPath(p)} tabIndex={i===index?0:-1} className={`portfolio-carousel-card${i===index?' is-active':''}`}><span>{categoryName(p.category)}</span><h3>{p.brand}</h3>{p.descriptor&&<p>{p.descriptor}</p>}<FiArrowRight aria-hidden="true"/></a></div>)}
+    {slides.map((p,i)=><div className="portfolio-carousel-slot" key={`${p.slug}-${i}`} aria-hidden={i!==index}><a href={productPath(p)} tabIndex={i===index?0:-1} className={`portfolio-carousel-card${i===index?' is-active':''}`}><span>{categoryName(p.category)}</span><h3>{p.brand}</h3>{p.descriptor&&<p>{p.descriptor}</p>}</a></div>)}
    </div>
   </div>
   <div className="portfolio-dots" aria-label="Choose a surfactant brand">{products.map((p,i)=><button key={p.slug} aria-label={`Show ${p.brand}`} aria-current={i===active?'true':undefined} onClick={()=>setIndex(count+i)}><span/></button>)}</div>

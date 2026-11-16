@@ -2,7 +2,8 @@ import { useSiteData } from '@/components/site-context';
 import { useEffect,useRef,useState,type CSSProperties } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { InfoButton } from './info-button';
-import { marketRgb } from '@/lib/market-content';
+import { marketRgb,marketVisuals } from '@/lib/market-content';
+import { SiteImage as Image } from './site-image';
 
 /** Slow continuous market strip; three copies keep scrolling seamless and duplicates stay hidden from assistive technology. */
 export function MarketCarousel(){
@@ -40,6 +41,7 @@ export function MarketCarousel(){
    onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();move((active+(e.key==='ArrowRight'?1:-1)+count)%count);}}}
    onScroll={()=>{const node=viewport.current,step=stride();if(node&&step)setActive(Math.round(node.scrollLeft/step)%count);}}>
    {[...markets,...markets,...markets].map((market,i)=>{const duplicate=i<count||i>=count*2;return <article className="industry-card" key={`${market.slug}-${i}`} aria-hidden={duplicate||undefined} style={{'--market-rgb':marketRgb(market.slug,market.colour)} as CSSProperties}>
+    <Image src={marketVisuals[market.slug]?.image||'/images/hero/hero-04-our-markets.jpg'} alt="" fill sizes="(max-width:700px) 82vw, 33vw"/><div className="industry-overlay" aria-hidden="true"/>
     <div className="industry-card-copy"><h3>{market.name}</h3><p>{market.copy}</p>{market.url?<a href={market.url} tabIndex={duplicate?-1:0} className="text-link">Explore market<FiArrowUpRight aria-hidden="true"/></a>:!duplicate&&<InfoButton title={market.name} label="Explore market" description={`${market.copy} Our team can help you identify a solution for your application.`}/>}</div>
    </article>;})}
   </div>
