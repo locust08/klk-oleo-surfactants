@@ -516,3 +516,66 @@
 @media(max-width:700px){.markets-banner:before{background:linear-gradient(90deg,rgb(0 63 37/.94),rgb(0 63 37/.8) 60%,rgb(0 63 37/.45))}}
 .contact-form-wrap form>.consent-label{margin-bottom:24px}
 .contact-form-wrap form>button[type=submit]{margin-top:0}
+
+/* Portfolio carousel (#8): light-blue Life Science Product Explorer cards, green bottom bar, teal titles. */
+.portfolio-carousel-card{background:#f9fcff;color:#1a1e21;border-radius:12px;border-bottom:10px solid rgb(1 104 54/.54);box-shadow:0 4px 14px rgb(0 0 0/.05);height:230px;padding:24px}
+.portfolio-carousel-card.is-active{background:#f2fbff;border-bottom-color:var(--green);box-shadow:0 8px 22px rgb(0 0 0/.1)}
+.portfolio-carousel-card span{font-size:12px;letter-spacing:.04em;color:#6b7a73}
+.portfolio-carousel-card h3{color:rgb(0 134 149/.6);font-size:28px;margin:10px 0 0;letter-spacing:0}
+.portfolio-carousel-card.is-active h3{color:#008695;font-size:34px}
+.portfolio-carousel-card p{color:#6b6b6b;font-size:14px;margin-top:10px}
+.portfolio-carousel-card.is-active p{color:#000}
+.portfolio-dots span{background:#c9c9c9}
+.portfolio-dots button[aria-current] span{background:#008695}
+.portfolio-carousel-shell{height:270px}
+.portfolio-carousel-slot{height:250px}
+
+/* News & Media (#27, #28): dark green "Filter By" bar and four-up news cards on a mint panel. */
+.news-revamp{background:var(--mint)}
+.news-revamp .news-filter-panel,.news-revamp .news-filter-panel.news-filter-panel{background:#002f18;border:0;border-radius:10px;padding:22px 28px;margin:0 0 36px;text-align:center}
+.news-revamp .news-filter-fields{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 16px}
+.news-revamp .news-filter-fields:before{content:"Filter By";color:white;font-weight:600;font-size:16px}
+.news-revamp .news-filter-field{flex:0 1 auto;flex-direction:row;gap:0}
+.news-revamp .news-filter-field label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.news-revamp .news-filter-panel .news-filter-field select{min-width:200px;width:auto;min-height:40px;padding:8px 36px 8px 14px;font-size:13px;color:#2c3a33;background-color:#f0f4f1;border:0;border-radius:6px}
+.news-revamp .news-filter-reset{min-height:40px;padding:8px 16px;font-size:13px;color:white;background:transparent;border:1px solid rgb(255 255 255/.5);border-radius:6px}
+.news-revamp .news-filter-panel .news-result-count{color:rgb(255 255 255/.8);font-size:13px;margin:16px 0 0;text-align:center}
+.news-revamp .news-archive-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.news-revamp .news-archive-grid .news-card{padding:16px;background:white;border:0;border-radius:12px;box-shadow:0 2px 10px rgb(0 40 20/.06)}
+.news-revamp .news-artwork{aspect-ratio:1.5;border-radius:8px}
+.news-revamp .news-card-copy{padding:16px 2px 2px}
+.news-revamp .news-card .news-meta{font-size:12px;color:#5c6a62;margin:0 0 10px;flex:none}
+.news-revamp .news-card h3{font-size:18px;line-height:1.35;letter-spacing:0;margin-bottom:10px}
+.news-revamp .news-card p{font-size:13px;line-height:1.6}
+.news-revamp .news-card .text-link{text-transform:uppercase;font-size:12px;letter-spacing:.075em;border-bottom:.8px solid var(--teal)}
+@media(max-width:1300px){.news-revamp .news-archive-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.news-revamp .news-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.news-revamp .news-archive-grid{grid-template-columns:1fr}.news-revamp .news-filter-panel{padding:18px 16px}.news-revamp .news-filter-fields{flex-direction:column}.news-revamp .news-filter-panel .news-filter-field select{width:100%;min-width:0}.news-revamp .news-filter-field{width:100%}}
+
+/* Category listing (#26): Agrochemicals product-list look: filter-style sidebar cards, ruled rows, arrow buttons. */
+@media(min-width:1101px){
+ .catalogue-layout{grid-template-columns:305px minmax(0,1fr);gap:60px;max-width:none;margin:0 var(--page-gutter);padding:48px 0 120px;align-items:start}
+ .category-sidebar{background:none;color:var(--green);padding:0}
+ .category-sidebar nav{top:140px}
+ .category-sidebar h2{color:var(--green);font-size:14px;font-weight:400;letter-spacing:0;margin:0 0 14px}
+ .category-sidebar .catalogue-back{display:inline-block;padding:0;margin:0 0 22px;border:0;font-size:14px;color:var(--green);text-decoration:underline;text-underline-offset:4px}
+ .category-sidebar nav>a:not(.catalogue-back){background:white;color:var(--green);border:0;border-left:0;border-radius:8px;box-shadow:0 0 10px rgb(0 0 0/.2);padding:19px 20px;margin:0 0 20px;font-size:17px;font-weight:400;text-transform:uppercase;letter-spacing:0;line-height:1.4}
+ .category-sidebar nav>a.active{background:var(--green);color:white;padding-left:20px;font-weight:600}
+ .category-sidebar a:hover{background:white}
+ .category-sidebar nav>a.active:hover{background:var(--green)}
+ .category-brand-count{background:rgb(1 104 54/.12);color:var(--green)}
+ .category-sidebar nav>a.active .category-brand-count{background:rgb(255 255 255/.25);color:white}
+ .catalogue-main{padding:0}
+}
+.catalogue-main .section-heading-row{align-items:baseline;justify-content:space-between;gap:20px;padding-bottom:6px;border-bottom:1.6px solid var(--green);margin-bottom:0}
+.catalogue-main .section-heading-row>h2{font-size:28px;font-weight:600;color:var(--copy);letter-spacing:0;margin:0 0 14px}
+.catalogue-main .result-count{font-size:14px;color:var(--copy);margin:0 0 14px}
+.catalogue-main .product-panel{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 52px;align-items:center;column-gap:28px;background:none;border:0;border-bottom:1.6px solid #1d1d1d;border-radius:0;padding:42px 0;margin:0}
+.catalogue-main .product-panel .eyebrow{display:none}
+.catalogue-main .product-panel>*{grid-column:1}
+.catalogue-main .product-panel .product-brand-title{font-size:32px;font-weight:400;text-transform:uppercase;line-height:1.2;letter-spacing:0;color:var(--green);margin:0 0 4px}
+.catalogue-main .product-panel .product-family{font-size:20px;color:var(--copy);margin:0 0 18px}
+.catalogue-main .product-panel p:not(.product-family){font-size:16px;line-height:2;color:var(--copy);margin:0}
+.catalogue-row-arrow{grid-column:2!important;grid-row:1/span 4;display:grid;place-items:center;width:36px;height:36px;border-radius:7px;background:#306d44;color:white;font-size:18px;justify-self:end}
+.catalogue-row-arrow:hover{background:var(--green)}
+@media(max-width:700px){.catalogue-main .product-panel{grid-template-columns:minmax(0,1fr) 36px;column-gap:16px;padding:28px 0}.catalogue-main .product-panel .product-brand-title{font-size:24px}.catalogue-main .product-panel .product-family{font-size:16px}.catalogue-main .product-panel p:not(.product-family){font-size:14px;line-height:1.7}.catalogue-main .section-heading-row>h2{font-size:24px}}
