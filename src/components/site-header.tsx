@@ -3,12 +3,12 @@ import { useHydrated } from '@/lib/use-hydrated';
 import { SiteImage as Image } from './site-image';
 import { useState } from 'react';
 import { FaLinkedinIn } from 'react-icons/fa6';
-import { FiMenu,FiSearch,FiChevronDown } from 'react-icons/fi';
+import { FiMenu,FiSearch,FiChevronDown,FiArrowRight } from 'react-icons/fi';
 const BASE='/surfactants';
 import { categories } from '@/lib/product-catalog';
 const navFor=(sustainabilityUrl:string)=>[['Home',BASE],['Products',`${BASE}/products`],['Our Markets',`${BASE}/our-markets`],['Sustainability',sustainabilityUrl],['News & Media',`${BASE}/news-media`],['Contact Us',`${BASE}/contact`]];
 const submenus:Record<string,{id:string;label:string;items:string[][]}>={
- Products:{id:'product-submenu',label:'Show product categories',items:categories.map(c=>[c.name,`${BASE}/products/${c.slug}`])},
+ Products:{id:'product-submenu',label:'Show product categories',items:categories.map(c=>[c.name.replace(/ Surfactants$/,''),`${BASE}/products/${c.slug}`])},
  'News & Media':{id:'news-submenu',label:'Show News and Media pages',items:[['News and Events',`${BASE}/news-media`],['Downloads',`${BASE}/news-media/downloads`]]},
 };
 export function SiteHeader({pathname}:{pathname:string}){const hydrated=useHydrated();
@@ -23,7 +23,7 @@ export function SiteHeader({pathname}:{pathname:string}){const hydrated=useHydra
     <form className="mobile-menu-search" action={`${BASE}/search`} role="search" onSubmit={close}><label className="sr-only" htmlFor="mobile-product-search">Search products</label><input id="mobile-product-search" type="search" name="q" placeholder="Search products..." maxLength={120} autoComplete="off"/></form>
     {nav.filter(([label])=>label!=='Home').map(([label,href])=>{const active=href===BASE?path===BASE:href.startsWith(BASE)&&path.startsWith(href);const menu=submenus[label];return menu?<div className="nav-products" key={href}>
      <div className="nav-products-trigger"><a href={href} onClick={close} className={active?'active':''} aria-current={active?'page':undefined}>{label}</a><button disabled={!hydrated} aria-label={menu.label} aria-expanded={submenu===menu.id} aria-controls={menu.id} onClick={()=>setSubmenu(submenu===menu.id?'':menu.id)}><FiChevronDown/></button></div>
-     {submenu===menu.id&&<div id={menu.id} className="product-submenu"><a className="submenu-overview" href={href} onClick={close}>{label}<span aria-hidden="true">→</span></a><div className="submenu-categories">{menu.items.map(([name,url])=><a key={url} href={url} onClick={close}>{name}</a>)}</div></div>}
+     {submenu===menu.id&&<div id={menu.id} className="product-submenu"><a className="submenu-overview" href={href} onClick={close}>{label}<span aria-hidden="true"><FiArrowRight/></span></a><div className="submenu-categories">{menu.items.map(([name,url])=><a key={url} href={url} onClick={close}>{name}</a>)}</div></div>}
     </div>:<a key={href} href={href} className={active?'active':''} aria-current={active?'page':undefined} onClick={close}>{label}</a>;})}
    </nav>
    <form className="header-search" action={`${BASE}/search`} role="search" onSubmit={close}>

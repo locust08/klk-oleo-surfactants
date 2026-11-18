@@ -579,3 +579,31 @@
 .catalogue-row-arrow{grid-column:2!important;grid-row:1/span 4;display:grid;place-items:center;width:36px;height:36px;border-radius:7px;background:#306d44;color:white;font-size:18px;justify-self:end}
 .catalogue-row-arrow:hover{background:var(--green)}
 @media(max-width:700px){.catalogue-main .product-panel{grid-template-columns:minmax(0,1fr) 36px;column-gap:16px;padding:28px 0}.catalogue-main .product-panel .product-brand-title{font-size:24px}.catalogue-main .product-panel .product-family{font-size:16px}.catalogue-main .product-panel p:not(.product-family){font-size:14px;line-height:1.7}.catalogue-main .section-heading-row>h2{font-size:24px}}
+
+/* Enquiry banner (all pages): foam/bubbles background supplied by client. */
+.enquiry-banner{background:#eef4e8 url(/images/reference/enquiry-foam.webp) center/cover no-repeat}
+.enquiry-banner:before{display:block;background:linear-gradient(90deg,rgb(255 255 255/.55),rgb(255 255 255/.35) 55%,rgb(255 255 255/.2))}
+@media(min-width:1101px){
+ .product-submenu .submenu-overview{background:#0a6a35;padding:10px 14px;letter-spacing:.075em;font-size:15px}
+ .product-submenu .submenu-overview span svg{width:16px;height:16px;stroke-width:2.6}
+}
+
+/* Mega menu button hover = Agrochemicals gold; sidebar cards = Agrochemicals filter cards (chevron, larger type). */
+@media(min-width:1101px){
+ .product-submenu .submenu-overview{background:var(--green)}
+ .product-submenu .submenu-overview:hover,.product-submenu .submenu-overview:focus-visible{background:#a99767;color:#002b1b}
+ .product-submenu .submenu-overview span svg{width:14px;height:14px}
+ .product-submenu .submenu-categories a:hover,.product-submenu .submenu-categories a:focus-visible{color:#a3cf60}
+ .category-sidebar nav>a:not(.catalogue-back){font-size:clamp(19px,calc(1.7vw - 5px),27px);padding:1em 1.15em;line-height:1.2;box-shadow:0 0 10px rgb(0 0 0/.5);position:relative}
+ .category-sidebar nav>a:not(.catalogue-back) .category-brand-count{display:none}
+ .category-sidebar nav>a:not(.catalogue-back):after{content:"";flex:none;width:9px;height:9px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:translateY(-3px) rotate(45deg);margin-left:12px}
+ .category-sidebar nav>a.active:after{transform:translateY(1px) rotate(225deg)}
+}
+
+/* Category search (Agrochemicals "Search filters" box). */
+.catalogue-search{display:grid;gap:8px;color:var(--green);font-size:14px;margin-bottom:24px}
+.catalogue-search input{width:100%;min-width:0;padding:14px 16px;border:.8px solid var(--green);border-radius:8px;background:white;color:var(--copy);font:inherit;font-size:16px}
+.catalogue-search input::placeholder{color:#9a9a9a}
+.catalogue-search input:focus-visible{outline:2px solid #62a83b;outline-offset:2px}
+.catalogue-empty{padding:42px 0;font-size:16px;color:var(--copy);border-bottom:1.6px solid #1d1d1d}
+@media(max-width:1100px){.catalogue-search{margin-bottom:16px}}

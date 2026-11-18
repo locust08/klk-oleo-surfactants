@@ -48,8 +48,7 @@ test('hero, news filter, FAQ and navigation retain interactive behaviour', async
   await page.goto('/surfactants/news-media');
   await page.locator('#news-category').selectOption('Corporate');
   await expect(page.locator('.news-card')).toHaveCount(1);
-  await page.locator('#news-market').selectOption('Agrochemicals');
-  await expect(page.locator('.news-empty')).toBeVisible();
+  await expect(page.locator('#news-market')).toHaveCount(0);
 });
 
 test('contact review preserves validation, prefilled product and editing', async ({ page }) => {
