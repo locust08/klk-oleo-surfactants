@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { useSiteData } from '@/components/site-context';
-import { FiPlay,FiAward,FiChevronDown } from 'react-icons/fi';
+import { FiPlay,FiChevronDown } from 'react-icons/fi';
 import { HeroSlider } from './hero-slider';
 import { SiteImage as Image } from './site-image';
 import { BrandCarousel } from './brand-carousel';
@@ -21,7 +21,7 @@ export function HomePage(){const {home,faqs}=useSiteData();if(!home)return <sect
  <section className="section portfolio-section"><div className="container"><span className="eyebrow">What We Produce</span><h2>{home.portfolioHeading}</h2><p className="wide-copy">{portfolioCopy}</p><p>{home.portfolioInstruction}</p><BrandCarousel/></div></section>
  <section className="section markets-section" id="markets-we-serve"><div className="container"><div className="section-heading-row"><div><span className="eyebrow">Our Markets</span><h2>{home.marketsHeading}</h2></div><MarketsLink/></div><p className="wide-copy">{home.marketsCopy}</p></div><MarketCarousel/></section>
  <section className="section partner-section"><div className="container"><span className="eyebrow">Integrated Strength</span><h2>{home.partnerHeading}</h2><p className="wide-copy">{home.partnerCopy}</p>{film?<BrandFilm src={film} title={`KLK OLEO — ${home.videoHeading}`}/>:home.videoUrl?<video controls preload="none" poster={home.videoPoster} src={home.videoUrl} style={{width:'100%',marginTop:40}}/>:<div className="video-placement" aria-label="Brand film placement, footage to be supplied"><FiPlay aria-hidden="true"/><span>{home.videoHeading}</span><p>Brand film coming soon</p></div>}</div></section>
- <section className="section quality-section"><div className="container"><span className="eyebrow">Quality and Compliance</span><h2>{home.qualityHeading}</h2><p>{home.qualityCopy}</p><div className="award-panel"><div className="award-artwork">{home.awardImage?<img src={home.awardImage} alt={home.awardImageAlt || ''}/>:<><FiAward aria-hidden="true"/><span>Award artwork to be supplied</span></>}</div><div><h3>{home.awardTitle}</h3><p>{home.awardCopy}</p></div></div><CertificationCarousel/></div></section>
+ <section className="section quality-section"><div className="container"><span className="eyebrow">Quality and Compliance</span><h2>{home.qualityHeading}</h2><p>{home.qualityCopy}</p><div className="award-panel"><div className="award-artwork"><img src={home.awardImage||'/images/quality/shell-mvps-2025.jpg'} alt={home.awardImage?(home.awardImageAlt||''):'Shell Chemicals and Refining 2025 MVPs Awards (Most Valuable Partners)'}/></div><div><h3>{home.awardTitle}</h3><p>{home.awardCopy}</p></div></div><CertificationCarousel/></div></section>
  <section className="section news-section"><div className="container"><span className="eyebrow">Release</span><h2>{home.newsHeading}</h2><p className="wide-copy">{home.newsCopy}</p><NewsCards/></div></section>
  <section className="section faq-section" id="faq"><div className="container"><span className="eyebrow">FAQ</span><h2>{home.faqHeading}</h2><div className="faq-list">{faqs.map(([q,a],i)=><details key={q} open={i===0}><summary>{q}<FiChevronDown aria-hidden="true"/></summary><div className="faq-answer">{paragraphs(a).map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div></details>)}</div></div></section>
  </>;}

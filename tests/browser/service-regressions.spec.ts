@@ -73,11 +73,11 @@ test('cleared CMS send labels retain an accessible enquiry action',async({browse
       await save(ctx,item.id,{form_action_label});await publish(ctx,item.id);
       await page.goto('/surfactants/pilot-plant#project-enquiry');
       await page.reload(); // Same-URL hash navigation otherwise retains the previous review step.
-      await expect(page.getByRole('button',{name:'Review enquiry'})).toBeEnabled();
+      await expect(page.getByRole('button',{name:'Submit',exact:true})).toBeEnabled();
       await page.getByLabel('First Name').fill('Label');await page.getByLabel('Last Name').fill('Fixture');
       await page.getByLabel('Company Name').fill('Test Company');await page.getByLabel('Country').selectOption({label:'Malaysia'});
       await page.getByLabel('Email',{exact:false}).fill('label@example.test');await page.locator('input[name=consent]').check();
-      await page.getByRole('button',{name:'Review enquiry'}).click();
+      await page.getByRole('button',{name:'Submit',exact:true}).click();
       await expect(page.getByRole('button',{name:'Send enquiry',exact:true})).toBeVisible();
     }
   } finally {await save(ctx,item.id,item.data);await publish(ctx,item.id);await ctx.close();}

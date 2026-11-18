@@ -45,7 +45,7 @@ test('embedded project form reviews and saves through the existing enquiry flow'
   await page.getByLabel('First Name').fill('Service');await page.getByLabel('Last Name').fill('Fixture');
   await page.getByLabel('Company Name').fill('Test Laboratory');await page.getByLabel('Country').selectOption({label:'Malaysia'});
   await page.getByLabel('Email',{exact:false}).fill('service@example.test');await page.locator('input[name=consent]').check();
-  await page.getByRole('button',{name:'Review enquiry'}).click();
+  await page.getByRole('button',{name:'Submit',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Review your enquiry'})).toBeVisible();
   await expect(page.locator('.enquiry-review')).toContainText('Custom Manufacturing');
   await page.getByRole('button',{name:source.pages[0].data.form_action_label,exact:true}).click();

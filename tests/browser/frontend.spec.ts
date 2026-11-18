@@ -63,7 +63,7 @@ test('contact review preserves validation, prefilled product and editing', async
   await page.getByLabel('Country').selectOption({ label: 'Malaysia' });
   await page.getByLabel('Email', { exact: false }).fill('ada@example.com');
   await page.locator('input[name=consent]').check();
-  await page.getByRole('button', { name: 'Review enquiry' }).click();
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Review your enquiry' })).toBeVisible();
   await page.getByRole('button', { name: 'Edit enquiry' }).click();
   await expect(page.getByLabel('First Name')).toHaveValue('Ada');
