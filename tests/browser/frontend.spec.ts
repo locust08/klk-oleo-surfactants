@@ -18,6 +18,7 @@ test('catalogue retains three categories, brand pages and bounded search', async
   await page.locator('.category-card').first().getByRole('link', { name: 'View Products' }).click();
   await page.waitForURL('**/products/anionic', {waitUntil:'load'});
   await expect(page.locator('.product-panel')).toHaveCount(12);
+  await expect(page.locator('.catalogue-category-nav a')).toHaveCount(3);
   await page.goto('/surfactants/search?q=pAlMoSaLt');
   await expect(page.locator('.search-result')).toHaveCount(1);
   await page.locator('.search-result').click();

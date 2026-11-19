@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { useSiteData } from '@/components/site-context';
-import { FiArrowRight } from 'react-icons/fi';
-import { categories,productPath } from '@/lib/product-catalog';
+import { categories,type CategorySlug } from '@/lib/product-catalog';
 import { Breadcrumbs } from '@/components/page-heading';
-import { ProductCategories } from '@/components/product-categories';
+import { ProductCatalogue } from '@/components/product-catalogue';
 import { SiteImage as Image } from '@/components/site-image';
-export function CategoryPage({category}:{category:string}){const {products}=useSiteData();const item=categories.find(c=>c.slug===category)!;const all=products.filter(p=>p.category===category);const[query,setQuery]=useState('');const term=query.trim().toLowerCase();const list=term?all.filter(p=>[p.brand,p.descriptor,p.summary].some(v=>v&&v.toLowerCase().includes(term))):all;return <><div className="products-listing-banner"><Image src="/images/reference/palmerol-background.jpg" alt="" fill priority sizes="100vw"/><Breadcrumbs items={[{label:'Products',href:'/surfactants/products'},{label:item.name}]}/><div className="container"><h1>Products</h1></div></div><div className="catalogue-layout"><ProductCategories active={category} search={{value:query,onChange:setQuery}}/><section className="catalogue-main"><div className="section-heading-row"><h2>Products</h2><span className="result-count">Page 1 of 1</span></div>{list.map(p=><article className="product-panel" id={p.slug} key={p.slug}><span className="eyebrow">{item.name}</span><h3 className="product-brand-title"><a href={productPath(p)}>{p.brand}</a></h3>{p.descriptor&&<p className="product-family">{p.descriptor}</p>}{p.summary&&<p>{p.summary}</p>}<a className="catalogue-row-arrow" href={productPath(p)} aria-label={`View ${p.brand}`}><FiArrowRight aria-hidden="true"/></a></article>)}{list.length===0&&<p className="catalogue-empty" role="status">No products match “{query}”.</p>}</section></div></>;}
+export const categoryDescriptions:Record<CategorySlug,string>={anionic:'High-performance surfactants designed for effective cleansing, foaming, wetting, and emulsifying applications.',cationic:'Cationic surfactants for conditioning, emulsification and specialised formulation requirements.',nonionic:'Flexible surfactant solutions offering effective emulsification, wetting, dispersion, and cleaning performance.'};
+export function CategoryPage({category}:{category:string}){const item=categories.find(c=>c.slug===category)!;const label=item.name.replace(' Surfactants','');return <>
+ <section className="products-listing-banner"><Image src="/images/reference/palmerol-background.jpg" alt="" fill priority sizes="100vw"/><Breadcrumbs items={[{label:'Products',href:'/surfactants/products'},{label:label}]}/><div className="container"><div><p className="banner-kicker">Product Finder</p><h1>{label}</h1></div></div></section>
+ <ProductCatalogue initialCategory={item.slug} intro={{title:item.name,description:categoryDescriptions[item.slug]}}/>
+</>;}

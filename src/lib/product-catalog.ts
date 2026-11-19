@@ -4,3 +4,7 @@ export const categories: {slug:CategorySlug;name:string}[] = [{slug:'anionic',na
 export function categoryName(slug:CategorySlug){return categories.find(item=>item.slug===slug)!.name;}
 export const productPath=(product:Product)=>`/surfactants/products/${product.category}/${product.slug}`;
 export function searchCatalog(products:Product[],input:string):Product[]{const query=input.normalize('NFKC').trim().toLowerCase().slice(0,120);if(!query)return [];const words=query.split(/\s+/);return products.filter(product=>{const text=`${product.brand} ${product.descriptor??''} ${categoryName(product.category)}`.toLowerCase();return words.every(word=>text.includes(word));});}
+
+/** Placeholder shown where a brand has no supplied description yet. */
+export const dummyDescriptor='Dummy text: product description to be supplied.';
+export const productDescriptor=(product:{descriptor?:string})=>product.descriptor||dummyDescriptor;
