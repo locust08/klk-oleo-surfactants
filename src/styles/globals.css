@@ -665,7 +665,7 @@
 .catalogue-filters .catalogue-search{margin-bottom:40px}
 .catalogue-category-nav h2{margin:0 0 8px}
 .catalogue-intro{margin-bottom:44px}
-.catalogue-intro h2{font-size:48px;line-height:1.2;letter-spacing:0;margin:0 0 16px}
+.catalogue-intro h2{font-size:38px;line-height:1.2;letter-spacing:0;margin:0 0 16px}
 .catalogue-intro p{font-size:18px;line-height:1.6;color:var(--copy);max-width:820px;margin:0}
 .catalogue-main .section-heading-row{margin-top:0}
 @media(min-width:1101px){.catalogue-filters{padding-top:56px;padding-bottom:56px}.catalogue-main{padding-top:56px}}
