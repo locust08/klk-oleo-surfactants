@@ -670,3 +670,6 @@
 .catalogue-main .section-heading-row{margin-top:0}
 @media(min-width:1101px){.catalogue-filters{padding-top:56px;padding-bottom:56px}.catalogue-main{padding-top:56px}}
 @media(max-width:1100px){.catalogue-intro h2{font-size:34px}.catalogue-intro p{font-size:16px}.catalogue-intro{margin-bottom:32px}}
+.footer-brand h2 a{color:inherit}
+.footer-brand h2 a:hover{text-decoration:underline;text-underline-offset:4px}
+.footer-brand h2 span{font-weight:400;opacity:.7}
